@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bernie Calderon Magtalas | Evaluation Specialist Pitch Book</title>
+  <style>
+    :root{
+      --aiib-red:#8a1117;
+      --aiib-red-2:#b51e2b;
+      --ink:#172033;
+      --text:#334155;
+      --muted:#64748b;
+      --line:#e5e7eb;
+      --paper:#ffffff;
+      --soft:#f8fafc;
+      --soft-red:#fff1f2;
+      --gold:#c49a45;
+      --navy:#111827;
+      --shadow:0 18px 45px rgba(17,24,39,.10);
+      --radius:22px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    /* Final visual consistency pass */
+    :root{
+      --aiib-red:#8a1117;
+      --aiib-red-dark:#6f0910;
+      --gold:#c89b3c;
+      --navy:#111827;
+      --ink:#0f172a;
+      --muted:#64748b;
+      --line:#e5e7eb;
+      --soft:#f8fafc;
+      --card-radius:22px;
+      --panel-radius:28px;
+      --shadow-card:0 12px 30px rgba(15,23,42,.055);
+      --shadow-panel:0 22px 52px rgba(15,23,42,.085);
+      --container-x:24px;
+    }
+    .section h2{
+      font-size:clamp(34px,4vw,56px);
+      line-height:1.03;
+      letter-spacing:-.045em;
+      color:var(--ink);
+      margin:0;
+    }
+    .section-head > p{
+      color:var(--muted);
+      font-size:clamp(18px,2.05vw,28px);
+      line-height:1.45;
+      letter-spacing:-.025em;
+      margin:18px 0 0;
+      max-width:1050px;
+    }
+    .card,
+    .metric,
+    .problem-card,
+    .value-card,
+    .evidence-layout,
+    .value-closing-panel{
+      border-color:rgba(148,163,184,.24);
+    }
+
+    body{
+      margin:0;
+      font-family:Inter, Arial, Helvetica, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 8% 0%, rgba(138,17,23,.13), transparent 34%),
+        linear-gradient(180deg,#fff 0%,#f5f6f8 100%);
+      min-height:100vh;
+      font-size:16.5px;
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(17,24,39,.035) 1px, transparent 1px),
+        linear-gradient(90deg,rgba(17,24,39,.035) 1px, transparent 1px);
+      background-size:38px 38px;
+      mask-image:linear-gradient(to bottom, black, transparent 72%);
+      z-index:-1;
+    }
+
+    .skip{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip:focus{left:18px;top:18px;width:auto;height:auto;background:#fff;color:var(--aiib-red);padding:10px 14px;border-radius:999px;z-index:1000;box-shadow:var(--shadow)}
+
+
+    .navlinks a.active,
+    .navlinks a[aria-current="page"]{
+      background:var(--aiib-red);
+      color:#fff;
+      border-color:var(--aiib-red);
+      box-shadow:0 10px 22px rgba(138,17,23,.18);
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(16px);
+      background:rgba(255,255,255,.86);
+      border-bottom:1px solid rgba(229,231,235,.9);
+    }
+    .nav{
+      max-width:1360px;
+      margin:0 auto;
+      padding:10px 24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--navy);letter-spacing:.01em}
+
+    .brand-doc-icon{
+      width:34px;
+      height:34px;
+      border-radius:12px;
+      display:inline-grid;
+      place-items:center;
+      background:var(--soft-red);
+      color:var(--aiib-red);
+      box-shadow:0 8px 18px rgba(138,17,23,.08);
+      flex:0 0 auto;
+    }
+    .brand-doc-icon svg{
+      width:18px;
+      height:18px;
+      fill:currentColor;
+      display:block;
+    }
+
+    
+    .brand > span:last-child{
+      font-size:16px;
+      line-height:1.15;
+    }
+
+    .brand small{display:block;color:var(--muted);font-weight:700;letter-spacing:0;font-size:12px;margin-top:1px}
+    .mark{
+      width:30px;height:30px;border-radius:50%;
+      background:conic-gradient(from 20deg,var(--aiib-red),var(--aiib-red-2),var(--gold),var(--aiib-red));
+      box-shadow:0 0 0 5px rgba(138,17,23,.08);
+      position:relative;flex:0 0 auto;
+    }
+    .mark::after{content:"";position:absolute;inset:8px;border-radius:50%;background:#fff}
+    .navlinks{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+    .navlinks a{
+      text-decoration:none;color:var(--muted);font-size:13px;font-weight:800;padding:8px 9px;border-radius:999px;
+      transition:.2s ease;
+    }
+    .navlinks a:hover,.navlinks a.active{color:#fff;background:var(--aiib-red)}
+
+    .wrap{max-width:1360px;margin:0 auto;padding:28px 24px 64px}
+    .card{
+      background:rgba(255,255,255,.94);
+      border:1px solid rgba(229,231,235,.95);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .hero{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(320px,.78fr);gap:28px;align-items:stretch;margin-top:12px}
+    .hero-main{padding:34px 38px 30px;position:relative;isolation:isolate}
+    .hero-main::after{
+      content:"";position:absolute;right:-80px;top:-96px;width:290px;height:290px;border-radius:50%;background:rgba(138,17,23,.08);z-index:-1;
+      animation:float 8s ease-in-out infinite;
+    }
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(16px)}}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--aiib-red);font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:12px;margin-bottom:16px}
+    .dot{width:8px;height:8px;background:var(--aiib-red);border-radius:50%;box-shadow:0 0 0 8px rgba(138,17,23,.08)}
+    h1{font-size:clamp(34px,4.3vw,52px);line-height:1.03;margin:0 0 18px;color:var(--navy);letter-spacing:-.04em;text-wrap:balance}
+    .lead{font-size:19px;line-height:1.58;color:var(--text);max-width:790px;margin:0 0 22px;text-wrap:pretty}
+    .lead strong{color:var(--aiib-red)}
+
+
+    /* Profile contact icon rendering fix */
+    .profile-contact-links .contact-icon{
+      width:20px !important;
+      height:20px !important;
+      min-width:20px !important;
+      max-width:20px !important;
+      min-height:20px !important;
+      max-height:20px !important;
+      display:inline-grid !important;
+      place-items:center !important;
+      border-radius:8px;
+      background:rgba(138,17,23,.08);
+      flex:0 0 20px !important;
+      overflow:hidden !important;
+    }
+    .profile-contact-links .contact-icon svg{
+      width:13px !important;
+      height:13px !important;
+      min-width:13px !important;
+      max-width:13px !important;
+      min-height:13px !important;
+      max-height:13px !important;
+      display:block !important;
+      fill:currentColor !important;
+    }
+
+    .profile-contact-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+    .profile-contact-links a{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 12px;
+      border:1px solid rgba(138,17,23,.22);
+      border-radius:999px;
+      color:var(--aiib-red);
+      text-decoration:none;
+      font-weight:850;
+      font-size:14px;
+      background:#fff;
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .profile-contact-links a:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 22px rgba(138,17,23,.10);
+      border-color:rgba(138,17,23,.34);
+    }
+    .profile-contact-links a:focus{
+      outline:3px solid rgba(196,154,69,.38);
+      outline-offset:3px;
+    }
+
+    .hero-note{border-left:4px solid var(--aiib-red);padding:12px 0 12px 16px;font-size:17px;margin:22px 0 0;color:#475569;line-height:1.55;max-width:820px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+    .btn{
+      appearance:none;border:none;border-radius:999px;padding:12px 17px;font-weight:900;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:.2s ease;font-size:15px;
+    }
+    .btn.primary{background:var(--aiib-red);color:#fff;box-shadow:0 12px 28px rgba(138,17,23,.23)}
+    .btn.secondary{background:#fff;color:var(--aiib-red);border:1px solid rgba(138,17,23,.25)}
+    .btn:hover{transform:translateY(-2px)}
+    .btn:focus,.tab:focus,.letter-nav button:focus{outline:3px solid rgba(196,154,69,.38);outline-offset:2px}
+
+    .hero-side{padding:24px;display:flex;flex-direction:column;gap:14px;background:linear-gradient(180deg,#fff,#fff7f7)}
+    .stat{border:1px solid var(--line);border-radius:18px;padding:16px;background:#fff;transition:.22s ease}
+    .stat:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(17,24,39,.08)}
+    .stat b{display:block;font-size:30px;color:var(--aiib-red);letter-spacing:-.03em;margin-bottom:4px}
+    .stat span{display:block;color:var(--muted);font-size:14.5px;line-height:1.38}
+
+
+    /* Section separation and executive scan rhythm */
+    .section{
+      margin-top:46px;
+    }
+    .section.section-band{
+      margin-left:-24px;
+      margin-right:-24px;
+      padding:38px 24px 42px;
+      border-top:1px solid rgba(229,231,235,.82);
+      border-bottom:1px solid rgba(229,231,235,.82);
+      position:relative;
+    }
+    .section.section-band::before{
+      content:"";
+      position:absolute;
+      left:24px;
+      right:24px;
+      top:0;
+      height:3px;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--aiib-red),var(--gold),transparent 72%);
+      opacity:.72;
+    }
+    .section.band-warm{
+      background:
+        radial-gradient(circle at 8% 0%, rgba(138,17,23,.055), transparent 32%),
+        linear-gradient(180deg,rgba(255,241,242,.68),rgba(255,255,255,.88));
+    }
+    .section.band-cool{
+      background:
+        radial-gradient(circle at 90% 8%, rgba(17,24,39,.045), transparent 28%),
+        linear-gradient(180deg,rgba(248,250,252,.95),rgba(255,255,255,.93));
+    }
+    .problem-grid,.evidence-layout,.value-map,.letter,.final-card{
+      margin-top:20px;
+    }
+
+    .problem-card{
+      border-radius:var(--card-radius);
+      box-shadow:var(--shadow-card);
+    }
+    .evidence-layout{
+      border-radius:var(--panel-radius);
+      box-shadow:var(--shadow-panel);
+    }
+
+    .section-head{
+      padding-top:2px;
+    }
+
+
+    /* Final balanced heading scale */
+    #problem .section-head h2{
+      font-size:clamp(42px,4.35vw,64px);
+      line-height:1.02;
+      letter-spacing:-.052em;
+      color:var(--ink);
+      max-width:1320px;
+    }
+    #evidence .section-head h2,
+    #value .section-head h2{
+      font-size:clamp(36px,3.6vw,52px);
+      line-height:1.04;
+      letter-spacing:-.048em;
+      color:var(--ink);
+      max-width:1180px;
+    }
+    #problem .section-head p,
+    #evidence .section-head p,
+    #value .section-head p{
+      font-size:clamp(20px,1.9vw,28px);
+      line-height:1.48;
+      letter-spacing:-.026em;
+      color:var(--muted);
+      font-weight:500;
+      max-width:1260px;
+      margin-top:18px;
+    }
+
+
+    .section h2{
+      padding-bottom:4px;
+    }
+
+    #value .section-head{
+      display:block;
+      margin-bottom:0;
+    }
+    #value .section-head h2{
+      margin:0;
+      max-width:900px;
+    }
+    #value .section-head p{
+      margin:18px 0 0;
+      max-width:1040px;
+      font-size:26px;
+      line-height:1.45;
+      color:#64748b;
+      font-weight:500;
+      letter-spacing:-.02em;
+    }
+
+
+    /* Section landing consistency for top navigation */
+    #fit,
+    #problem,
+    #evidence,
+    #value{
+      scroll-margin-top:104px;
+    }
+
+
+    /* Full-screen-style section rhythm */
+    @media (min-width: 901px){
+      #problem{
+        min-height:calc(100vh - 118px);
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+      }
+
+      #value{
+        min-height:calc(100vh - 118px);
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+      }
+
+      #evidence{
+        min-height:calc(100vh - 118px);
+      }
+
+      #problem.section-band,
+      #value.section-band{
+        padding-top:44px;
+        padding-bottom:48px;
+      }
+
+    }
+
+    @media (max-width: 900px){
+      #problem,
+      #evidence,
+      #value{
+        min-height:auto;
+      }
+    }
+
+
+    #evidence .tabs{
+      position:relative;
+    }
+    #evidence .panel.active{
+      box-shadow:0 14px 32px rgba(17,24,39,.055);
+    }
+
+
+    .section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin:0 0 14px}
+    .section h2{font-size:29px;margin:0;color:var(--navy);letter-spacing:-.03em}
+    .section p.sub{margin:5px 0 0;color:var(--muted);line-height:1.5;max-width:780px;text-wrap:pretty}
+
+    .commitment{padding:28px;background:var(--navy);color:#fff;border-radius:24px;position:relative;overflow:hidden}
+    .commitment::after{content:"";position:absolute;right:-70px;bottom:-92px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.06)}
+    .commitment p{margin:0;font-size:21px;line-height:1.52;max-width:930px;letter-spacing:-.02em}
+    .commitment strong{color:#ffd889}
+
+    .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .problem{padding:24px;border-radius:20px;border:1px solid var(--line);background:#fff;position:relative;overflow:hidden;min-height:158px;box-shadow:0 10px 24px rgba(17,24,39,.045);transition:transform .2s ease, box-shadow .2s ease}
+    .problem::before{content:"";position:absolute;left:0;top:0;height:5px;width:100%;background:linear-gradient(90deg,var(--aiib-red),var(--gold))}
+    .problem:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(17,24,39,.075)}
+    .problem h3{margin:0 0 10px;color:var(--navy);font-size:20px;letter-spacing:-.02em}
+    .problem p{margin:0;color:#475569;line-height:1.58;font-size:15.5px;hyphens:none;overflow-wrap:normal}
+
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+    .tab{border:1px solid rgba(138,17,23,.22);background:#fff;color:var(--aiib-red);padding:10px 14px;border-radius:999px;font-weight:900;cursor:pointer;transition:.2s ease}
+    .tab.active,.tab:hover{background:var(--aiib-red);color:#fff}
+    .panel{display:none;animation:fadeUp .42s ease both}
+    .panel.active{display:block}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .evidence-layout{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .evidence-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;min-height:228px}
+    .evidence-card h3{margin:0 0 10px;color:var(--navy)}
+    .evidence-card p{margin:0 0 12px;color:#475569;line-height:1.58;font-size:16px}
+    .badge{display:inline-flex;padding:7px 10px;border-radius:999px;background:var(--soft-red);color:var(--aiib-red);font-weight:900;font-size:12px;margin:4px 6px 0 0}
+
+
+
+
+    .value-map{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:16px;
+      margin-top:28px;
+      align-items:stretch;
+    }
+    .value-card{
+      position:relative;
+      overflow:hidden;
+      min-height:220px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+      background:rgba(255,255,255,.98);
+      border:1px solid rgba(148,163,184,.24);
+      border-radius:var(--card-radius);
+      padding:20px 20px 18px;
+      box-shadow:var(--shadow-card);
+    }
+    .value-card::before{
+      content:"";
+      position:absolute;
+      left:18px;
+      right:18px;
+      top:0;
+      height:4px;
+      border-radius:0 0 999px 999px;
+      background:linear-gradient(90deg,var(--aiib-red),var(--gold));
+      opacity:.82;
+    }
+    .value-card .num{
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      background:rgba(138,17,23,.07);
+      border:1px solid rgba(138,17,23,.18);
+      color:var(--aiib-red);
+      font-weight:950;
+      font-size:12px;
+      margin-bottom:20px;
+    }
+    .value-card h3{
+      margin:0 0 9px;
+      font-size:17px;
+      color:var(--ink);
+      line-height:1.22;
+      letter-spacing:-.015em;
+    }
+    .value-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.58;
+      font-size:14px;
+    }
+    .value-closing-panel{
+      grid-column:1 / -1;
+      display:grid;
+      grid-template-columns:auto 1fr;
+      align-items:center;
+      gap:18px;
+      padding:20px 22px;
+      border-radius:24px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(200,155,60,.10), transparent 30%),
+        linear-gradient(135deg,rgba(138,17,23,.055),rgba(255,255,255,.97) 42%,rgba(255,255,255,.97));
+      border:1px solid rgba(138,17,23,.16);
+      box-shadow:var(--shadow-card);
+    }
+    .value-closing-panel .closing-mark{
+      flex:0 0 auto;
+      width:46px;
+      height:46px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--aiib-red),var(--aiib-red-dark));
+      color:#fff;
+      font-weight:950;
+      font-size:20px;
+      box-shadow:0 12px 24px rgba(138,17,23,.18);
+    }
+    .value-closing-panel h3{
+      margin:0 0 4px;
+      font-size:17px;
+      color:var(--ink);
+      letter-spacing:-.01em;
+    }
+    .value-closing-panel p{
+      margin:0;
+      color:var(--ink);
+      line-height:1.5;
+      font-size:16px;
+      font-weight:800;
+    }
+
+    .letter{display:grid;grid-template-columns:260px 1fr;gap:18px}
+    .letter-nav{position:sticky;top:86px;align-self:start;background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px}
+    .letter-nav button{display:block;width:100%;text-align:left;border:none;background:transparent;border-radius:12px;padding:11px 12px;cursor:pointer;font-weight:900;color:var(--muted);transition:.2s ease}
+    .letter-nav button:hover{background:var(--soft-red);color:var(--aiib-red)}
+    .letter-content{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;line-height:1.68;color:#334155;font-size:16.5px}
+    .letter-content h3{margin:0 0 9px;color:var(--navy)}
+    .letter-content p{margin:0 0 18px}
+    .highlight{background:linear-gradient(transparent 55%, rgba(196,154,69,.25) 55%);font-weight:900;color:var(--navy)}
+
+    .final-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:28px;
+      padding:34px 36px 32px;
+      background:
+        radial-gradient(circle at 94% 10%, rgba(138,17,23,.075), transparent 30%),
+        linear-gradient(180deg,rgba(255,255,255,.98),rgba(255,251,251,.96));
+      border:1px solid rgba(138,17,23,.16);
+      box-shadow:0 24px 55px rgba(17,24,39,.12);
+      color:var(--ink);
+    }
+    .final-card::before{
+      content:"";
+      position:absolute;
+      inset:0 auto 0 0;
+      width:7px;
+      background:linear-gradient(180deg,var(--aiib-red),#c89b3c);
+    }
+    .final-card::after{
+      content:"";
+      position:absolute;
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      right:-92px;
+      top:-98px;
+      background:rgba(138,17,23,.065);
+      pointer-events:none;
+    }
+    .final-card h2{
+      color:var(--ink);
+      position:relative;
+      z-index:1;
+    }
+    .final-card h2 .icon{
+      background:rgba(138,17,23,.10);
+      color:var(--aiib-red);
+    }
+    .final-card p{
+      max-width:1120px;
+      color:var(--muted);
+      position:relative;
+      z-index:1;
+      font-size:17px;
+      line-height:1.72;
+    }
+    .final-card p strong{
+      color:var(--ink);
+    }
+    .final-card p + p{margin-top:10px}
+
+    .commitment-lead{
+      font-size:20px;
+      margin-top:4px;
+      margin-bottom:10px;
+    }
+    .commitment-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+      margin:24px 0 20px;
+      position:relative;
+      z-index:1;
+    }
+    .commitment-mini{
+      background:#fff;
+      border:1px solid rgba(138,17,23,.14);
+      border-radius:20px;
+      padding:18px;
+      box-shadow:0 16px 34px rgba(17,24,39,.075);
+    }
+    .commitment-mini .mini-kicker{
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      background:rgba(138,17,23,.08);
+      border:1px solid rgba(138,17,23,.20);
+      color:var(--aiib-red);
+      font-weight:950;
+      font-size:12px;
+      margin-bottom:12px;
+    }
+    .commitment-mini h3{
+      margin:0 0 8px;
+      color:var(--ink);
+      font-size:16px;
+      letter-spacing:-.01em;
+    }
+    .commitment-mini p{
+      margin:0;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.55;
+    }
+    .commitment-close{
+      margin-top:8px;
+      padding-top:16px;
+      border-top:1px solid rgba(138,17,23,.14);
+      color:var(--ink);
+    }
+
+
+
+    .final-card
+
+
+
+    .footer{margin-top:26px;text-align:center;color:var(--muted);font-size:13px}
+    .reveal{opacity:1;transform:none;transition:opacity .62s ease,transform .62s ease}
+    .reveal.in{opacity:1;transform:none}
+
+
+    /* Icon and animation enhancements */
+
+    .eyebrow .mini-icon{
+      width:24px;
+      height:24px;
+      border-radius:9px;
+      background:var(--soft-red);
+      color:var(--aiib-red);
+      display:inline-grid;
+      place-items:center;
+      box-shadow:0 8px 18px rgba(138,17,23,.08);
+    }
+    .eyebrow .mini-icon svg{
+      width:15px !important;
+      height:15px !important;
+      fill:currentColor;
+    }
+
+    @keyframes pulseDot{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.15);opacity:1}}
+
+    .stat{position:relative;padding-left:16px}
+    .stat::before{display:none}
+
+    .problem h3,.evidence-card h3,.map-card h3,.letter-content h3,.final-card h2{display:flex;align-items:center;gap:10px}
+    .icon{
+      display:inline-grid;
+      place-items:center;
+      width:30px;
+      height:30px;
+      min-width:30px;
+      border-radius:12px;
+      background:var(--soft-red);
+      color:var(--aiib-red);
+      font-size:16px;
+      line-height:1;
+      box-shadow:0 8px 18px rgba(138,17,23,.08);
+    }
+    .final-card .icon{background:rgba(255,255,255,.13);color:#fff;box-shadow:none}
+
+    .letter-content .icon{
+      font-size:12px;
+      font-weight:900;
+    }
+
+
+    .badge{position:relative;overflow:hidden}
+    .badge::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      transform:translateX(-120%);
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
+      animation:badgeSweep 5.5s ease-in-out infinite;
+    }
+    @keyframes badgeSweep{0%,72%{transform:translateX(-120%)}86%,100%{transform:translateX(120%)}}
+
+    .problem,.evidence-card,.map-card,.letter-content,.final-card{transition:transform .22s ease, box-shadow .22s ease}
+    .evidence-card:hover,.map-card:hover,.letter-content:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(17,24,39,.075)}
+    .final-card:hover{transform:translateY(-2px)}
+
+
+
+    .stat > .icon{
+      float:left;
+      margin:2px 12px 8px 0;
+    }
+
+    .icon svg,.stat::before svg{
+      width:17px;
+      height:17px;
+      fill:currentColor;
+      display:block;
+    }
+    .stat::before{content:""}
+
+
+    /* SVG icon rendering fix */
+    .icon{
+      flex:0 0 30px;
+      overflow:hidden;
+    }
+    .icon svg,
+    .mini-icon svg{
+      width:17px !important;
+      height:17px !important;
+      max-width:17px !important;
+      max-height:17px !important;
+      display:block !important;
+      fill:currentColor !important;
+    }
+    .mini-icon{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:15px;
+      height:15px;
+      overflow:hidden;
+    }
+    .stat::before{
+      display:none !important;
+      content:"" !important;
+    }
+    .stat > .icon{
+      float:left;
+      margin:2px 12px 8px 0;
+    }
+
+
+
+    .letter-content h3[id]{
+      scroll-margin-top:112px;
+    }
+    @media (max-width:900px){
+      .letter-content h3[id]{scroll-margin-top:132px}
+    }
+
+    @media (max-width:640px){
+      .brand > span:last-child{font-size:15px}
+
+      .brand-doc-icon{width:30px;height:30px;border-radius:10px}
+      .brand-doc-icon svg{width:16px;height:16px}
+
+      .mark{width:28px;height:28px}
+      .mark::after{inset:7px}
+    }
+
+    @media (max-width:640px){
+      .letter-content h3[id]{scroll-margin-top:142px}
+    }
+
+    /* Anchor positioning and scroll-spy behavior */
+    section[id]{
+      scroll-margin-top:96px;
+    }
+    @media (max-width:900px){
+      section[id]{scroll-margin-top:142px}
+    }
+    @media (max-width:640px){
+      section[id]{scroll-margin-top:156px}
+    }
+
+    @media (max-width:900px){
+      .hero,.problem-grid,.evidence-layout,.value-map,.letter{grid-template-columns:1fr}
+      .letter-nav{position:relative;top:auto}
+      .nav{align-items:flex-start;flex-direction:column}.navlinks{justify-content:flex-start}
+      .hero-main{padding:28px}.section-head{align-items:flex-start;flex-direction:column}.fit-item{grid-template-columns:1fr}
+    }
+
+    @media (max-width:640px){
+      .cta-row{gap:10px}
+      .btn{width:100%;justify-content:center;font-size:14px;padding:11px 15px}
+      h1{font-size:clamp(32px,9vw,42px)}
+      .lead{font-size:18px}
+      .hero-note{font-size:16px}
+      .stat b{font-size:28px}
+      .section h2{font-size:26px}
+
+      #problem .section-head h2,
+      #evidence .section-head h2,
+      #value .section-head h2{
+        font-size:32px;
+        line-height:1.08;
+        letter-spacing:-.04em;
+      }
+      #problem .section-head p,
+      #evidence .section-head p,
+      #value .section-head p{
+        font-size:18px;
+        line-height:1.5;
+        letter-spacing:-.015em;
+      }
+
+
+      #evidence .section-head p,
+      #value .section-head p{
+        font-size:18px;
+      }
+      .value-map{
+        grid-template-columns:1fr;
+        gap:14px;
+      }
+      .value-card{
+        min-height:auto;
+      }
+      .value-closing-panel{
+        grid-template-columns:auto 1fr;
+        padding:18px;
+      }
+      .value-closing-panel .closing-mark{
+        width:40px;
+        height:40px;
+        border-radius:14px;
+        font-size:18px;
+      }
+
+
+      .value-map{
+        grid-template-columns:1fr;
+      }
+      .value-closing-panel{
+        align-items:flex-start;
+        padding:20px;
+      }
+      .value-closing-panel .closing-mark{
+        width:40px;
+        height:40px;
+        font-size:18px;
+      }
+
+
+      .commitment-grid{
+        grid-template-columns:1fr;
+        gap:12px;
+      }
+      .commitment-mini{
+        padding:16px;
+      }
+      .final-card{
+        padding:28px 24px 26px;
+      }
+
+
+      .section.section-band{
+        margin-left:-24px;
+        margin-right:-24px;
+        padding-left:24px;
+        padding-right:24px;
+      }
+      .section.section-band::before{left:24px;right:24px}
+
+
+      .profile-contact-links{flex-direction:column}
+      .profile-contact-links a{width:100%;justify-content:center}
+
+
+      .contact-links{flex-direction:column}
+      .contact-links a{width:100%;justify-content:center}
+
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}.reveal,.hero-main::after,.panel,.eyebrow .mini-icon,.badge::after{animation:none;transition:none}.btn:hover,.stat:hover,.evidence-card:hover,.map-card:hover,.letter-content:hover,.final-card:hover{transform:none}
+    }
+    @media print{
+      .topbar,.cta-row,.letter-nav{display:none}
+      body{background:#fff}.card,.problem,.evidence-card,.map-card,.letter-content,.final-card{box-shadow:none;border-color:#ddd}
+      .wrap{padding:0}.hero,.problem-grid,.evidence-layout,.value-map,.letter{display:block}
+      .section{page-break-inside:avoid}.reveal{opacity:1;transform:none}
+    }
+  </style>
+
+  <!--
+    Final audit notes:
+    - Navigation: Profile | Problem | Evidence | Value
+    - Removed: Pitch Brief and separate Commitment section
+    - Visual system: restrained AIIB red/gold accents, navy/ink text, slate muted text, tiered heading hierarchy, consistent rounded cards and shadows
+    - Scroll behavior: top-nav click highlight and scroll-based highlight retained
+  -->
+
+
+  <noscript>
+    <style>
+      .reveal{opacity:1 !important;transform:none !important}
+      .panel{display:block !important}
+    </style>
+  </noscript>
+
+</head>
+<body>
+
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" focusable="false">
+    <symbol id="icon-document" viewBox="0 0 24 24"><path d="M6 2h8l4 4v16H6V2zm7 1.8V7h3.2L13 3.8zM8 10v2h8v-2H8zm0 4v2h8v-2H8zm0 4v2h5v-2H8z"/></symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24"><path d="M12 2.7l2.8 6 6.5.8-4.8 4.5 1.3 6.4L12 17.1l-5.8 3.3 1.3-6.4-4.8-4.5 6.5-.8L12 2.7z"/></symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24"><path d="M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19zm0 2a7.5 7.5 0 1 1 0 15 7.5 7.5 0 0 1 0-15zm1 3.2h-2v5.1l4.3 2.6 1-1.7-3.3-1.9V7.7z"/></symbol>
+    <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M4 19h16v2H2V4h2v15zm3-2h3V9H7v8zm5 0h3V5h-3v12zm5 0h3v-6h-3v6z"/></symbol>
+    <symbol id="icon-compass" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 .1 0H12zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16zm4.8 3.2-3 7.2-7.2 3 3-7.2 7.2-3zm-4 4-1.6-1.6-1.1 2.7 2.7-1.1z"/></symbol>
+    <symbol id="icon-gear" viewBox="0 0 24 24"><path d="M19.4 13.5c.1-.5.1-1 .1-1.5s0-1-.1-1.5l2-1.5-2-3.5-2.4 1a8 8 0 0 0-2.6-1.5L14 2.5h-4l-.4 2.5A8 8 0 0 0 7 6.5l-2.4-1-2 3.5 2 1.5c-.1.5-.1 1-.1 1.5s0 1 .1 1.5l-2 1.5 2 3.5 2.4-1a8 8 0 0 0 2.6 1.5l.4 2.5h4l.4-2.5a8 8 0 0 0 2.6-1.5l2.4 1 2-3.5-2-1.5zM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/></symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24"><path d="M10.5 4a6.5 6.5 0 0 1 5.1 10.5l4 4-1.4 1.4-4-4A6.5 6.5 0 1 1 10.5 4zm0 2a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9z"/></symbol>
+    <symbol id="icon-bulb" viewBox="0 0 24 24"><path d="M9 21h6v-2H9v2zm3-19a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2zm2 11.5-.8.5V15h-2.4v-1l-.8-.5A5 5 0 1 1 14 13.5z"/></symbol>
+    <symbol id="icon-link" viewBox="0 0 24 24"><path d="M3.9 12a5 5 0 0 1 5-5h4v2h-4a3 3 0 0 0 0 6h4v2h-4a5 5 0 0 1-5-5zm5.1 1h6v-2H9v2zm2-4h4a3 3 0 0 1 0 6h-4v2h4a5 5 0 0 0 0-10h-4v2z"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="M9.5 16.6 4.9 12l-1.4 1.4 6 6 11-11L19.1 7 9.5 16.6z"/></symbol>
+    <symbol id="icon-bank" viewBox="0 0 24 24"><path d="M12 3 2 8v2h20V8L12 3zM5 11v7H3v2h18v-2h-2v-7h-2v7h-3v-7h-2v7H9v-7H7v7H5v-7z"/></symbol>
+    <symbol id="icon-scale" viewBox="0 0 24 24"><path d="M11 4H5v2h3.5L5 12H3l3 5 3-5H7l3.5-6H11v13H7v2h10v-2h-4V6h2.5L19 12h-2l3 5 3-5h-2l-3.5-6H21V4h-8V2h-2v2z"/></symbol>
+    <symbol id="icon-target" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16zm0 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></symbol>
+    <symbol id="icon-handshake" viewBox="0 0 24 24"><path d="M8.6 11.2 11 8.8a3 3 0 0 1 4.2 0l.8.8 3-3L21 8.5l-4.7 4.7a2.9 2.9 0 0 1-4.1 0l-.7-.7-2.2 2.2a2 2 0 0 1-2.8 0l-3-3L5 10l2.2 2.2 1.4-1zM2.9 8.2 7 4.1 8.4 5.5 4.3 9.6 2.9 8.2zM15.6 18.5l4.1-4.1 1.4 1.4-4.1 4.1-1.4-1.4z"/></symbol>
+    <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 2a5 5 0 0 1 5 5c0 2.7-2.7 6.8-5 9.6C9.7 15.8 7 11.7 7 9a5 5 0 0 1 5-5zm0 2.8A2.2 2.2 0 1 0 12 11.2 2.2 2.2 0 0 0 12 6.8z"/></symbol>
+    <symbol id="icon-puzzle" viewBox="0 0 24 24"><path d="M10 3h4v3a2 2 0 1 0 2 2h3v5h-3a2 2 0 1 0-2 2v4H9v-3a2 2 0 1 0-2-2H4V9h3a2 2 0 1 0 2-2V3h1z"/></symbol>
+
+    <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M3 5h18v14H3V5zm2 2v.4l7 4.4 7-4.4V7H5zm14 2.7-7 4.4-7-4.4V17h14V9.7z"/></symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M5.4 8.8H2.8V21h2.6V8.8zM4.1 3A1.5 1.5 0 1 0 4 6a1.5 1.5 0 0 0 .1-3zm6.2 5.8H7.8V21h2.6v-6.4c0-1.7.8-2.7 2.2-2.7 1.3 0 1.9.9 1.9 2.7V21h2.6v-7.2c0-3.1-1.7-5.2-4.3-5.2-1.2 0-2 .4-2.5 1.2v-1z"/></symbol>
+  </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar">
+    <nav class="nav" aria-label="Main navigation">
+      <div class="brand"><span class="brand-doc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-document"></use></svg></span><span>Evaluation Specialist Pitch Book<small>Bernie Calderon Magtalas</small></span></div>
+      <div class="navlinks" id="navlinks">
+        <a href="#fit">Profile</a><a href="#problem">Problem</a><a href="#evidence">Evidence</a><a href="#value">Value</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap" id="main">
+    <section class="hero reveal" id="fit">
+      <div class="card hero-main">
+        
+        <h1>Translating independent evaluations into stronger operations</h1>
+        <p class="lead">I am <strong>Bernie Calderon Magtalas</strong>, an infrastructure evaluation and public investment professional applying for the Evaluation Specialist role under the Asian Infrastructure Investment Bank's (AIIB) Complaints-resolution, Evaluation and Integrity Unit (CEIU).</p>
+        <p class="hero-note">I bring firsthand experience evaluating infrastructure investments before approval, when project design, financing assumptions, risk allocation, and results frameworks can still be challenged and strengthened.</p>
+        <div class="profile-contact-links" aria-label="Profile contact links">
+          <a href="mailto:magtalasbernie@suou.waseda.jp"><span class="contact-icon" aria-hidden="true"><svg><use href="#icon-mail"></use></svg></span>magtalasbernie@suou.waseda.jp</a>
+          <a href="https://www.linkedin.com/in/magtalas-bernie/" target="_blank" rel="noopener noreferrer"><span class="contact-icon" aria-hidden="true"><svg><use href="#icon-linkedin"></use></svg></span>LinkedIn profile</a>
+        </div>
+      </div>
+      <aside class="card hero-side" aria-label="Candidate highlights">
+        <div class="stat"><span class="icon" aria-hidden="true"><svg><use href="#icon-clock"></use></svg></span><b>~10 years</b><span>Infrastructure policy, appraisal, investment programming, and evaluation experience</span></div>
+        <div class="stat"><span class="icon" aria-hidden="true"><svg><use href="#icon-chart"></use></svg></span><b>USD13B</b><span>Renewable energy and transport portfolio evaluated</span></div>
+        <div class="stat"><span class="icon" aria-hidden="true"><svg><use href="#icon-compass"></use></svg></span><b>USD176B</b><span>National infrastructure pipeline supported through prioritization analytics</span></div>
+        <div class="stat"><span class="icon" aria-hidden="true"><svg><use href="#icon-gear"></use></svg></span><b>R + modeling</b><span>Composite indices, dashboards, and Structural Equation Modeling (SEM)</span></div>
+      </aside>
+    </section>
+
+    <section class="section section-band band-warm reveal" id="problem">
+      <div class="section-head">
+        <div>
+          <h2>The evaluation challenge</h2>
+          <p class="sub">As AIIB expands across sovereign-backed and nonsovereign-backed operations, CEIU needs independent evaluations that explain not only whether results were achieved, but what shaped those results.</p>
+        </div>
+      </div>
+      <div class="problem-grid">
+        <div class="problem"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-search"></use></svg></span>Explain results</h3><p>Examine how project design, appraisal quality, risk allocation, implementation readiness, and institutional context affect infrastructure outcomes.</p></div>
+        <div class="problem"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-bulb"></use></svg></span>Generate lessons</h3><p>Turn findings into lessons for Early Learning Assessments (ELAs), Project Learning Reviews (PLRs), thematic evaluations, and knowledge products.</p></div>
+        <div class="problem"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-link"></use></svg></span>Bridge instruments</h3><p>Connect public investment experience with Public-Private Partnership (PPP) risk allocation, private-sector participation, and financial assumptions.</p></div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="evidence">
+      <div class="section-head">
+        <div>
+          <h2>Evidence of fit</h2>
+          <p class="sub">Each area maps directly to the Evaluation Specialist role and CEIU's learning and accountability objectives.</p>
+        </div>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Evidence categories">
+        <button class="tab active" id="tab-upstream" data-tab="panel-upstream" role="tab" aria-selected="true" aria-controls="panel-upstream" tabindex="0">Upstream evaluation</button>
+        <button class="tab" id="tab-mdb" data-tab="panel-mdb" role="tab" aria-selected="false" aria-controls="panel-mdb" tabindex="-1">Development bank evaluation</button>
+        <button class="tab" id="tab-analytics" data-tab="panel-analytics" role="tab" aria-selected="false" aria-controls="panel-analytics" tabindex="-1">Technology-enabled analysis</button>
+        <button class="tab" id="tab-nsbf" data-tab="panel-nsbf" role="tab" aria-selected="false" aria-controls="panel-nsbf" tabindex="-1">Nonsovereign bridge</button>
+      </div>
+      <div class="panel active" id="panel-upstream" role="tabpanel" aria-labelledby="tab-upstream" tabindex="0">
+        <div class="evidence-layout">
+          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-check"></use></svg></span>Decision-point experience</h3><p>I have worked where infrastructure policies, projects, and programs are assessed before approval, escalation, or major public commitment.</p><span class="badge">Project design</span><span class="badge">Quality at entry</span><span class="badge">Implementation readiness</span></div>
+          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-chart"></use></svg></span>Portfolio evidence</h3><p>I evaluated a USD13 billion renewable energy and transportation portfolio. I reviewed economic and financial models, identified due diligence gaps, and recommended readiness measures.</p><span class="badge">USD13 billion portfolio</span><span class="badge">Energy</span><span class="badge">Transport</span></div>
+        </div>
+      </div>
+      <div class="panel" id="panel-mdb" role="tabpanel" aria-labelledby="tab-mdb" tabindex="0">
+        <div class="evidence-layout">
+          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-bank"></use></svg></span>Development bank work</h3><p>I reviewed an energy efficiency project under an Asian Development Bank (ADB) Results-Based Loan (RBL) Program and evaluated a USD4 million regional power grid technical assistance proposal.</p><span class="badge">ADB RBL</span><span class="badge">Regional power grid</span></div>
+          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-scale"></use></svg></span>Evaluation criteria</h3><p>In an ADB-led workshop, I applied multilateral development bank (MDB) evaluation criteria covering relevance, effectiveness, efficiency, sustainability, development impact, attribution, results chains, and implementation performance.</p><span class="badge">MDB criteria</span><span class="badge">Attribution</span><span class="badge">Results chain</span></div>
+        </div>
+      </div>
+      <div class="panel" id="panel-analytics" role="tabpanel" aria-labelledby="tab-analytics" tabindex="0">
+        <div class="evidence-layout">
+          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-gear"></use></svg></span>Reproducible analytics</h3><p>I developed composite infrastructure and energy indices in R, built monitoring dashboards, and automated multi-criteria prioritization for a USD176 billion infrastructure pipeline.</p><span class="badge">R</span><span class="badge">Dashboards</span><span class="badge">USD176B pipeline</span></div>
+          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-target"></use></svg></span>Evaluation use</h3><p>I use quantitative tools to make evidence more comparable, traceable, and useful for learning. I also applied SEM to analyze global energy transition dynamics.</p><span class="badge">Traceability</span><span class="badge">Comparability</span><span class="badge">SEM</span></div>
+        </div>
+      </div>
+      <div class="panel" id="panel-nsbf" role="tabpanel" aria-labelledby="tab-nsbf" tabindex="0">
+        <div class="evidence-layout">
+          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-handshake"></use></svg></span>Private-sector interface</h3><p>I assessed PPP risk allocation for major transport projects and worked on private-sector participation, economic and financial model review, and green finance.</p><span class="badge">PPP risk</span><span class="badge">Private-sector participation</span><span class="badge">Green finance</span></div>
+          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-bank"></use></svg></span>Nonsovereign-backed financing foundation</h3><p>This gives me a practical foundation for contributing to evaluations involving nonsovereign-backed financing (NSBF), especially where risk allocation and finance assumptions matter.</p><span class="badge">NSBF</span><span class="badge">Risk allocation</span><span class="badge">Financial assumptions</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-band band-cool reveal" id="value">
+      <div class="section-head">
+        <h2>Value proposition</h2>
+        <p>Translate independent evaluation evidence into operational learning that strengthens future AIIB operations.</p>
+      </div>
+      <div class="value-map">
+          <article class="value-card">
+            <span class="num">01</span>
+            <div>
+              <h3>Evaluation judgment</h3>
+              <p>Assess project logic, implementation context, institutional arrangements, and development results with infrastructure-sector discipline.</p>
+            </div>
+          </article>
+          <article class="value-card">
+            <span class="num">02</span>
+            <div>
+              <h3>Operational learning</h3>
+              <p>Translate findings into lessons that are usable for project teams, management, and future operations.</p>
+            </div>
+          </article>
+          <article class="value-card">
+            <span class="num">03</span>
+            <div>
+              <h3>Government-side perspective</h3>
+              <p>Bring client-government experience in appraisal, investment programming, policy review, and infrastructure delivery constraints.</p>
+            </div>
+          </article>
+          <article class="value-card">
+            <span class="num">04</span>
+            <div>
+              <h3>Analytical rigor</h3>
+              <p>Use structured evidence, reproducible tools, geospatial analysis, and artificial intelligence (AI)-enabled methods to make insights traceable and actionable.</p>
+            </div>
+          </article>
+          <article class="value-closing-panel">
+            <div class="closing-mark" aria-hidden="true">→</div>
+            <div>
+              <h3>Goal</h3>
+              <p>Make evaluation evidence more usable, timely, and consequential for AIIB operations.</p>
+            </div>
+          </article>
+</div>
+    </section>
+
+    <p class="footer">Prepared by Bernie Calderon Magtalas | Evaluation Specialist Application | AIIB CEIU</p>
+  </main>
+
+  <script>
+    // Evidence tabs with keyboard support
+    const tabs = Array.from(document.querySelectorAll('.tab'));
+    const panels = Array.from(document.querySelectorAll('.panel'));
+
+    function activateTab(tab, moveFocus = true){
+      tabs.forEach(t=>{
+        t.classList.remove('active');
+        t.setAttribute('aria-selected','false');
+        t.setAttribute('tabindex','-1');
+      });
+      panels.forEach(p=>p.classList.remove('active'));
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+      tab.setAttribute('tabindex','0');
+      const panel = document.getElementById(tab.dataset.tab);
+      if(panel) panel.classList.add('active');
+      if(moveFocus) tab.focus();
+    }
+
+    tabs.forEach((tab, index)=>{
+      tab.addEventListener('click',()=>activateTab(tab, false));
+      tab.addEventListener('keydown',(event)=>{
+        let targetIndex = null;
+        if(event.key === 'ArrowRight') targetIndex = (index + 1) % tabs.length;
+        if(event.key === 'ArrowLeft') targetIndex = (index - 1 + tabs.length) % tabs.length;
+        if(event.key === 'Home') targetIndex = 0;
+        if(event.key === 'End') targetIndex = tabs.length - 1;
+        if(targetIndex !== null){
+          event.preventDefault();
+          activateTab(tabs[targetIndex], true);
+        }
+      });
+    });
+
+    // Internal pitch brief navigation
+    function getStickyOffset(){
+      const topbar = document.querySelector('.topbar');
+      return (topbar ? topbar.offsetHeight : 0) + 36;
+    }
+
+    function scrollToElementWithOffset(element){
+      const stickyOffset = getStickyOffset();
+      const viewportSpace = window.innerHeight - stickyOffset - 24;
+      const targetHeight = element.offsetHeight;
+      const targetTop = element.getBoundingClientRect().top + window.pageYOffset;
+
+      let y;
+
+      if(targetHeight <= viewportSpace){
+        const centeredGap = Math.max(12, (viewportSpace - targetHeight) / 2);
+        y = targetTop - stickyOffset - centeredGap;
+      }else{
+        y = targetTop - stickyOffset + 6;
+      }
+
+      window.scrollTo({top:Math.max(0, y), behavior:'smooth'});
+    }
+
+    document.querySelectorAll('.letter-nav button').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const target = document.getElementById(btn.dataset.scroll);
+        if(target) scrollToElementWithOffset(target);
+      });
+    });
+
+    // Top navigation: stable click highlight + position-based scroll highlight
+    const navLinks = Array.from(document.querySelectorAll('.navlinks a'));
+    const navTargets = navLinks
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    let autoScrolling = false;
+    let autoScrollTimer = null;
+
+    function setActiveNav(id){
+      navLinks.forEach(link=>{
+        const isActive = link.getAttribute('href') === `#${id}`;
+        link.classList.toggle('active', isActive);
+        if(isActive){
+          link.setAttribute('aria-current','page');
+        }else{
+          link.removeAttribute('aria-current');
+        }
+      });
+    }
+
+    function getActiveSectionByPosition(){
+      const scrollBottom = window.innerHeight + window.scrollY;
+      const nearBottom = scrollBottom >= document.documentElement.scrollHeight - 8;
+
+      if(nearBottom && navTargets.length){
+        return navTargets[navTargets.length - 1].id;
+      }
+
+      const marker = window.scrollY + getStickyOffset();
+      let activeId = navTargets[0] ? navTargets[0].id : null;
+
+      navTargets.forEach(section=>{
+        if(section.offsetTop <= marker){
+          activeId = section.id;
+        }
+      });
+
+      return activeId;
+    }
+
+    function updateActiveNavByPosition(){
+      if(autoScrolling) return;
+      const activeId = getActiveSectionByPosition();
+      if(activeId) setActiveNav(activeId);
+    }
+
+    navLinks.forEach(link=>{
+      link.addEventListener('click',(event)=>{
+        const targetId = link.getAttribute('href').slice(1);
+        const target = document.getElementById(targetId);
+        if(!target) return;
+
+        event.preventDefault();
+        setActiveNav(targetId);
+
+        autoScrolling = true;
+        if(autoScrollTimer) window.clearTimeout(autoScrollTimer);
+
+        scrollToElementWithOffset(target);
+
+        autoScrollTimer = window.setTimeout(()=>{
+          autoScrolling = false;
+          setActiveNav(targetId);
+        }, 1100);
+      });
+    });
+
+    function cancelAutoScrollOnUserInput(){
+      if(autoScrolling){
+        autoScrolling = false;
+        if(autoScrollTimer) window.clearTimeout(autoScrollTimer);
+      }
+    }
+
+    ['wheel','touchstart','mousedown','keydown'].forEach(eventName=>{
+      window.addEventListener(eventName, cancelAutoScrollOnUserInput, {passive:true});
+    });
+
+    let navTicking = false;
+    function requestNavUpdate(){
+      if(!navTicking){
+        window.requestAnimationFrame(()=>{
+          updateActiveNavByPosition();
+          navTicking = false;
+        });
+        navTicking = true;
+      }
+    }
+
+    window.addEventListener('scroll', requestNavUpdate, {passive:true});
+    window.addEventListener('resize', requestNavUpdate);
+    updateActiveNavByPosition();
+  </script>
+
+
+</body>
+</html>
