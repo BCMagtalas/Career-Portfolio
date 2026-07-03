@@ -206,6 +206,14 @@
       fill:currentColor !important;
     }
 
+
+    .profile-contact-links a,
+    .profile-contact-links span,
+    .profile-contact-links strong,
+    .profile-contact-links b{
+      font-weight:500;
+    }
+
     .profile-contact-links{
       display:flex;
       flex-wrap:wrap;
@@ -246,11 +254,85 @@
     .btn:hover{transform:translateY(-2px)}
     .btn:focus,.tab:focus,.letter-nav button:focus{outline:3px solid rgba(196,154,69,.38);outline-offset:2px}
 
-    .hero-side{padding:24px;display:flex;flex-direction:column;gap:14px;background:linear-gradient(180deg,#fff,#fff7f7)}
-    .stat{border:1px solid var(--line);border-radius:18px;padding:16px;background:#fff;transition:.22s ease}
-    .stat:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(17,24,39,.08)}
-    .stat b{display:block;font-size:30px;color:var(--aiib-red);letter-spacing:-.03em;margin-bottom:4px}
-    .stat span{display:block;color:var(--muted);font-size:14.5px;line-height:1.38}
+    .hero-side{
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      background:linear-gradient(180deg,#fff,#fff8f8);
+    }
+    .stat{
+      display:grid;
+      grid-template-columns:44px minmax(0,1fr);
+      column-gap:14px;
+      align-items:center;
+      min-height:112px;
+      border:1px solid rgba(148,163,184,.24);
+      border-radius:22px;
+      padding:16px 18px;
+      background:rgba(255,255,255,.97);
+      box-shadow:0 10px 26px rgba(15,23,42,.045);
+      transition:.22s ease;
+      text-align:left;
+    }
+    .stat:hover{
+      transform:translateY(-3px);
+      box-shadow:0 16px 32px rgba(15,23,42,.075);
+      border-color:rgba(138,17,23,.16);
+    }
+    .stat .icon{
+      width:40px;
+      height:40px;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      background:rgba(138,17,23,.06);
+      color:#64748b;
+      margin:0;
+    }
+    .stat .icon svg{
+      width:19px !important;
+      height:19px !important;
+      max-width:19px !important;
+      max-height:19px !important;
+      display:block !important;
+      fill:currentColor !important;
+    }
+    .stat b{
+      display:block;
+      font-size:clamp(25px,2.35vw,36px);
+      line-height:.96;
+      color:var(--aiib-red);
+      letter-spacing:-.055em;
+      margin:0 0 7px;
+      white-space:normal;
+    }
+    .stat span{
+      display:block;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.35;
+      letter-spacing:-.012em;
+      max-width:410px;
+    }
+
+    .stat .icon{
+      grid-column:1;
+      grid-row:1 / span 2;
+      align-self:start;
+      margin-top:2px;
+    }
+    .stat b{
+      grid-column:2;
+      grid-row:1;
+      align-self:end;
+    }
+    .stat span{
+      grid-column:2;
+      grid-row:2;
+      align-self:start;
+    }
+
 
 
     /* Section separation and executive scan rhythm */
@@ -820,6 +902,28 @@
       .stat b{font-size:28px}
       .section h2{font-size:26px}
 
+      .hero-side{
+        padding:16px;
+        gap:10px;
+      }
+      .stat{
+        grid-template-columns:42px minmax(0,1fr);
+        min-height:auto;
+        padding:14px 15px;
+        border-radius:18px;
+      }
+      .stat .icon{
+        width:36px;
+        height:36px;
+      }
+      .stat b{
+        font-size:32px;
+      }
+      .stat span{
+        font-size:14.5px;
+      }
+
+
       #problem .section-head h2,
       #evidence .section-head h2,
       #value .section-head h2{
@@ -912,6 +1016,9 @@
       .wrap{padding:0}.hero,.problem-grid,.evidence-layout,.value-map,.letter{display:block}
       .section{page-break-inside:avoid}.reveal{opacity:1;transform:none}
     }
+  
+    .profile-contact-links a{font-weight:500}
+
   </style>
 
   <!--
@@ -970,7 +1077,7 @@
       <div class="card hero-main">
         
         <h1>Translating independent evaluations into stronger operations</h1>
-        <p class="lead">I am <strong>Bernie Calderon Magtalas</strong>, an infrastructure evaluation and public investment professional applying for the Evaluation Specialist role under the Asian Infrastructure Investment Bank's (AIIB) Complaints-resolution, Evaluation and Integrity Unit (CEIU).</p>
+        <p class="lead">I am <strong>Bernie Calderon Magtalas</strong>, an infrastructure evaluation and public investment professional applying for the Evaluation Specialist role under the Complaints-resolution, Evaluation and Integrity Unit (CEIU) of the Asian Infrastructure Investment Bank (AIIB).</p>
         <p class="hero-note">I bring firsthand experience evaluating infrastructure investments before approval, when project design, financing assumptions, risk allocation, and results frameworks can still be challenged and strengthened.</p>
         <div class="profile-contact-links" aria-label="Profile contact links">
           <a href="mailto:magtalasbernie@suou.waseda.jp"><span class="contact-icon" aria-hidden="true"><svg><use href="#icon-mail"></use></svg></span>magtalasbernie@suou.waseda.jp</a>
@@ -979,8 +1086,8 @@
       </div>
       <aside class="card hero-side" aria-label="Candidate highlights">
         <div class="stat"><span class="icon" aria-hidden="true"><svg><use href="#icon-clock"></use></svg></span><b>~10 years</b><span>Infrastructure policy, appraisal, investment programming, and evaluation experience</span></div>
-        <div class="stat"><span class="icon" aria-hidden="true"><svg><use href="#icon-chart"></use></svg></span><b>USD13B</b><span>Renewable energy and transport portfolio evaluated</span></div>
-        <div class="stat"><span class="icon" aria-hidden="true"><svg><use href="#icon-compass"></use></svg></span><b>USD176B</b><span>National infrastructure pipeline supported through prioritization analytics</span></div>
+        <div class="stat"><span class="icon" aria-hidden="true"><svg><use href="#icon-chart"></use></svg></span><b>USD13 billion</b><span>Renewable energy and transport portfolio evaluated</span></div>
+        <div class="stat"><span class="icon" aria-hidden="true"><svg><use href="#icon-compass"></use></svg></span><b>USD176 billion</b><span>National infrastructure pipeline supported through prioritization analytics</span></div>
         <div class="stat"><span class="icon" aria-hidden="true"><svg><use href="#icon-gear"></use></svg></span><b>R + modeling</b><span>Composite indices, dashboards, and Structural Equation Modeling (SEM)</span></div>
       </aside>
     </section>
@@ -989,13 +1096,13 @@
       <div class="section-head">
         <div>
           <h2>The evaluation challenge</h2>
-          <p class="sub">As AIIB expands across sovereign-backed and nonsovereign-backed operations, CEIU needs independent evaluations that explain not only whether results were achieved, but what shaped those results.</p>
+          <p class="sub">As AIIB expands across sovereign-backed and nonsovereign-backed operations, CEIU needs independent evaluations that explain what shaped results, translate findings into lessons, and inform improvements in future operations.</p>
         </div>
       </div>
       <div class="problem-grid">
-        <div class="problem"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-search"></use></svg></span>Explain results</h3><p>Examine how project design, appraisal quality, risk allocation, implementation readiness, and institutional context affect infrastructure outcomes.</p></div>
-        <div class="problem"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-bulb"></use></svg></span>Generate lessons</h3><p>Turn findings into lessons for Early Learning Assessments (ELAs), Project Learning Reviews (PLRs), thematic evaluations, and knowledge products.</p></div>
-        <div class="problem"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-link"></use></svg></span>Bridge instruments</h3><p>Connect public investment experience with Public-Private Partnership (PPP) risk allocation, private-sector participation, and financial assumptions.</p></div>
+        <div class="problem"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-search"></use></svg></span>Explain what shaped results</h3><p>Examine how project design, appraisal quality, implementation readiness, institutional context, and risk allocation influenced infrastructure outcomes.</p></div>
+        <div class="problem"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-bulb"></use></svg></span>Translate findings into lessons</h3><p>Turn evaluation findings into lessons for Early Learning Assessments (ELAs), Project Learning Reviews (PLRs), thematic evaluations, and knowledge products.</p></div>
+        <div class="problem"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-link"></use></svg></span>Inform future operations</h3><p>Apply evaluation lessons to strengthen project design, delivery, risk allocation, and performance.</p></div>
       </div>
     </section>
 
@@ -1003,7 +1110,7 @@
       <div class="section-head">
         <div>
           <h2>Evidence of fit</h2>
-          <p class="sub">Each area maps directly to the Evaluation Specialist role and CEIU's learning and accountability objectives.</p>
+          <p class="sub">My experience supports CEIU’s mandate for independent evaluation, learning, and accountability.</p>
         </div>
       </div>
       <div class="tabs" role="tablist" aria-label="Evidence categories">
@@ -1026,13 +1133,13 @@
       </div>
       <div class="panel" id="panel-analytics" role="tabpanel" aria-labelledby="tab-analytics" tabindex="0">
         <div class="evidence-layout">
-          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-gear"></use></svg></span>Reproducible analytics</h3><p>I developed composite infrastructure and energy indices in R, built monitoring dashboards, and automated multi-criteria prioritization for a USD176 billion infrastructure pipeline.</p><span class="badge">R</span><span class="badge">Dashboards</span><span class="badge">USD176B pipeline</span></div>
+          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-gear"></use></svg></span>Reproducible analytics</h3><p>I developed composite infrastructure and energy indices in R, built monitoring dashboards, and automated multi-criteria prioritization for a USD176 billion infrastructure pipeline.</p><span class="badge">R</span><span class="badge">Dashboards</span><span class="badge">USD176 billion pipeline</span></div>
           <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-target"></use></svg></span>Evaluation use</h3><p>I use quantitative tools to make evidence more comparable, traceable, and useful for learning. I also applied SEM to analyze global energy transition dynamics.</p><span class="badge">Traceability</span><span class="badge">Comparability</span><span class="badge">SEM</span></div>
         </div>
       </div>
       <div class="panel" id="panel-nsbf" role="tabpanel" aria-labelledby="tab-nsbf" tabindex="0">
         <div class="evidence-layout">
-          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-handshake"></use></svg></span>Private-sector interface</h3><p>I assessed PPP risk allocation for major transport projects and worked on private-sector participation, economic and financial model review, and green finance.</p><span class="badge">PPP risk</span><span class="badge">Private-sector participation</span><span class="badge">Green finance</span></div>
+          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-handshake"></use></svg></span>Private-sector interface</h3><p>I assessed Public-Private Partnership (PPP) risk allocation for major transport projects and worked on private-sector participation, economic and financial model review, and green finance.</p><span class="badge">PPP risk</span><span class="badge">Private-sector participation</span><span class="badge">Green finance</span></div>
           <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-bank"></use></svg></span>Nonsovereign-backed financing foundation</h3><p>This gives me a practical foundation for contributing to evaluations involving nonsovereign-backed financing (NSBF), especially where risk allocation and finance assumptions matter.</p><span class="badge">NSBF</span><span class="badge">Risk allocation</span><span class="badge">Financial assumptions</span></div>
         </div>
       </div>
@@ -1041,7 +1148,7 @@
     <section class="section section-band band-cool reveal" id="value">
       <div class="section-head">
         <h2>Value proposition</h2>
-        <p>Translate independent evaluation evidence into operational learning that strengthens future AIIB operations.</p>
+        <p>Translate independent evaluation into operational learning that strengthens AIIB operations.</p>
       </div>
       <div class="value-map">
           <article class="value-card">
