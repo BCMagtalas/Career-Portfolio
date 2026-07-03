@@ -517,6 +517,28 @@
     .evidence-layout{display:grid;grid-template-columns:1fr 1fr;gap:16px}
     .evidence-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;min-height:228px}
     .evidence-card h3{margin:0 0 10px;color:var(--navy)}
+
+    .evidence-card ul{
+      margin:0;
+      padding-left:18px;
+      color:#475569;
+      font-size:15px;
+      line-height:1.52;
+    }
+    .evidence-card li{
+      margin:7px 0;
+      padding-left:2px;
+    }
+
+    .evidence-card li strong{
+      color:var(--ink);
+      font-weight:900;
+    }
+
+    .evidence-card li::marker{
+      color:var(--aiib-red);
+    }
+
     .evidence-card p{margin:0 0 12px;color:#475569;line-height:1.58;font-size:16px}
     .badge{display:inline-flex;padding:7px 10px;border-radius:999px;background:var(--soft-red);color:var(--aiib-red);font-weight:900;font-size:12px;margin:4px 6px 0 0}
 
@@ -1121,26 +1143,26 @@
       </div>
       <div class="panel active" id="panel-upstream" role="tabpanel" aria-labelledby="tab-upstream" tabindex="0">
         <div class="evidence-layout">
-          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-check"></use></svg></span>Decision-point experience</h3><p>I have worked where infrastructure policies, projects, and programs are assessed before approval, escalation, or major public commitment.</p><span class="badge">Project design</span><span class="badge">Quality at entry</span><span class="badge">Implementation readiness</span></div>
-          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-chart"></use></svg></span>Portfolio evidence</h3><p>I evaluated a USD13 billion renewable energy and transportation portfolio. I reviewed economic and financial models, identified due diligence gaps, and recommended readiness measures.</p><span class="badge">USD13 billion portfolio</span><span class="badge">Energy</span><span class="badge">Transport</span></div>
+          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-check"></use></svg></span>Decision-point experience</h3><ul><li><strong>Assessed</strong> infrastructure policies, projects, and programs before approval, escalation, or major public commitment</li><li><strong>Synthesized</strong> inter-agency energy-sector evaluations for the Philippine Development Plan (PDP) Midterm Update to recalibrate targets and strategies</li><li><strong>Prepared</strong> evaluation and comparative policy inputs on coal moratorium exemptions, Electric Power Industry Reform Act (EPIRA) amendments, and nuclear liability options for senior policy deliberation</li></ul><span class="badge">Project design</span><span class="badge">PDP Midterm Update</span><span class="badge">Policy evaluation</span></div>
+          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-chart"></use></svg></span>Portfolio evidence</h3><ul><li><strong>Evaluated</strong> a USD13 billion portfolio of 12 renewable energy and 19 transportation projects</li><li><strong>Validated</strong> economic and financial models across renewable energy and transport projects</li><li><strong>Identified</strong> due diligence gaps to strengthen quality at entry and mitigate project failure risks</li></ul><span class="badge">USD13 billion portfolio</span><span class="badge">Energy</span><span class="badge">Transport</span></div>
         </div>
       </div>
       <div class="panel" id="panel-mdb" role="tabpanel" aria-labelledby="tab-mdb" tabindex="0">
         <div class="evidence-layout">
-          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-bank"></use></svg></span>Development bank work</h3><p>I reviewed an energy efficiency project under an Asian Development Bank (ADB) Results-Based Loan (RBL) Program and evaluated a USD4 million regional power grid technical assistance proposal.</p><span class="badge">ADB RBL</span><span class="badge">Regional power grid</span></div>
-          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-scale"></use></svg></span>Evaluation criteria</h3><p>In an ADB-led workshop, I applied multilateral development bank (MDB) evaluation criteria covering relevance, effectiveness, efficiency, sustainability, development impact, attribution, results chains, and implementation performance.</p><span class="badge">MDB criteria</span><span class="badge">Attribution</span><span class="badge">Results chain</span></div>
+          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-bank"></use></svg></span>Development bank work</h3><ul><li><strong>Assessed</strong> an Asian Development Bank (ADB) Results-Based Loan (RBL) energy efficiency project and recommended improvements to cost-benefit analysis and technical design</li><li><strong>Evaluated</strong> a USD4 million regional power grid technical assistance proposal, including indigenous resource utilization and energy equity issues</li><li><strong>Collaborated</strong> with ADB in drafting Terms of Reference (TOR) for regional infrastructure benchmarking and disparity analysis</li></ul><span class="badge">ADB RBL</span><span class="badge">USD4 million TA</span><span class="badge">Quality at entry</span></div>
+          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-scale"></use></svg></span>Evaluation criteria</h3><ul><li><strong>Applied</strong> ADB evaluation criteria in a case study covering relevance, effectiveness, efficiency, sustainability, and non-core dimensions</li><li><strong>Strengthened</strong> evidence-based evaluation judgment through an ADB-led evaluation workshop</li><li><strong>Synthesized</strong> Southeast Asia policy practices to mainstream climate resilience into project design and evaluation</li></ul><span class="badge">ADB criteria</span><span class="badge">Non-core criteria</span><span class="badge">Climate resilience</span></div>
         </div>
       </div>
       <div class="panel" id="panel-analytics" role="tabpanel" aria-labelledby="tab-analytics" tabindex="0">
         <div class="evidence-layout">
-          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-gear"></use></svg></span>Reproducible analytics</h3><p>I developed composite infrastructure and energy indices in R, built monitoring dashboards, and automated multi-criteria prioritization for a USD176 billion infrastructure pipeline.</p><span class="badge">R</span><span class="badge">Dashboards</span><span class="badge">USD176 billion pipeline</span></div>
-          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-target"></use></svg></span>Evaluation use</h3><p>I use quantitative tools to make evidence more comparable, traceable, and useful for learning. I also applied SEM to analyze global energy transition dynamics.</p><span class="badge">Traceability</span><span class="badge">Comparability</span><span class="badge">SEM</span></div>
+          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-gear"></use></svg></span>Reproducible analytics</h3><ul><li><strong>Developed</strong> an R-based energy sub-index and composite infrastructure indices across energy, water, transport, social, and digital infrastructure</li><li><strong>Automated</strong> multi-criteria prioritization for 207 projects in a USD176 billion national investment pipeline</li><li><strong>Piloted</strong> OSeMOSYS and IRENA FlexTool for power system expansion, flexibility modeling, and energy transition scenario analysis</li></ul><span class="badge">R</span><span class="badge">USD176 billion pipeline</span><span class="badge">OSeMOSYS</span><span class="badge">IRENA FlexTool</span></div>
+          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-target"></use></svg></span>Evaluation use</h3><ul><li><strong>Built</strong> dashboards and analytical prototypes to support infrastructure benchmarking, comparability, and learning</li><li><strong>Applied</strong> Structural Equation Modeling (SEM) to analyze global energy transition dynamics across 27 variables and 120 countries</li><li><strong>Estimated</strong> regional economic costs of alternative energy sources as a benchmark for energy project evaluation</li></ul><span class="badge">Traceability</span><span class="badge">SEM</span><span class="badge">Energy cost benchmarking</span></div>
         </div>
       </div>
       <div class="panel" id="panel-nsbf" role="tabpanel" aria-labelledby="tab-nsbf" tabindex="0">
         <div class="evidence-layout">
-          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-handshake"></use></svg></span>Private-sector interface</h3><p>I assessed Public-Private Partnership (PPP) risk allocation for major transport projects and worked on private-sector participation, economic and financial model review, and green finance.</p><span class="badge">PPP risk</span><span class="badge">Private-sector participation</span><span class="badge">Green finance</span></div>
-          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-bank"></use></svg></span>Nonsovereign-backed financing foundation</h3><p>This gives me a practical foundation for contributing to evaluations involving nonsovereign-backed financing (NSBF), especially where risk allocation and finance assumptions matter.</p><span class="badge">NSBF</span><span class="badge">Risk allocation</span><span class="badge">Financial assumptions</span></div>
+          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-handshake"></use></svg></span>Private-sector interface</h3><ul><li><strong>Led</strong> risk assessment for 8 Public-Private Partnership (PPP) transport projects</li><li><strong>Integrated</strong> mitigation strategies and costs into USD10 billion in PPP contracts</li><li><strong>Reviewed</strong> private-sector participation, financial models, and green finance considerations</li></ul><span class="badge">PPP risk</span><span class="badge">USD10 billion contracts</span><span class="badge">Green finance</span></div>
+          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-bank"></use></svg></span>Field and delivery foundation</h3><ul><li><strong>Conducted</strong> solar field evaluations in 7 remote areas with 4 World Bank consultants</li><li><strong>Identified</strong> rural electrification bottlenecks and strategies integrated into the Access to Sustainable Energy Program</li><li><strong>Directed</strong> USD2 million in consulting contracts for 14 master plans and feasibility studies on renewable energy and sustainable infrastructure</li></ul><span class="badge">Field evaluation</span><span class="badge">Rural electrification</span><span class="badge">Feasibility studies</span></div>
         </div>
       </div>
     </section>
