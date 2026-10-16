@@ -17,9 +17,14 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Bernie Calderon Magtalas","jobTitle":"Supervising Economic Development Specialist","worksFor":{"@type":"GovernmentOrganization","name":"Department of Economy, Planning, and Development"},"alumniOf":["Waseda University","University of the Philippines Los Baños"],"sameAs":["https://www.linkedin.com/in/magtalas-bernie/"],"url":"https://bcmagtalas.github.io/Career-Portfolio/"}</script>
 <meta property="og:url" content="https://bcmagtalas.github.io/Career-Portfolio/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="preload" href="assets/fonts/public-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/public-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/newsreader-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/newsreader-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'Public Sans';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/public-sans-latin-400-normal.woff2) format('woff2')}@font-face{font-family:'Public Sans';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/public-sans-latin-500-normal.woff2) format('woff2')}@font-face{font-family:'Public Sans';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/public-sans-latin-600-normal.woff2) format('woff2')}@font-face{font-family:'Public Sans';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/public-sans-latin-700-normal.woff2) format('woff2')}@font-face{font-family:'Newsreader';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/newsreader-latin-500-normal.woff2) format('woff2')}@font-face{font-family:'Newsreader';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/newsreader-latin-600-normal.woff2) format('woff2')}@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/ibm-plex-mono-latin-400-normal.woff2) format('woff2')}@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/ibm-plex-mono-latin-500-normal.woff2) format('woff2')}</style>
+</head>
+<body>
+
 <style>
 /* Layout: an appraisal dossier. Fixed index column on the left, one reading column on the right; registers instead of cards. */
 :root{
@@ -600,9 +605,6 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
   tr.d td{padding-left:0}
 }
 </style>
-</head>
-<body>
-
 
 <a class="skip" href="#main">Skip to content</a>
 <div class="wrap">
@@ -1012,7 +1014,7 @@ $('#gpanels').innerHTML=`<div class="gsnav"><div class="gpills" role="tablist" a
 <div class="gtrack" id="gtrack">${GS.map((g,i)=>`<section class="gslide" id="gps${i}" role="tabpanel" aria-labelledby="gpt${i}"><header>${ico(g.h)}<div><b>${esc(g.h)}</b><small>${g.kind==='Working group'?'Working groups':'Boards and committees'} · ${g.a.length} ${g.a.length>1?'bodies':'body'}</small></div><span class="gcount num">${i+1} / ${GS.length}</span></header><ul>${g.a.join('')}</ul></section>`).join('')}</div>`;
 (()=>{const tr=$('#gtrack'),P=[...document.querySelectorAll('.gpills [role=tab]')],S=[...tr.children];let cur=0;
  const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
- const mark=i=>{cur=i;P.forEach((p,n)=>{p.setAttribute('aria-selected',n===i);p.tabIndex=n===i?0:-1});S.forEach((s,n)=>s.inert=n!==i);P[i].scrollIntoView({block:'nearest',inline:'nearest'})};
+ const mark=i=>{cur=i;P.forEach((p,n)=>{p.setAttribute('aria-selected',n===i);p.tabIndex=n===i?0:-1});S.forEach((s,n)=>s.inert=n!==i);(()=>{const c=P[i].parentElement,b=P[i];if(b.offsetLeft<c.scrollLeft||b.offsetLeft+b.offsetWidth>c.scrollLeft+c.clientWidth)c.scrollLeft=b.offsetLeft-8})()};
  const go=(i,f)=>{i=(i+S.length)%S.length;tr.scrollTo({left:S[i].offsetLeft-tr.offsetLeft,behavior:rm?'auto':'smooth'});mark(i);if(f)P[i].focus()};
  P.forEach((p,i)=>{p.addEventListener('click',()=>go(i));p.addEventListener('keydown',e=>{const n={ArrowRight:i+1,ArrowLeft:i-1,Home:0,End:P.length-1}[e.key];if(n===undefined)return;e.preventDefault();go(n,true)})});
  $('.gprev').onclick=()=>go(cur-1);$('.gnext').onclick=()=>go(cur+1);
@@ -1046,7 +1048,7 @@ const rep=$('#rep');
 function openRep(k,from){const r=REP[k]||INFO[k];rep.classList.toggle('single',r.tabs.length<2);rep._from=from;rep.querySelector('.meta').textContent=r.meta;rep.querySelector('h3').textContent=r.title;
  rep.querySelector('.rtabs').innerHTML=r.tabs.map((x,i)=>`${x[2]?`<div class="rgrp" role="presentation">${x[2]}</div>`:''}<button role="tab" type="button" id="rt${i}" aria-controls="rp" aria-selected="${i==0}" tabindex="${i?-1:0}">${esc(x[0])}</button>`).join('');
  rep._tabs=r.tabs;showRT(0);rep.showModal();document.body.style.overflow='hidden';rep.querySelector('[role=tab]').focus()}
-function showRT(i,f){const bs=[...rep.querySelectorAll('.rtabs [role=tab]')];bs.forEach((b,n)=>{b.setAttribute('aria-selected',n==i);b.tabIndex=n==i?0:-1});const p=$('#rp');p.innerHTML=rep._tabs[i][1];p.setAttribute('aria-labelledby','rt'+i);p.scrollTop=0;bs[i].scrollIntoView({block:'nearest',inline:'nearest'});if(f)bs[i].focus()}
+function showRT(i,f){const bs=[...rep.querySelectorAll('.rtabs [role=tab]')];bs.forEach((b,n)=>{b.setAttribute('aria-selected',n==i);b.tabIndex=n==i?0:-1});const p=$('#rp');p.innerHTML=rep._tabs[i][1];p.setAttribute('aria-labelledby','rt'+i);p.scrollTop=0;(()=>{const c=bs[i].parentElement,x=bs[i];if(c.scrollWidth>c.clientWidth)c.scrollLeft=x.offsetLeft-16;else if(c.scrollHeight>c.clientHeight)c.scrollTop=x.offsetTop-16})();if(f)bs[i].focus()}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-rep]');if(b)openRep(b.dataset.rep,b)});
 rep.querySelector('.rtabs').addEventListener('click',e=>{const b=e.target.closest('[role=tab]');if(b)showRT(+b.id.slice(2))});
 rep.querySelector('.rtabs').addEventListener('keydown',e=>{const bs=[...rep.querySelectorAll('.rtabs [role=tab]')],c=bs.indexOf(document.activeElement);let n={ArrowRight:c+1,ArrowLeft:c-1,ArrowDown:c+1,ArrowUp:c-1,Home:0,End:bs.length-1}[e.key];if(n===undefined)return;e.preventDefault();showRT((n+bs.length)%bs.length,true)});
@@ -1097,11 +1099,15 @@ const _pp0=window.preparePrint;window.preparePrint=()=>{_pp0&&_pp0();if($('#glos
 let navT=null;const navStop=()=>{navT=null};['wheel','touchstart','keydown','mousedown'].forEach(ev=>addEventListener(ev,e=>{if(ev==='mousedown'&&e.target.closest('a[href^="#"]'))return;navStop()},{passive:true}));
 const navFix=()=>{if(!navT||performance.now()>navT.until)return navStop();const pad=matchMedia('(max-width:960px)').matches?64:24;const d=Math.round(navT.el.getBoundingClientRect().top)-pad;if(Math.abs(d)>2)scrollTo({top:Math.round(scrollY+d),behavior:'auto'})};
 new ResizeObserver(navFix).observe(document.body);
-window.goTo=(el,focus)=>{if(!el)return;navT={el,until:performance.now()+6000};navFix();[100,300,700,1500,3000,5000].forEach(t=>setTimeout(navFix,t));if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{navFix();setTimeout(navFix,100)});
+window.goTo=(el,focus)=>{if(!el)return;navT={el,until:Infinity};navFix();[100,300,700,1500,3000,5000].forEach(t=>setTimeout(navFix,t));if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{navFix();setTimeout(navFix,100)});
  if(focus){const h=el.querySelector('h2')||el;h.setAttribute('tabindex','-1');h.focus({preventScroll:true})}};
 document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a||a.getAttribute('href').length<2)return;const el=document.getElementById(a.getAttribute('href').slice(1));if(!el)return;
  e.preventDefault();history.replaceState(null,'','#'+el.id);goTo(el,true)});
 if(location.hash&&document.getElementById(location.hash.slice(1)))addEventListener('load',()=>goTo(document.getElementById(location.hash.slice(1))));
+
+/* always open at the top unless a section is linked */
+if('scrollRestoration' in history)history.scrollRestoration='manual';
+if(!location.hash){scrollTo(0,0);addEventListener('load',()=>{if(!location.hash&&scrollY<innerHeight)scrollTo(0,0)})}
 </script>
 
 </body>
