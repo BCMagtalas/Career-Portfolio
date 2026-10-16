@@ -616,7 +616,7 @@ main>section{min-height:calc(100vh - 24px);min-height:calc(100svh - 24px)}
 .bars .bv small{font-weight:400;font-size:12.5px}
 .rnote2{margin:6px 0 8px!important}
 @media (max-width:640px){.bars .bar{grid-template-columns:minmax(0,1fr) auto}}
-.tnote.nw{white-space:nowrap;display:inline-block}#talegend{margin-top:12px}.sbars .bar{cursor:default}.sbars .bv{white-space:nowrap}.sbars .bar:hover{background:none}
+.tnote.nw{white-space:nowrap;display:inline-block}#talegend{margin-top:12px}#cbody .atag{display:table;margin:6px 0 0}.sbars .bar{cursor:default}.sbars .bv{white-space:nowrap}.sbars .bar:hover{background:none}
 @media print{#tafig{display:none!important}}
 .dh{display:flex;justify-content:space-between;align-items:baseline;gap:4px 16px;flex-wrap:wrap}
 .dh .doc{margin:0!important;white-space:nowrap}
@@ -827,7 +827,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
       <p class="muted" style="font-size:14px;margin-top:14px">Costs are each program’s total approved amount. Most technical assistance projects are regional, so the amount covers all participating countries, not only the Philippines.</p>
       </div>
       <div class="pane" id="pane-consulting" role="tabpanel" aria-labelledby="tab-consulting" hidden>
-      <p class="muted">Feasibility studies, master plans, and investment plans for sustainable infrastructure and renewable energy, facilitated or evaluated. <span class="tnote nw">Select a row for details.</span></p>
+      <p class="muted">Evaluated the technical and financial proposals for all 12 studies, from procurement through contract negotiation. For two studies, also administered the consulting contract and evaluated the consultants’ outputs. <span class="tnote nw">Select a row for details.</span></p>
       <p class="ptot" id="ctot"></p><div class="split" id="csplit"></div><div class="legend" id="clegend"></div>
       <div class="tablebox"><table>
         <thead><tr><th>No.</th><th>Study</th><th class="hide-sm">Location</th><th class="r">USD M</th></tr></thead>
@@ -1058,6 +1058,7 @@ progTable('tbody',D.ta);progTable('lbody2',D.loans);
  const g=n=>D.consult.filter(c=>n.includes(String(c.no)));
  const FS=g(['1','2','8']),MP=g(['3','4','5','6','7','12']),DP=g(['9','10','11']);
  sum(['#ctot','#csplit','#clegend'],[['Master plans',S(MP),MP.length],['Development plans',S(DP),DP.length],['Feasibility studies',S(FS),FS.length]],['study','studies']);
+ $('#ctot').insertAdjacentHTML('beforeend',' · 2 administered through completion');
 })();
 /* career timeline */
 (()=>{const S=new Date(2015,11,1),E=new Date(2026,9,16),span=E-S,pc=d=>((d-S)/span*100).toFixed(2);
@@ -1161,7 +1162,8 @@ $('#gpanels').innerHTML=`<div class="gsnav"><div class="gpills" role="tablist" a
  mark(0)})();
 
 /* consulting */
-$('#cbody').innerHTML=D.consult.map(c=>`<tr class="p"><td class="n">${c.no}</td><td class="t"><button class="rowbtn" type="button" aria-expanded="false">${esc(c.title)}</button></td><td class="hide-sm">${esc(c.loc)}</td><td class="r num">${fmt(c.cost)}</td></tr><tr class="d" hidden><td colspan="4">${c.shared?'<p>One of the sustainable urban infrastructure master plans (see No. 3).</p>':'<p>'+c.desc+'</p>'}<p class="show-sm"><b>Location:</b> ${esc(c.loc)}</p></td></tr>`).join('');
+const ADM=['2','5'];
+$('#cbody').innerHTML=D.consult.map(c=>`<tr class="p"><td class="n">${c.no}</td><td class="t"><button class="rowbtn" type="button" aria-expanded="false">${esc(c.title)}</button>${ADM.includes(String(c.no))?'<span class="rtag atag">Contract administered</span>':''}</td><td class="hide-sm">${esc(c.loc)}</td><td class="r num">${fmt(c.cost)}</td></tr><tr class="d" hidden><td colspan="4">${c.shared?'<p>One of the sustainable urban infrastructure master plans (see No. 3).</p>':'<p>'+c.desc+'</p>'}<p class="show-sm"><b>Location:</b> ${esc(c.loc)}</p></td></tr>`).join('');
 $('#cbody').addEventListener('click',e=>{const r=e.target.closest('tr.p');if(!r)return;const d=r.nextElementSibling;d.hidden=!d.hidden;r.classList.toggle('open',!d.hidden);(r.querySelector('.rowbtn')||r).setAttribute('aria-expanded',!d.hidden)});
 $('#cbody').addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('tr.p')){e.preventDefault();e.target.click()}});
 
