@@ -593,6 +593,40 @@ dl.gl dd{padding:6px 0;border-top:1px solid var(--rule);margin:0}
 .ecar details.evx>summary{font-size:13.5px;font-weight:600;padding:4px 0;cursor:pointer;color:var(--accent)}
 .ecar .events{font-size:14px}
 }
+@media screen{
+main>section{min-height:calc(100vh - 24px);min-height:calc(100svh - 24px)}
+@media (max-width:960px){main>section{min-height:calc(100svh - 64px)}}
+}
+#field .fieldbox{margin:0;padding:0;border:0}
+.org{padding:13px 0 14px}.ometa{margin:2px 0 6px}.odesc{margin:0 0 8px}.roles li{padding:4px 0 4px 22px}.roles li::before{top:11px}.osee{margin-top:6px}
+@media screen{.ecar .adv p.cl{-webkit-line-clamp:4}.ecar .adv .ecmore{margin-top:auto;padding-top:8px}.ecar .adv p.cl+.ecmore,.ecar .adv p+.ecmore{margin-top:6px}.ecar .adv>li>div>:last-child{margin-bottom:0}}
+@media screen and (min-width:961px){.edu{gap:14px}.deg{padding:18px 24px}}
+.cwl{margin:0;font-size:14px;line-height:1.55;color:var(--ink);max-width:none}
+.legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 24px;margin:10px 0 8px;color:var(--ink)}
+.legend>span.lg::before{content:none}
+.legend .lg{display:flex;flex-direction:column;justify-content:flex-end;padding-left:12px;border-left:4px solid var(--c)}
+.legend .lk{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.legend .lg b{font-size:21px;font-weight:600;line-height:1.25;color:var(--ink);font-family:var(--body);font-variant-numeric:tabular-nums}
+.legend .lg small{font-size:12.5px;color:var(--muted)}.legend .nw{white-space:nowrap}
+@media (max-width:520px){.legend .lg b{font-size:17px}.legend{gap:8px 12px}.legend .lg{padding-left:8px}}
+.ptot{margin:14px 0 0;font-size:15px;color:var(--muted)}.ptot b{color:var(--ink);font-weight:600;font-size:17px;font-variant-numeric:tabular-nums}
+.ptot+.split{margin-top:8px}
+.bars .bar{grid-template-columns:150px minmax(0,1fr) 190px;padding:3px 6px}
+.bars .bv{font-variant-numeric:tabular-nums;font-size:14.5px;font-weight:500}
+.bars .bv small{font-weight:400;font-size:12.5px}
+.rnote2{margin:6px 0 8px!important}
+@media (max-width:640px){.bars .bar{grid-template-columns:minmax(0,1fr) auto}}
+.tnote.nw{white-space:nowrap;display:inline-block}#talegend{margin-top:12px}.sbars .bar{cursor:default}.sbars .bv{white-space:nowrap}.sbars .bar:hover{background:none}
+@media print{#tafig{display:none!important}}
+.dh{display:flex;justify-content:space-between;align-items:baseline;gap:4px 16px;flex-wrap:wrap}
+.dh .doc{margin:0!important;white-space:nowrap}
+@media (min-width:641px){
+.deg .schol,.deg .thesis,.deg .cw{display:grid!important;grid-template-columns:104px minmax(0,1fr);column-gap:14px;align-items:baseline;margin:10px 0 0!important}
+.deg .schol span,.deg .thesis .lbl,.deg .cw .lbl{margin:0}
+.deg .thesis .lbl{grid-row:span 2}
+.deg .thesis a,.deg .thesis p{grid-column:2}
+.deg .when{margin-bottom:4px!important}
+}
 /* thesis */
 .hyp td:last-child{white-space:nowrap}
 .paths{display:grid;gap:12px;margin:12px 0 0}
@@ -675,9 +709,10 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
       <li><a href="#policy"><span>Policy and governance</span><span>63</span></a></li>
       <li><a href="#analytics"><span>Analytics</span><span>3</span></a></li>
       <li><a href="#engagements"><span>Engagements</span><span>8</span></a></li>
-      <li class="subnav"><a href="#field"><span>Field missions</span><span>2</span></a></li>
+      <li><a href="#field"><span>Field missions</span><span>2</span></a></li>
       <li><a href="#methods"><span>Methods and tools</span><span></span></a></li>
-      <li><a href="#education"><span>Education and credentials</span><span>8</span></a></li>
+      <li><a href="#education"><span>Education</span><span>2</span></a></li>
+      <li><a href="#credentials"><span>License and certifications</span><span>6</span></a></li>
     </ul></nav>
   </aside>
 
@@ -691,9 +726,8 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
         <div><b>48</b><span>bills, laws, and policies reviewed</span></div>
         <div><b>8</b><span>national boards and committees advised</span></div>
       </div>
-      <div class="strip"><button data-lb="sipa_ait" data-group="strip" aria-label="Enlarge: SIPA Southeast Asia training seminar, Asian Institute of Technology, 2025"><img src="assets/img/sipa_ait_c.jpg" alt="SIPA Southeast Asia training seminar, Asian Institute of Technology, 2025" loading="lazy"><span>Resource person, SIPA seminar, AIT</span></button><button data-lb="img02" data-group="strip" aria-label="Enlarge: Briefing with the Asian Development Bank and the University of Tokyo"><img src="assets/img/img02_c.jpg" alt="Briefing with the Asian Development Bank and the University of Tokyo" loading="lazy"><span>Briefing with ADB and the University of Tokyo</span></button><button data-lb="img01" data-group="strip" aria-label="Enlarge: Ease of Doing Business Forum 2024"><img src="assets/img/img01_c.jpg" alt="Ease of Doing Business Forum 2024" loading="lazy"><span>Panel discussant, Ease of Doing Business Forum 2024</span></button><button data-lb="img20" data-group="strip" aria-label="Enlarge: Solar home system in an off-grid village, Negros Island Region, 2016"><img src="assets/img/img20_t.jpg" alt="Solar home system in an off-grid village, Negros Island Region, 2016" loading="lazy"><span>Field mission, Negros Island Region</span></button></div>
       <p>Bernie Calderon Magtalas is an infrastructure economist and licensed electrical engineer. He is a Supervising Economic Development Specialist in the Infrastructure Staff of the Department of Economy, Planning, and Development (DEPDev) Investment Programming Group, where he leads project appraisal, planning, and policy formulation across the energy, transportation, and wider public infrastructure sectors.</p>
-<p>He began his career at the Department of Energy (DOE) in December 2015, administering renewable energy and rural electrification programs in remote, off-grid, and conflict-affected areas, and joined the National Economic and Development Authority (NEDA, now DEPDev) in September 2016.</p>
+<p>He began his career at the Department of Energy (DOE) in December 2015, supporting renewable energy and rural electrification programs in remote, off-grid, and conflict-affected areas, and joined the National Economic and Development Authority (NEDA, now DEPDev) in September 2016.</p>
     </section>
 
     <section id="selected">
@@ -739,7 +773,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
     <section id="portfolio">
       <p class="kicker">Appraisal and evaluation</p>
       <h2>Appraisal portfolio</h2>
-      <p class="muted">Appraisal covered financial and economic models; market, technical, social, environmental, and institutional analyses; gender responsiveness; and, for public-private partnerships (PPP), review of concession agreements, risk allocation, and prequalification. <span class="tnote">Select a row for details.</span></p>
+      <p class="muted">Appraisal covered financial and economic models; market, technical, social, environmental, and institutional analyses; gender responsiveness; and, for public-private partnerships (PPP), review of concession agreements, risk allocation, and prequalification.</p>
       <div class="ptabs" role="tablist" aria-label="Appraisal portfolio">
         <button role="tab" id="tab-projects" aria-controls="pane-projects" aria-selected="true">Projects <span class="num">34</span></button>
         <button role="tab" id="tab-ta" aria-controls="pane-ta" aria-selected="false" tabindex="-1">Technical assistance and programs <span class="num">15</span></button>
@@ -747,9 +781,10 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
       </div>
       <div class="pane" id="pane-projects" role="tabpanel" aria-labelledby="tab-projects">
       <noscript><p class="muted">The interactive tables need JavaScript. The full list is in the <a href="assets/cv/MAGTALAS_Bernie_Calderon_CV.pdf">CV (PDF)</a>.</p></noscript>
+      <p class="ptot" id="ptot"></p>
       <div class="split" id="split"></div>
       <div class="legend" id="legend"></div>
-      <figure class="bars" id="secfig"><figcaption>Value by sub-sector in USD million, with the number of projects. Select a bar to filter the table.</figcaption><div id="secbars"></div></figure>
+      <figure class="bars" id="secfig"><figcaption>Value by sub-sector in USD million, with the number of projects. Select a bar to filter the table, and a row for details.</figcaption><div id="secbars"></div></figure>
       <div class="controls">
         <input id="q" type="search" placeholder="Search projects" aria-label="Search projects">
         <select id="fSec" aria-label="Sub-sector"></select>
@@ -766,7 +801,9 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
       <button class="more" type="button" id="pmore" hidden></button>
       </div>
       <div class="pane" id="pane-ta" role="tabpanel" aria-labelledby="tab-ta" hidden>
-      <p class="muted">Technical assistance (TA), grants, and policy-based loans reviewed for NEDA (now the Department of Economy, Planning, and Development, DEPDev), in response to development partners' requests for no-objection, comments, and endorsement.</p>
+      <p class="muted">Technical assistance (TA), grants, and policy-based loans reviewed for NEDA (now the Department of Economy, Planning, and Development, DEPDev), in response to development partners' requests for no-objection, comments, and endorsement. <span class="tnote nw">Select a row for details.</span></p>
+      <p class="ptot" id="tatot"></p><div class="legend" id="talegend"></div>
+      <figure class="bars sbars" id="tafig"><figcaption>Number of programs by sector, with their combined value in USD million. Amounts are each program’s total approved amount, including other participating countries for regional programs.</figcaption><div id="tabars"></div></figure>
       <div class="sub">
         <h3>Technical assistance and grants</h3>
         <div class="tablebox">
@@ -790,7 +827,8 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
       <p class="muted" style="font-size:14px;margin-top:14px">Costs are each program’s total approved amount. Most technical assistance projects are regional, so the amount covers all participating countries, not only the Philippines.</p>
       </div>
       <div class="pane" id="pane-consulting" role="tabpanel" aria-labelledby="tab-consulting" hidden>
-      <p class="muted">Feasibility studies, master plans, and investment plans for sustainable infrastructure and renewable energy, facilitated or evaluated.</p>
+      <p class="muted">Feasibility studies, master plans, and investment plans for sustainable infrastructure and renewable energy, facilitated or evaluated. <span class="tnote nw">Select a row for details.</span></p>
+      <p class="ptot" id="ctot"></p><div class="split" id="csplit"></div><div class="legend" id="clegend"></div>
       <div class="tablebox"><table>
         <thead><tr><th>No.</th><th>Study</th><th class="hide-sm">Location</th><th class="r">USD M</th></tr></thead>
         <tbody id="cbody"></tbody>
@@ -829,20 +867,24 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
 
     <section id="engagements">
       <p class="kicker">Engagements</p>
-      <h2>Knowledge networks, forums, and field work</h2>
+      <h2>Knowledge networks and forums</h2>
       <div class="ecar" role="region" aria-label="Engagements, scroll sideways">
       <div class="ecbar"><span class="eccount muted" aria-live="polite"></span><span class="ecbtns"><button type="button" class="ecb ecprev" aria-label="Previous engagement">‹</button><button type="button" class="ecb ecnext" aria-label="Next engagement">›</button></span></div>
       <ul class="adv">
         <li><button data-lb="sipa_apfsd" aria-label="Enlarge: SIPA session at the 13th Asia-Pacific Forum on Sustainable Development, Bangkok"><img src="assets/img/sipa_apfsd_c.jpg" alt="SIPA session at the 13th Asia-Pacific Forum on Sustainable Development, Bangkok" loading="lazy"></button><div><div class="role">Panelist · 26 February 2026, Bangkok</div><h3>SIPA Regional Knowledge Network: session at the 13th Asia-Pacific Forum on Sustainable Development</h3><p><em>Sustainable Infrastructure, Resilient Links: Energy, Transport and Industry in Asia’s Low-Carbon Future.</em> Part of a series of knowledge-sharing activities on sustainable infrastructure run by the Asian Institute of Technology, the United Nations Development Programme, and the OECD under the <a href="https://www.international-climate-initiative.com/en/project/orientation-of-infrastructure-investments-on-the-goals-of-the-paris-agreement-and-the-2030-agenda-in-central-and-southeast-asia-sipa-21-i-405-asia-m-infra-asia/" target="_blank" rel="noopener noreferrer">Sustainable Infrastructure Programme in Asia (SIPA)</a>, funded by Germany’s International Climate Initiative. The session stressed embedding sustainability in infrastructure planning and early-stage appraisal. <a href="https://www.linkedin.com/feed/update/urn:li:activity:7447184777952219137/" target="_blank" rel="noopener noreferrer">OECD Environment post on the event ↗</a></p></div></li>
-        <li><button data-lb="sipa_ait" aria-label="Enlarge: Participants and resource persons of the first SIPA Southeast Asia training seminar at the Asian Institute of Technology"><img src="assets/img/sipa_ait_t.jpg" alt="Participants and resource persons of the first SIPA Southeast Asia training seminar at the Asian Institute of Technology" loading="lazy"></button><div><div class="role">Resource person and participant · Asian Institute of Technology, Thailand · 2025–2026</div><h3>SIPA Regional Knowledge Network: Southeast Asia Training Seminars on Sustainable Infrastructure Development</h3><p>A regional network of knowledge institutions on sustainable infrastructure connecting policymakers, practitioners, and experts in Indonesia, the Philippines, and Thailand. It is run by the Asian Institute of Technology, the United Nations Development Programme, and the OECD under the <a href="https://ait.ac.th/project/sustainable-infrastructure-programme-in-asia/" target="_blank" rel="noopener noreferrer">Sustainable Infrastructure Programme in Asia (SIPA)</a>.</p><details class="plain evx"><summary>3 training seminars and 9 webinars</summary><ul class="events"><li><b>First SIPA Southeast Asia Training Seminar on Sustainable Infrastructure Development</b><span>In person, AIT · 28 April–2 May 2025 · <button class="linkbtn" data-lb="sipa_cert1">Certificate</button></span></li><li><b>Second SIPA Southeast Asia Training Seminar on Sustainable Infrastructure Development</b><span>In person, AIT · 28 July–1 August 2025 · <button class="linkbtn" data-lb="sipa_cert2">Certificate</button></span></li><li><b>Third SIPA Southeast Asia Training Seminar on Sustainable Infrastructure Development</b><span>In person, AIT · 22–26 February 2026 · <button class="linkbtn" data-lb="sipa_cert3">Certificate</button></span></li><li><b>SIPA webinar series (9 sessions, online)</b><span>June 2025–March 2026 · financial and economic evaluation, risk and uncertainty, ecosystem services, pricing, economy-wide impacts, governance, and integrated frameworks</span><details class="plain web"><summary>See all webinars</summary><div class="in"><ol><li>Financial Evaluation of Infrastructure Projects <span class="muted" style="white-space:nowrap">· 24 June 2025</span></li><li>Economic Evaluation of Infrastructure Projects: Foundations for Integrating Social and Environmental Considerations <span class="muted" style="white-space:nowrap">· 8 July 2025</span></li><li>Economic Evaluation of Infrastructure Projects: Approaches, Tools and Methods <span class="muted" style="white-space:nowrap">· 22 July 2025</span></li><li>Planning Under Risk and Uncertainty: Scenario-Based Simulation for Infrastructure Viability <span class="muted" style="white-space:nowrap">· 29 October 2025</span></li><li>Capturing the Full Value in Infrastructure Evaluation: Integrating Ecosystem Services, Social Well-Being, and Equity <span class="muted" style="white-space:nowrap">· 19 November 2025</span></li><li>Pricing Infrastructure for Efficiency, Equity, and Sustainability <span class="muted" style="white-space:nowrap">· 10 December 2025</span></li><li>Measuring the Ripple Effects of Infrastructure Development <span class="muted" style="white-space:nowrap">· 16 January 2026</span></li><li>Institutions Matter: Strengthening Energy Governance and Policy to Close Infrastructure Finance Gap <span class="muted" style="white-space:nowrap">· 18 February 2026</span></li><li>Integrated Framework for Sustainable Infrastructure Development <span class="muted" style="white-space:nowrap">· 31 March 2026</span></li></ol></div></details></li></ul></details></div></li>
-        <li><button data-lb="img01" aria-label="Enlarge: Ease of Doing Business Forum 2024"><img src="assets/img/img01_t.jpg" alt="Ease of Doing Business Forum 2024" loading="lazy"></button><div><div class="role">Panel discussant · 2024</div><h3>Ease of Doing Business Forum 2024</h3><p>Executive Order No. 59: Streamlining the Permitting Process for Infrastructure Flagship Projects.</p></div></li>
+        <li><button data-lb="sipa_ait" aria-label="Enlarge: Participants and resource persons of the first SIPA Southeast Asia training seminar at the Asian Institute of Technology"><img src="assets/img/sipa_ait_c.jpg" alt="Participants and resource persons of the first SIPA Southeast Asia training seminar at the Asian Institute of Technology" loading="lazy"></button><div><div class="role">Resource person and participant · Asian Institute of Technology, Thailand · 2025–2026</div><h3>SIPA Regional Knowledge Network: Southeast Asia Training Seminars on Sustainable Infrastructure Development</h3><p>A regional network of knowledge institutions on sustainable infrastructure connecting policymakers, practitioners, and experts in Indonesia, the Philippines, and Thailand. It is run by the Asian Institute of Technology, the United Nations Development Programme, and the OECD under the <a href="https://ait.ac.th/project/sustainable-infrastructure-programme-in-asia/" target="_blank" rel="noopener noreferrer">Sustainable Infrastructure Programme in Asia (SIPA)</a>.</p><details class="plain evx"><summary>3 training seminars and 9 webinars</summary><ul class="events"><li><b>First SIPA Southeast Asia Training Seminar on Sustainable Infrastructure Development</b><span>In person, AIT · 28 April–2 May 2025 · <button class="linkbtn" data-lb="sipa_cert1">Certificate</button></span></li><li><b>Second SIPA Southeast Asia Training Seminar on Sustainable Infrastructure Development</b><span>In person, AIT · 28 July–1 August 2025 · <button class="linkbtn" data-lb="sipa_cert2">Certificate</button></span></li><li><b>Third SIPA Southeast Asia Training Seminar on Sustainable Infrastructure Development</b><span>In person, AIT · 22–26 February 2026 · <button class="linkbtn" data-lb="sipa_cert3">Certificate</button></span></li><li><b>SIPA webinar series (9 sessions, online)</b><span>June 2025–March 2026 · financial and economic evaluation, risk and uncertainty, ecosystem services, pricing, economy-wide impacts, governance, and integrated frameworks</span><details class="plain web"><summary>See all webinars</summary><div class="in"><ol><li>Financial Evaluation of Infrastructure Projects <span class="muted" style="white-space:nowrap">· 24 June 2025</span></li><li>Economic Evaluation of Infrastructure Projects: Foundations for Integrating Social and Environmental Considerations <span class="muted" style="white-space:nowrap">· 8 July 2025</span></li><li>Economic Evaluation of Infrastructure Projects: Approaches, Tools and Methods <span class="muted" style="white-space:nowrap">· 22 July 2025</span></li><li>Planning Under Risk and Uncertainty: Scenario-Based Simulation for Infrastructure Viability <span class="muted" style="white-space:nowrap">· 29 October 2025</span></li><li>Capturing the Full Value in Infrastructure Evaluation: Integrating Ecosystem Services, Social Well-Being, and Equity <span class="muted" style="white-space:nowrap">· 19 November 2025</span></li><li>Pricing Infrastructure for Efficiency, Equity, and Sustainability <span class="muted" style="white-space:nowrap">· 10 December 2025</span></li><li>Measuring the Ripple Effects of Infrastructure Development <span class="muted" style="white-space:nowrap">· 16 January 2026</span></li><li>Institutions Matter: Strengthening Energy Governance and Policy to Close Infrastructure Finance Gap <span class="muted" style="white-space:nowrap">· 18 February 2026</span></li><li>Integrated Framework for Sustainable Infrastructure Development <span class="muted" style="white-space:nowrap">· 31 March 2026</span></li></ol></div></details></li></ul></details></div></li>
+        <li><button data-lb="img01" aria-label="Enlarge: Ease of Doing Business Forum 2024"><img src="assets/img/img01_c.jpg" alt="Ease of Doing Business Forum 2024" loading="lazy"></button><div><div class="role">Panel discussant · 2024</div><h3>Ease of Doing Business Forum 2024</h3><p>Executive Order No. 59: Streamlining the Permitting Process for Infrastructure Flagship Projects.</p></div></li>
         <li><button data-lb="img09" aria-label="Enlarge: World Energy Trilemma 2024 report cover"><img src="assets/img/img09_c.jpg" alt="World Energy Trilemma 2024 report cover" loading="lazy"></button><div><div class="role">Future Energy Leader (FEL-100) · 2023–2024</div><h3>World Energy Council</h3><p>Nominated with the support of the Japan Energy Association and selected as a Future Energy Leader at the 26th World Energy Congress, Rotterdam, 22–25 April 2024. Regional commentary contributor to the <a href="https://trilemma.worldenergy.org/reports/main/2023/World%20Energy%20Trilemma%20Index%202024.pdf" target="_blank" rel="noopener noreferrer">World Energy Trilemma 2024</a> report.</p></div></li>
-        <li><button data-lb="img02" aria-label="Enlarge: Briefing with the Asian Development Bank and the University of Tokyo"><img src="assets/img/img02_t.jpg" alt="Briefing with the Asian Development Bank and the University of Tokyo" loading="lazy"></button><div><div class="role">Panel discussant</div><h3>Socioeconomic Development Planning Advocacy</h3><p>Briefing on infrastructure development principles, policies, and processes with the Asian Development Bank and the University of Tokyo.</p></div></li>
+        <li><button data-lb="img02" aria-label="Enlarge: Briefing with the Asian Development Bank and the University of Tokyo"><img src="assets/img/img02_c.jpg" alt="Briefing with the Asian Development Bank and the University of Tokyo" loading="lazy"></button><div><div class="role">Panel discussant</div><h3>Socioeconomic Development Planning Advocacy</h3><p>Briefing on infrastructure development principles, policies, and processes with the Asian Development Bank and the University of Tokyo.</p></div></li>
         <li><button data-lb="img05" aria-label="Enlarge: Appointment letter, 2030 Youth Force in the Philippines"><img src="assets/img/img05_c.jpg" alt="Appointment letter, 2030 Youth Force in the Philippines" loading="lazy"></button><div><div class="role">Co-Deputy Head for Education and Research</div><h3>2030 Youth Force in the Philippines Inc.</h3><p>Youth organization working toward the Sustainable Development Goals at the grassroots.</p></div></li>
       </ul>
       </div>
-      <div class="fieldbox" id="field">
-        <h3 class="fieldhead">Field missions</h3>
+    </section>
+
+    <section id="field">
+      <p class="kicker">Field work</p>
+      <h2>Field missions</h2>
+      <div class="fieldbox">
         <p class="muted">2016 · Sustainability assessments of off-grid solar home system (SHS) programs with DOE, the National Electrification Administration (NEA), and the World Bank, ahead of the scaled-up Access to Sustainable Energy Programme (ASEP).</p>
         <div class="missions"><div class="mission" id="negros"></div><div class="mission" id="infanta"></div></div>
       </div>
@@ -886,32 +928,34 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
     </section>
 
     <section id="education">
-      <p class="kicker">Education and credentials</p>
+      <p class="kicker">Academic background</p>
       <h2>Education</h2>
       <div class="edu">
         <article class="deg">
           <div class="yrcol"><img class="ulogo" src="assets/img/waseda.png" alt="Waseda University logo" width="56" height="56"><div class="yr">2024</div></div>
           <div class="dbody">
-            <h3>Master of Arts in International Relations</h3>
+            <div class="dh"><h3>Master of Arts in International Relations</h3><button class="linkbtn doc" data-lb="waseda_tor">View transcript</button></div>
             <p class="inst">Waseda University, Graduate School of Asia-Pacific Studies · Tokyo, Japan</p>
             <p class="when"><span class="nw">September 2022 to September 2024</span><span class="sep"> · </span><span class="nw">Specialization in Economic Development and Policy in Asia</span></p>
-            <p class="schol"><span>Scholarship</span>Fully funded JICA Sustainable Development Goals (SDGs) Global Leader Program</p>
+            <div class="schol"><span>Scholarship</span><div class="sv">Fully funded JICA Sustainable Development Goals (SDGs) Global Leader Program</div></div>
             <div class="thesis"><span class="lbl">Thesis</span><a href="https://bcmagtalas.github.io/energy-transition-thesis/" target="_blank" rel="noopener noreferrer">Charting the Path to Net Zero ↗</a><p>Confirmatory factor analysis and structural equation models in R across 27 variables and 120 countries, measuring how political, economic, and environmental factors shape the global energy transition.</p></div>
-            <div class="cw"><span class="lbl">Coursework</span><ul class="tags"><li>Analysis of Quantitative Data I and II</li><li>Multivariate Statistics</li><li>Data Science for Management</li><li>Environmental Economics and Environmental Policy</li><li>Sustainable Development and International Development Cooperation</li></ul></div>
-            <button class="linkbtn doc" data-lb="waseda_tor">View transcript</button>
+            <div class="cw"><span class="lbl">Coursework</span><p class="cwl">Analysis of Quantitative Data I and II · Multivariate Statistics · Data Science for Management · Environmental Economics and Environmental Policy · Sustainable Development and International Development Cooperation</p></div>
           </div>
         </article>
         <article class="deg">
           <div class="yrcol"><img class="ulogo" src="assets/img/uplb.png" alt="University of the Philippines Los Baños seal" width="56" height="56"><div class="yr">2014</div></div>
           <div class="dbody">
-            <h3>Bachelor of Science in Electrical Engineering</h3>
+            <div class="dh"><h3>Bachelor of Science in Electrical Engineering</h3><button class="linkbtn doc" data-lb="diploma">View diploma</button></div>
             <p class="inst">University of the Philippines Los Baños, College of Engineering and Agro-Industrial Technology · Laguna, Philippines</p>
             <p class="when"><span class="nw">May 2008 to August 2014</span><span class="sep"> · </span><span class="nw">Major in Power Engineering</span></p>
-            <button class="linkbtn doc" data-lb="diploma">View diploma</button>
           </div>
         </article>
       </div>
-      <h3 class="credh">License and certifications <span class="muted num">6</span></h3>
+    </section>
+
+    <section id="credentials">
+      <p class="kicker">Credentials</p>
+      <h2>License and certifications</h2>
       <div class="creds2">
         <button class="cred" data-group="creds" data-lb="prc"><span class="ct">License</span><b>Registered Electrical Engineer</b><small>Professional Regulation Commission, Philippines · April 2015</small><span class="cv">View certificate</span></button>
         <button class="cred" data-group="creds" data-lb="img26"><span class="ct">Certification</span><b>Certified PPP Professional (CP3P), Foundation</b><small>APMG International · January 2021</small><span class="cv">View certificate</span></button>
@@ -945,15 +989,16 @@ D.projects.forEach(p=>p.cat=cat(p.fin));
 const tot=D.projects.reduce((a,p)=>a+p.cost,0);
 const cols={'PPP':'var(--accent)','Local funds':'var(--bar2)','ODA':'var(--bar3)'};
 const byCat=Object.keys(cols).map(k=>[k,D.projects.filter(p=>p.cat===k).reduce((a,p)=>a+p.cost,0)]);
+$('#ptot').innerHTML=`<b>USD ${fmt(tot)} million</b> across ${D.projects.length} projects`;
 $('#split').innerHTML=byCat.map(([k,v])=>`<i style="width:${v/tot*100}%;background:${cols[k]}" title="${k}"></i>`).join('');
-$('#legend').innerHTML=byCat.map(([k,v])=>`<span style="--c:${cols[k]}">${k} <span class="num">${fmt(v)}</span></span>`).join('');
+$('#legend').innerHTML=byCat.map(([k,v])=>{const n=D.projects.filter(p=>p.cat===k).length;return `<span class="lg" style="--c:${cols[k]}"><span class="lk">${k}</span><b class="num">${fmt(v)}</b><small><span class="nw">USD million ·</span> <span class="nw">${Math.round(v/tot*100)}% ·</span> <span class="nw">${n} project${n>1?'s':''}</span></small></span>`}).join('');
 const secs=[...new Set(D.projects.map(p=>p.sector))].sort();
 $('#fSec').innerHTML='<option value="">All sub-sectors</option>'+secs.map(s=>`<option>${esc(s)}</option>`).join('');
 $('#fFin').innerHTML='<option value="">All financing</option>'+Object.keys(cols).map(s=>`<option>${s}</option>`).join('');
 let pall=false;
 const bySec=secs.map(s=>[s,D.projects.filter(p=>p.sector===s)]).map(([s,a])=>[s,a.reduce((x,p)=>x+p.cost,0),a.length]).sort((a,b)=>b[1]-a[1]);
 const smax=bySec[0][1];
-$('#secbars').innerHTML=bySec.map(([s,v,n])=>`<button type="button" class="bar" data-s="${esc(s)}" aria-pressed="false" title="${esc(s)}: USD ${fmt(v)} million, ${n} project${n>1?'s':''}"><span class="bl">${esc(s)}</span><span class="bt"><i style="--w:${(v/smax*100).toFixed(2)}%"></i></span><span class="bv num">${fmt(v)}<small> · ${n}</small></span></button>`).join('');
+$('#secbars').innerHTML=bySec.map(([s,v,n])=>`<button type="button" class="bar" data-s="${esc(s)}" aria-pressed="false" title="${esc(s)}: USD ${fmt(v)} million, ${n} project${n>1?'s':''}"><span class="bl">${esc(s)}</span><span class="bt"><i style="--w:${(v/smax*100).toFixed(2)}%"></i></span><span class="bv">${fmt(v)}<small> · ${n} project${n>1?'s':''}</small></span></button>`).join('');
 $('#secbars').addEventListener('click',e=>{const b=e.target.closest('.bar');if(!b)return;$('#fSec').value=$('#fSec').value===b.dataset.s?'':b.dataset.s;renderP();$('#pbody').closest('.tablebox').scrollIntoView({block:'nearest',behavior:'smooth'})});
 $('#pmore').addEventListener('click',()=>{pall=!pall;renderP();if(!pall)goTo($('#portfolio'))});
 function renderP(){
@@ -997,6 +1042,22 @@ progTable('tbody',D.ta);progTable('lbody2',D.loans);
  const clamp=()=>L.forEach(li=>{const p=li.querySelector(':scope>div>p');if(!p||p.dataset.c)return;p.classList.add('cl');if(p.scrollHeight>p.clientHeight+2){p.dataset.c=1;const b=document.createElement('button');b.type='button';b.className='ecmore';b.textContent='Read more';b.setAttribute('aria-expanded','false');b.onclick=()=>{const o=p.classList.toggle('cl');b.textContent=o?'Read more':'Show less';b.setAttribute('aria-expanded',!o)};p.after(b)}else p.classList.remove('cl')});
  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(()=>{clamp();upd()});upd();
  addEventListener('beforeprint',()=>{document.querySelectorAll('details.evx').forEach(d=>d.open=true)});addEventListener('beforeprint',()=>L.forEach(li=>li.querySelector('p.cl')?.classList.remove('cl')));
+})();
+
+/* summaries for TA and consulting tabs */
+(()=>{const C=['var(--accent)','var(--bar2)','var(--bar3)'];
+ const sum=(ids,cats,noun)=>{const T=cats.reduce((a,c)=>a+c[1],0),N=cats.reduce((a,c)=>a+c[2],0);
+  $(ids[0]).innerHTML=`<b>USD ${fmt(T)} million</b> across ${N} ${noun[1]}`;
+  if($(ids[1]))$(ids[1]).innerHTML=cats.map((c,i)=>`<i style="width:${c[1]/T*100}%;background:${C[i]}" title="${c[0]}"></i>`).join('');
+  const L=$(ids[2]);L.style.gridTemplateColumns=`repeat(${cats.length},minmax(0,1fr))`;
+  L.innerHTML=cats.map((c,i)=>{const p=c[1]/T*100;return `<span class="lg" style="--c:${C[i]}"><span class="lk">${c[0]}</span><b class="num">${fmt(c[1])}</b><small><span class="nw">USD million ·</span> <span class="nw">${p<1?'<1':Math.round(p)}% ·</span> <span class="nw">${c[2]} ${c[2]>1?noun[1]:noun[0]}</span></small></span>`}).join('')};
+ const S=a=>a.reduce((x,y)=>x+(+y.cost),0);
+ sum(['#tatot','#tasplit','#talegend'],[['Programs and policy-based loans',S(D.loans),D.loans.length],['Technical assistance and grants',S(D.ta),D.ta.length]],['program','programs']);
+ const all=[...D.ta,...D.loans],secs=[...new Set(all.map(x=>x.sector))].map(s=>{const a=all.filter(x=>x.sector===s);return [s,S(a),a.length]}).sort((a,b)=>b[2]-a[2]||b[1]-a[1]),mx=Math.max(...secs.map(s=>s[2]));
+ $('#tabars').innerHTML=secs.map(([s,v,n])=>`<div class="bar"><span class="bl">${esc(s)}</span><span class="bt"><i style="--w:${(n/mx*100).toFixed(2)}%"></i></span><span class="bv">${n} program${n>1?'s':''}<small> · USD ${fmt(v)}</small></span></div>`).join('');
+ const g=n=>D.consult.filter(c=>n.includes(String(c.no)));
+ const FS=g(['1','2','8']),MP=g(['3','4','5','6','7','12']),DP=g(['9','10','11']);
+ sum(['#ctot','#csplit','#clegend'],[['Master plans',S(MP),MP.length],['Development plans',S(DP),DP.length],['Feasibility studies',S(FS),FS.length]],['study','studies']);
 })();
 /* career timeline */
 (()=>{const S=new Date(2015,11,1),E=new Date(2026,9,16),span=E-S,pc=d=>((d-S)/span*100).toFixed(2);
