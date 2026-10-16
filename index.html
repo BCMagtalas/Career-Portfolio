@@ -627,6 +627,30 @@ main>section{min-height:calc(100vh - 24px);min-height:calc(100svh - 24px)}
 .deg .thesis a,.deg .thesis p{grid-column:2}
 .deg .when{margin-bottom:4px!important}
 }
+.figures a{position:relative;display:block;padding:14px 16px 14px 0;color:inherit;text-decoration:none;transition:background .2s}
+.figures a+a{padding-left:16px;border-left:1px solid var(--rule)}
+.figures a:hover,.figures a:focus-visible{background:var(--accent-soft)}
+.figures a:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.figures .fico{width:18px;height:18px;padding:6px;box-sizing:content-box;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:block;margin-bottom:8px}
+.figures a:hover .fico{background:var(--surface)}
+.figures b{color:var(--accent)}
+.figures .fgo{position:absolute;right:12px;top:14px;font-style:normal;color:var(--accent);opacity:0;transform:translateX(-4px);transition:.2s}
+.figures a:hover .fgo,.figures a:focus-visible .fgo{opacity:1;transform:none}
+.lede .hl{font-style:normal;color:var(--accent)}
+.xtags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;padding:0}
+.xtags li{font-size:13.5px;font-weight:500;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:5px 12px}
+@media (max-width:960px){.figures a:nth-child(3){padding-left:0;border-left:0}.figures a:nth-child(n+3){border-top:1px solid var(--rule)}}
+@media print{.figures .fgo{display:none}.figures .fico{display:none}.figures a{padding-top:8px!important;padding-bottom:8px!important}.xtags{margin-top:6px!important;gap:4px!important}.xtags li{font-size:7.5pt!important;padding:1px 7px!important}.figures span{font-size:8pt!important}#about{padding-bottom:10px!important;margin-bottom:12px!important}}
+@media screen{
+.figures{margin-bottom:22px}
+.figures a{display:grid;grid-template-columns:auto 1fr;column-gap:10px;align-items:center}
+.figures .fico{margin:0;grid-row:1}
+.figures a b{grid-row:1;grid-column:2}
+.figures a span{grid-column:1/-1}
+.xtags{margin-top:14px;gap:6px;max-width:none}
+@media (min-width:961px){.xtags{display:grid;grid-template-columns:repeat(3,max-content);justify-items:start}}
+.xtags li{font-size:12.5px;padding:4px 10px;white-space:nowrap}
+}
 /* thesis */
 .hyp td:last-child{white-space:nowrap}
 .paths{display:grid;gap:12px;margin:12px 0 0}
@@ -719,15 +743,16 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
   <main id="main"><div class="prog" aria-hidden="true"><i id="prog"></i></div><button class="totop" id="totop" type="button" aria-label="Back to top">↑</button>
     <section id="about">
       <h2 class="kicker">About</h2>
-      <p class="lede">Infrastructure economist appraising energy, transport, and climate investments for the Philippine Government since 2016.</p>
+      <p class="lede">Infrastructure economist appraising <em class="hl">energy, transport, and climate investments</em> for the Philippine Government since 2016.</p>
       <div class="figures">
-        <div><b>34</b><span>infrastructure projects appraised, USD 14.05 billion</span></div>
-        <div><b>15</b><span>technical assistance and program financings reviewed</span></div>
-        <div><b>48</b><span>bills, laws, and policies reviewed</span></div>
-        <div><b>8</b><span>national boards and committees advised</span></div>
+        <a href="#portfolio" data-tab="tab-projects"><svg class="fico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><b>34</b><span>infrastructure projects appraised, USD 14.05 billion</span><i class="fgo" aria-hidden="true">→</i></a>
+        <a href="#portfolio" data-tab="tab-ta"><svg class="fico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-6h6v6"/></svg><b>15</b><span>technical assistance and program financings reviewed</span><i class="fgo" aria-hidden="true">→</i></a>
+        <a href="#policy"><svg class="fico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg><b>48</b><span>bills, laws, and policies reviewed</span><i class="fgo" aria-hidden="true">→</i></a>
+        <a href="#boards"><svg class="fico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 .2 6 1.8 6 5.5"/></svg><b>8</b><span>national boards and committees advised</span><i class="fgo" aria-hidden="true">→</i></a>
       </div>
       <p>Bernie Calderon Magtalas is an infrastructure economist and licensed electrical engineer. He is a Supervising Economic Development Specialist in the Infrastructure Staff of the Department of Economy, Planning, and Development (DEPDev) Investment Programming Group, where he leads project appraisal, planning, and policy formulation across the energy, transportation, and wider public infrastructure sectors.</p>
 <p>He began his career at the Department of Energy (DOE) in December 2015, supporting renewable energy and rural electrification programs in remote, off-grid, and conflict-affected areas, and joined the National Economic and Development Authority (NEDA, now DEPDev) in September 2016.</p>
+      <ul class="xtags" aria-label="Core expertise"><li>Project economic analysis</li><li>Cost-benefit analysis</li><li>Infrastructure appraisal</li><li>PPP risk assessment</li><li>Energy and transport policy</li><li>R · Python · Excel</li></ul>
     </section>
 
     <section id="selected">
@@ -847,7 +872,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
         <div class="tablebox"><table class="legt l25"><thead><tr><th>Measure</th><th class="hide-sm">Description</th><th class="hide-sm">Sector</th></tr></thead><tbody id="lbody"></tbody></table></div>
         <button class="more" type="button" id="lmore" hidden></button>
       </div>
-      <div class="sub bwsub">
+      <div class="sub bwsub" id="boards">
         <h3>Boards, committees, and working groups</h3>
         <p class="muted tnote">Advised 8 boards and committees and served in 7 working groups. Select a name to read the body’s mandate and legal basis.</p>
         <div class="gpanels" id="gpanels"></div>
@@ -1060,6 +1085,9 @@ progTable('tbody',D.ta);progTable('lbody2',D.loans);
  sum(['#ctot','#csplit','#clegend'],[['Master plans',S(MP),MP.length],['Development plans',S(DP),DP.length],['Feasibility studies',S(FS),FS.length]],['study','studies']);
  $('#ctot').insertAdjacentHTML('beforeend',' · 2 administered through completion');
 })();
+
+/* About figures: open the right tab before jumping */
+document.addEventListener('click',e=>{const a=e.target.closest('.figures a[data-tab]');if(!a)return;const t=document.getElementById(a.dataset.tab);if(t&&t.getAttribute('aria-selected')!=='true')t.click()},true);
 /* career timeline */
 (()=>{const S=new Date(2015,11,1),E=new Date(2026,9,16),span=E-S,pc=d=>((d-S)/span*100).toFixed(2);
  const R=[['DOE',new Date(2015,11,1),new Date(2016,7,31),'c1'],['Economic Development Specialist',new Date(2016,8,1),new Date(2019,11,31),'c2'],['Senior',new Date(2020,0,1),new Date(2024,11,31),'c3'],['Supervising',new Date(2025,0,1),E,'c4']];
@@ -1220,7 +1248,7 @@ addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(()=>{spy();
 const GL={"ADB": "Asian Development Bank", "AFD": "Agence Française de Développement", "AIIB": "Asian Infrastructure Investment Bank", "AIT": "Asian Institute of Technology", "ASEP": "Access to Sustainable Energy Programme", "BAC-GIP": "Bids and Awards Committee for Goods and Infrastructure Projects", "BOO": "build-own-operate", "BOT": "build-operate-transfer", "BTOM": "build-transfer-operate and maintain", "CAAP": "Civil Aviation Authority of the Philippines", "CALAx": "Cavite-Laguna Expressway", "CBIT": "Capacity-building Initiative for Transparency", "CCAP": "Climate Change Action Program", "CFL": "compact fluorescent lamp", "CFPSS": "Certified Flexible Power System Specialist", "COP": "Community of Practice", "CP3P": "Certified Public-Private Partnership Professional", "CTBEx": "Cavite-Tagaytay-Batangas Expressway", "DBCC": "Development Budget Coordination Committee", "DC": "Department Circular", "DED": "detailed engineering design", "DEPDev": "Department of Economy, Planning, and Development", "DHSUD": "Department of Human Settlements and Urban Development", "DOE": "Department of Energy", "DOTr": "Department of Transportation", "DPP": "diesel power plant", "EC": "electric cooperative", "EICC": "Energy Investment Coordinating Council", "EIRR": "economic internal rate of return", "ENPV": "economic net present value", "EO": "Executive Order", "EPIRA": "Electric Power Industry Reform Act of 2001", "ERC": "Energy Regulatory Commission", "EU": "European Union", "EVIDA": "Electric Vehicle Industry Development Act", "F/S": "feasibility study", "FEL-100": "Future Energy Leaders 100 (World Energy Council)", "FIRR": "financial internal rate of return", "FPC": "fast patrol craft", "GAD": "Gender and Development", "GCF": "Green Climate Fund", "GEF": "Global Environment Facility", "GGGI": "Global Green Growth Institute", "GIS": "geographic information system", "GOP": "Government of the Philippines", "HPP": "hydroelectric power plant", "IAEECC": "Inter-Agency Energy Efficiency and Conservation Committee", "IBRD": "International Bank for Reconstruction and Development (World Bank)", "ICC": "Investment Coordination Committee", "IECC": "Inter-Agency Energy Contingency Committee", "IECC-OCTF": "Inter-Agency Energy Contingency Committee – Oil Contingency Task Force", "IED": "Innovation Energie Développement", "ILS": "Integrated Logistics Support", "InfraCom": "Infrastructure Development Committee", "ITS": "intelligent transport system", "JICA": "Japan International Cooperation Agency", "KEXIM": "Export-Import Bank of Korea", "LANDBANK": "Land Bank of the Philippines", "LED": "light-emitting diode", "LEDAC": "Legislative-Executive Development Advisory Council", "MCC": "Millennium Challenge Corporation", "MMITS": "Metro Manila Intelligent Transport System", "MPFRB": "Multi-Purpose Fast Response Boat", "MVIP": "Mindanao-Visayas Interconnection Project", "MWp": "megawatt-peak", "NEA": "National Electrification Administration", "NEDA": "National Economic and Development Authority (now DEPDev)", "NEECP": "National Energy Efficiency and Conservation Program", "NEP-IAC": "Nuclear Energy Program Inter-Agency Committee", "NIR": "Negros Island Region", "NLET": "North Luzon Express Terminal", "NOCECO": "Negros Occidental Electric Cooperative", "NONECO": "Northern Negros Electric Cooperative", "NORECO I": "Negros Oriental I Electric Cooperative", "NPC": "National Power Corporation", "O&M": "operation and maintenance", "OAT": "operate-add-transfer", "ODA": "official development assistance", "OECD": "Organisation for Economic Co-operation and Development", "OMUT": "operate-maintain-upgrade-and-transfer", "PAP": "programs, activities, and projects", "PCG": "Philippine Coast Guard", "PGRDF": "Philippine Geothermal Resource Derisking Facility", "PhilATOM": "Philippine Atomic Energy Regulatory Authority", "PLLO": "Presidential Legislative Liaison Office", "PNR": "Philippine National Railways", "PPP": "public-private partnership", "PRC": "Professional Regulation Commission", "PSALM": "Power Sector Assets and Liabilities Management Corporation", "PTB": "passenger terminal building", "PV": "photovoltaic", "PVM": "Photovoltaic Mainstreaming", "RA": "Republic Act", "RENAC": "Renewables Academy", "RFID": "radio-frequency identification", "RIDI": "Regional Infrastructure Development Index", "RORO": "roll-on/roll-off", "SC-SDGs": "Sub-Committee on the Sustainable Development Goals", "SDGs": "Sustainable Development Goals", "SHS": "solar home system", "SIPA": "Sustainable Infrastructure Programme in Asia", "SOP": "Series of Projects", "TA": "technical assistance", "TASF": "Technical Assistance Special Fund", "TEFI": "Team Energy Foundation, Inc.", "TEU": "twenty-foot equivalent unit", "TWG": "technical working group", "UNDP": "United Nations Development Programme", "WTE": "waste-to-energy"};
 const GK=Object.keys(GL).sort((a,b)=>b.length-a.length);
 const GRE=new RegExp('(?<![\\w&/-])('+GK.map(k=>k.replace(/[.*+?^${}()|[\]\\/&]/g,'\\$&')).join('|')+')(s?)(?![\\w&/-])','g');
-const ABSKIP='script,style,abbr,a,button,select,option,input,textarea,.chip,.ptabs,.rtabs,.index,.kicker,.lb,svg,.gpills,.side,figcaption,.cticks,[role=tab],.rbtn,.k,.gl,.legend,.bars';
+const ABSKIP='.xtags,script,style,abbr,a,button,select,option,input,textarea,.chip,.ptabs,.rtabs,.index,.kicker,.lb,svg,.gpills,.side,figcaption,.cticks,[role=tab],.rbtn,.k,.gl,.legend,.bars';
 const ABBLK='p,li,td,dd,dt,h1,h2,h3,h4,h5,small,.k,.fig,.loc,.meta,.when,.inst,header';
 function abbrify(root){if(!root)return;const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{if(!n.nodeValue.trim())return 2;const p=n.parentElement;if(!p||p.closest(ABSKIP))return 2;if(p.tagName==='TD'&&p.children.length===0&&n.nodeValue.trim().length<=12)return 2;GRE.lastIndex=0;return GRE.test(n.nodeValue)?1:2}});
  const ns=[];while(w.nextNode())ns.push(w.currentNode);
