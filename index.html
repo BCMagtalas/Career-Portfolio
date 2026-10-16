@@ -1,1380 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bernie Calderon Magtalas | Evaluation Specialist Pitch Book</title>
-  <style>
-    :root{
-      --aiib-red:#8a1117;
-      --aiib-red-2:#b51e2b;
-      --ink:#172033;
-      --text:#334155;
-      --muted:#64748b;
-      --line:#e5e7eb;
-      --paper:#ffffff;
-      --soft:#f8fafc;
-      --soft-red:#fff1f2;
-      --gold:#c49a45;
-      --navy:#111827;
-      --shadow:0 18px 45px rgba(17,24,39,.10);
-      --radius:22px;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-
-    /* Final visual consistency pass */
-    :root{
-      --aiib-red:#8a1117;
-      --aiib-red-dark:#6f0910;
-      --gold:#c89b3c;
-      --navy:#111827;
-      --ink:#0f172a;
-      --muted:#64748b;
-      --line:#e5e7eb;
-      --soft:#f8fafc;
-      --card-radius:22px;
-      --panel-radius:28px;
-      --shadow-card:0 12px 30px rgba(15,23,42,.055);
-      --shadow-panel:0 22px 52px rgba(15,23,42,.085);
-      --container-x:24px;
-    }
-    .section h2{
-      font-size:clamp(34px,4vw,56px);
-      line-height:1.03;
-      letter-spacing:-.045em;
-      color:var(--ink);
-      margin:0;
-    }
-    .section-head > p{
-      color:var(--muted);
-      font-size:clamp(18px,2.05vw,28px);
-      line-height:1.45;
-      letter-spacing:-.025em;
-      margin:18px 0 0;
-      max-width:1050px;
-    }
-    .card,
-    .metric,
-    .problem-card,
-    .value-card,
-    .evidence-layout,
-    .value-closing-panel{
-      border-color:rgba(148,163,184,.24);
-    }
-
-    body{
-      margin:0;
-      font-family:Inter, Arial, Helvetica, sans-serif;
-      color:var(--ink);
-      background:
-        radial-gradient(circle at 8% 0%, rgba(138,17,23,.13), transparent 34%),
-        linear-gradient(180deg,#fff 0%,#f5f6f8 100%);
-      min-height:100vh;
-      font-size:16.5px;
-    }
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      background-image:
-        linear-gradient(rgba(17,24,39,.035) 1px, transparent 1px),
-        linear-gradient(90deg,rgba(17,24,39,.035) 1px, transparent 1px);
-      background-size:38px 38px;
-      mask-image:linear-gradient(to bottom, black, transparent 72%);
-      z-index:-1;
-    }
-
-    .skip{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
-    .skip:focus{left:18px;top:18px;width:auto;height:auto;background:#fff;color:var(--aiib-red);padding:10px 14px;border-radius:999px;z-index:1000;box-shadow:var(--shadow)}
-
-
-    .navlinks a.active,
-    .navlinks a[aria-current="page"]{
-      background:var(--aiib-red);
-      color:#fff;
-      border-color:var(--aiib-red);
-      box-shadow:0 10px 22px rgba(138,17,23,.18);
-    }
-
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:20;
-      backdrop-filter:blur(16px);
-      background:rgba(255,255,255,.86);
-      border-bottom:1px solid rgba(229,231,235,.9);
-    }
-    .nav{
-      max-width:1360px;
-      margin:0 auto;
-      padding:10px 24px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--navy);letter-spacing:.01em}
-
-    .brand-doc-icon{
-      width:34px;
-      height:34px;
-      border-radius:12px;
-      display:inline-grid;
-      place-items:center;
-      background:var(--soft-red);
-      color:var(--aiib-red);
-      box-shadow:0 8px 18px rgba(138,17,23,.08);
-      flex:0 0 auto;
-    }
-    .brand-doc-icon svg{
-      width:18px;
-      height:18px;
-      fill:currentColor;
-      display:block;
-    }
-
-    
-    .brand > span:last-child{
-      font-size:16px;
-      line-height:1.15;
-    }
-
-    .brand small{display:block;color:var(--muted);font-weight:700;letter-spacing:0;font-size:12px;margin-top:1px}
-    .mark{
-      width:30px;height:30px;border-radius:50%;
-      background:conic-gradient(from 20deg,var(--aiib-red),var(--aiib-red-2),var(--gold),var(--aiib-red));
-      box-shadow:0 0 0 5px rgba(138,17,23,.08);
-      position:relative;flex:0 0 auto;
-    }
-    .mark::after{content:"";position:absolute;inset:8px;border-radius:50%;background:#fff}
-    .navlinks{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-    .navlinks a{
-      text-decoration:none;color:var(--muted);font-size:13px;font-weight:800;padding:8px 9px;border-radius:999px;
-      transition:.2s ease;
-    }
-    .navlinks a:hover,.navlinks a.active{color:#fff;background:var(--aiib-red)}
-
-    .wrap{max-width:1360px;margin:0 auto;padding:28px 24px 64px}
-    .card{
-      background:rgba(255,255,255,.94);
-      border:1px solid rgba(229,231,235,.95);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-
-    .hero{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(320px,.78fr);gap:28px;align-items:stretch;margin-top:12px}
-    .hero-main{padding:34px 38px 30px;position:relative;isolation:isolate}
-    .hero-main::after{
-      content:"";position:absolute;right:-80px;top:-96px;width:290px;height:290px;border-radius:50%;background:rgba(138,17,23,.08);z-index:-1;
-      animation:float 8s ease-in-out infinite;
-    }
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(16px)}}
-    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--aiib-red);font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:12px;margin-bottom:16px}
-    .dot{width:8px;height:8px;background:var(--aiib-red);border-radius:50%;box-shadow:0 0 0 8px rgba(138,17,23,.08)}
-    h1{font-size:clamp(34px,4.3vw,52px);line-height:1.03;margin:0 0 18px;color:var(--navy);letter-spacing:-.04em;text-wrap:balance}
-    .lead{font-size:19px;line-height:1.58;color:var(--text);max-width:790px;margin:0 0 22px;text-wrap:pretty}
-    .lead strong{color:var(--aiib-red)}
-
-
-    /* Profile contact icon rendering fix */
-    .profile-contact-links .contact-icon{
-      width:20px !important;
-      height:20px !important;
-      min-width:20px !important;
-      max-width:20px !important;
-      min-height:20px !important;
-      max-height:20px !important;
-      display:inline-grid !important;
-      place-items:center !important;
-      border-radius:8px;
-      background:rgba(138,17,23,.08);
-      flex:0 0 20px !important;
-      overflow:hidden !important;
-    }
-    .profile-contact-links .contact-icon svg{
-      width:13px !important;
-      height:13px !important;
-      min-width:13px !important;
-      max-width:13px !important;
-      min-height:13px !important;
-      max-height:13px !important;
-      display:block !important;
-      fill:currentColor !important;
-    }
-
-
-    .profile-contact-links a,
-    .profile-contact-links span,
-    .profile-contact-links strong,
-    .profile-contact-links b{
-      font-weight:500;
-    }
-
-    .profile-contact-links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:18px;
-    }
-    .profile-contact-links a{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:9px 12px;
-      border:1px solid rgba(138,17,23,.22);
-      border-radius:999px;
-      color:var(--aiib-red);
-      text-decoration:none;
-      font-weight:850;
-      font-size:14px;
-      background:#fff;
-      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-    }
-    .profile-contact-links a:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 22px rgba(138,17,23,.10);
-      border-color:rgba(138,17,23,.34);
-    }
-    .profile-contact-links a:focus{
-      outline:3px solid rgba(196,154,69,.38);
-      outline-offset:3px;
-    }
-
-    .hero-note{border-left:4px solid var(--aiib-red);padding:12px 0 12px 16px;font-size:17px;margin:22px 0 0;color:#475569;line-height:1.55;max-width:820px}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
-    .btn{
-      appearance:none;border:none;border-radius:999px;padding:12px 17px;font-weight:900;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:.2s ease;font-size:15px;
-    }
-    .btn.primary{background:var(--aiib-red);color:#fff;box-shadow:0 12px 28px rgba(138,17,23,.23)}
-    .btn.secondary{background:#fff;color:var(--aiib-red);border:1px solid rgba(138,17,23,.25)}
-    .btn:hover{transform:translateY(-2px)}
-    .btn:focus,.tab:focus,.letter-nav button:focus{outline:3px solid rgba(196,154,69,.38);outline-offset:2px}
-
-    .hero-side{
-      padding:22px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      background:linear-gradient(180deg,#fff,#fff8f8);
-    }
-    .stat{
-      display:grid;
-      grid-template-columns:44px minmax(0,1fr);
-      column-gap:14px;
-      align-items:center;
-      min-height:112px;
-      border:1px solid rgba(148,163,184,.24);
-      border-radius:22px;
-      padding:16px 18px;
-      background:rgba(255,255,255,.97);
-      box-shadow:0 10px 26px rgba(15,23,42,.045);
-      transition:.22s ease;
-      text-align:left;
-    }
-    .stat:hover{
-      transform:translateY(-3px);
-      box-shadow:0 16px 32px rgba(15,23,42,.075);
-      border-color:rgba(138,17,23,.16);
-    }
-    .stat .icon{
-      width:40px;
-      height:40px;
-      border-radius:999px;
-      display:grid;
-      place-items:center;
-      background:rgba(138,17,23,.06);
-      color:#64748b;
-      margin:0;
-    }
-    .stat .icon svg{
-      width:19px !important;
-      height:19px !important;
-      max-width:19px !important;
-      max-height:19px !important;
-      display:block !important;
-      fill:currentColor !important;
-    }
-    .stat b{
-      display:block;
-      font-size:clamp(25px,2.35vw,36px);
-      line-height:.96;
-      color:var(--aiib-red);
-      letter-spacing:-.055em;
-      margin:0 0 7px;
-      white-space:normal;
-    }
-    .stat span{
-      display:block;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.35;
-      letter-spacing:-.012em;
-      max-width:410px;
-    }
-
-    .stat .icon{
-      grid-column:1;
-      grid-row:1 / span 2;
-      align-self:start;
-      margin-top:2px;
-    }
-    .stat b{
-      grid-column:2;
-      grid-row:1;
-      align-self:end;
-    }
-    .stat span{
-      grid-column:2;
-      grid-row:2;
-      align-self:start;
-    }
-
-
-
-    /* Section separation and executive scan rhythm */
-    .section{
-      margin-top:46px;
-    }
-    .section.section-band{
-      margin-left:-24px;
-      margin-right:-24px;
-      padding:38px 24px 42px;
-      border-top:1px solid rgba(229,231,235,.82);
-      border-bottom:1px solid rgba(229,231,235,.82);
-      position:relative;
-    }
-    .section.section-band::before{
-      content:"";
-      position:absolute;
-      left:24px;
-      right:24px;
-      top:0;
-      height:3px;
-      border-radius:999px;
-      background:linear-gradient(90deg,var(--aiib-red),var(--gold),transparent 72%);
-      opacity:.72;
-    }
-    .section.band-warm{
-      background:
-        radial-gradient(circle at 8% 0%, rgba(138,17,23,.055), transparent 32%),
-        linear-gradient(180deg,rgba(255,241,242,.68),rgba(255,255,255,.88));
-    }
-    .section.band-cool{
-      background:
-        radial-gradient(circle at 90% 8%, rgba(17,24,39,.045), transparent 28%),
-        linear-gradient(180deg,rgba(248,250,252,.95),rgba(255,255,255,.93));
-    }
-    .problem-grid,.evidence-layout,.value-map,.letter,.final-card{
-      margin-top:20px;
-    }
-
-    .problem-card{
-      border-radius:var(--card-radius);
-      box-shadow:var(--shadow-card);
-    }
-    .evidence-layout{
-      border-radius:var(--panel-radius);
-      box-shadow:var(--shadow-panel);
-    }
-
-    .section-head{
-      padding-top:2px;
-    }
-
-
-    /* Final balanced heading scale */
-    #problem .section-head h2{
-      font-size:clamp(42px,4.35vw,64px);
-      line-height:1.02;
-      letter-spacing:-.052em;
-      color:var(--ink);
-      max-width:1320px;
-    }
-    #evidence .section-head h2,
-    #value .section-head h2{
-      font-size:clamp(36px,3.6vw,52px);
-      line-height:1.04;
-      letter-spacing:-.048em;
-      color:var(--ink);
-      max-width:1180px;
-    }
-    #problem .section-head p,
-    #evidence .section-head p,
-    #value .section-head p{
-      font-size:clamp(20px,1.9vw,28px);
-      line-height:1.48;
-      letter-spacing:-.026em;
-      color:var(--muted);
-      font-weight:500;
-      max-width:1260px;
-      margin-top:18px;
-    }
-
-
-    .section h2{
-      padding-bottom:4px;
-    }
-
-    #value .section-head{
-      display:block;
-      margin-bottom:0;
-    }
-    #value .section-head h2{
-      margin:0;
-      max-width:900px;
-    }
-    #value .section-head p{
-      margin:18px 0 0;
-      max-width:1040px;
-      font-size:26px;
-      line-height:1.45;
-      color:#64748b;
-      font-weight:500;
-      letter-spacing:-.02em;
-    }
-
-
-    /* Section landing consistency for top navigation */
-    #fit,
-    #problem,
-    #evidence,
-    #value{
-      scroll-margin-top:104px;
-    }
-
-
-    /* Full-screen-style section rhythm */
-    @media (min-width: 901px){
-      #problem{
-        min-height:calc(100vh - 118px);
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-      }
-
-      #value{
-        min-height:calc(100vh - 118px);
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-      }
-
-      #evidence{
-        min-height:calc(100vh - 118px);
-      }
-
-      #problem.section-band,
-      #value.section-band{
-        padding-top:44px;
-        padding-bottom:48px;
-      }
-
-    }
-
-    @media (max-width: 900px){
-      #problem,
-      #evidence,
-      #value{
-        min-height:auto;
-      }
-    }
-
-
-    #evidence .tabs{
-      position:relative;
-    }
-    #evidence .panel.active{
-      box-shadow:0 14px 32px rgba(17,24,39,.055);
-    }
-
-
-    .section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin:0 0 14px}
-    .section h2{font-size:29px;margin:0;color:var(--navy);letter-spacing:-.03em}
-    .section p.sub{margin:5px 0 0;color:var(--muted);line-height:1.5;max-width:780px;text-wrap:pretty}
-
-    .commitment{padding:28px;background:var(--navy);color:#fff;border-radius:24px;position:relative;overflow:hidden}
-    .commitment::after{content:"";position:absolute;right:-70px;bottom:-92px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.06)}
-    .commitment p{margin:0;font-size:21px;line-height:1.52;max-width:930px;letter-spacing:-.02em}
-    .commitment strong{color:#ffd889}
-
-    .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .problem{padding:24px;border-radius:20px;border:1px solid var(--line);background:#fff;position:relative;overflow:hidden;min-height:158px;box-shadow:0 10px 24px rgba(17,24,39,.045);transition:transform .2s ease, box-shadow .2s ease}
-    .problem::before{content:"";position:absolute;left:0;top:0;height:5px;width:100%;background:linear-gradient(90deg,var(--aiib-red),var(--gold))}
-    .problem:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(17,24,39,.075)}
-    .problem h3{margin:0 0 10px;color:var(--navy);font-size:20px;letter-spacing:-.02em}
-    .problem p{margin:0;color:#475569;line-height:1.58;font-size:15.5px;hyphens:none;overflow-wrap:normal}
-
-    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-    .tab{border:1px solid rgba(138,17,23,.22);background:#fff;color:var(--aiib-red);padding:10px 14px;border-radius:999px;font-weight:900;cursor:pointer;transition:.2s ease}
-    .tab.active,.tab:hover{background:var(--aiib-red);color:#fff}
-    .panel{display:none;animation:fadeUp .42s ease both}
-    .panel.active{display:block}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-    .evidence-layout{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .evidence-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;min-height:228px}
-    .evidence-card h3{margin:0 0 10px;color:var(--navy)}
-
-    .evidence-card ul{
-      margin:0;
-      padding-left:18px;
-      color:#475569;
-      font-size:15px;
-      line-height:1.52;
-    }
-    .evidence-card li{
-      margin:7px 0;
-      padding-left:2px;
-    }
-
-    .evidence-card li strong{
-      color:#1f2937;
-      font-weight:600;
-    }
-
-    .evidence-card li::marker{
-      color:var(--aiib-red);
-    }
-
-    .evidence-card p{margin:0 0 12px;color:#475569;line-height:1.58;font-size:16px}
-    .badge{display:inline-flex;padding:7px 10px;border-radius:999px;background:var(--soft-red);color:var(--aiib-red);font-weight:900;font-size:12px;margin:4px 6px 0 0}
-
-
-
-
-    .value-map{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:16px;
-      margin-top:28px;
-      align-items:stretch;
-    }
-    .value-card{
-      position:relative;
-      overflow:hidden;
-      min-height:220px;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-start;
-      background:rgba(255,255,255,.98);
-      border:1px solid rgba(148,163,184,.24);
-      border-radius:var(--card-radius);
-      padding:20px 20px 18px;
-      box-shadow:var(--shadow-card);
-    }
-    .value-card::before{
-      content:"";
-      position:absolute;
-      left:18px;
-      right:18px;
-      top:0;
-      height:4px;
-      border-radius:0 0 999px 999px;
-      background:linear-gradient(90deg,var(--aiib-red),var(--gold));
-      opacity:.82;
-    }
-    .value-card .num{
-      width:34px;
-      height:34px;
-      border-radius:999px;
-      display:grid;
-      place-items:center;
-      background:rgba(138,17,23,.07);
-      border:1px solid rgba(138,17,23,.18);
-      color:var(--aiib-red);
-      font-weight:950;
-      font-size:12px;
-      margin-bottom:20px;
-    }
-    .value-card h3{
-      margin:0 0 9px;
-      font-size:17px;
-      color:var(--ink);
-      line-height:1.22;
-      letter-spacing:-.015em;
-    }
-    .value-card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.58;
-      font-size:14px;
-    }
-    .value-closing-panel{
-      grid-column:1 / -1;
-      display:grid;
-      grid-template-columns:auto 1fr;
-      align-items:center;
-      gap:18px;
-      padding:20px 22px;
-      border-radius:24px;
-      background:
-        radial-gradient(circle at 100% 0%, rgba(200,155,60,.10), transparent 30%),
-        linear-gradient(135deg,rgba(138,17,23,.055),rgba(255,255,255,.97) 42%,rgba(255,255,255,.97));
-      border:1px solid rgba(138,17,23,.16);
-      box-shadow:var(--shadow-card);
-    }
-    .value-closing-panel .closing-mark{
-      flex:0 0 auto;
-      width:46px;
-      height:46px;
-      border-radius:16px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(135deg,var(--aiib-red),var(--aiib-red-dark));
-      color:#fff;
-      font-weight:950;
-      font-size:20px;
-      box-shadow:0 12px 24px rgba(138,17,23,.18);
-    }
-    .value-closing-panel h3{
-      margin:0 0 4px;
-      font-size:17px;
-      color:var(--ink);
-      letter-spacing:-.01em;
-    }
-    .value-closing-panel p{
-      margin:0;
-      color:var(--ink);
-      line-height:1.5;
-      font-size:16px;
-      font-weight:800;
-    }
-
-    .letter{display:grid;grid-template-columns:260px 1fr;gap:18px}
-    .letter-nav{position:sticky;top:86px;align-self:start;background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px}
-    .letter-nav button{display:block;width:100%;text-align:left;border:none;background:transparent;border-radius:12px;padding:11px 12px;cursor:pointer;font-weight:900;color:var(--muted);transition:.2s ease}
-    .letter-nav button:hover{background:var(--soft-red);color:var(--aiib-red)}
-    .letter-content{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;line-height:1.68;color:#334155;font-size:16.5px}
-    .letter-content h3{margin:0 0 9px;color:var(--navy)}
-    .letter-content p{margin:0 0 18px}
-    .highlight{background:linear-gradient(transparent 55%, rgba(196,154,69,.25) 55%);font-weight:900;color:var(--navy)}
-
-    .final-card{
-      position:relative;
-      overflow:hidden;
-      border-radius:28px;
-      padding:34px 36px 32px;
-      background:
-        radial-gradient(circle at 94% 10%, rgba(138,17,23,.075), transparent 30%),
-        linear-gradient(180deg,rgba(255,255,255,.98),rgba(255,251,251,.96));
-      border:1px solid rgba(138,17,23,.16);
-      box-shadow:0 24px 55px rgba(17,24,39,.12);
-      color:var(--ink);
-    }
-    .final-card::before{
-      content:"";
-      position:absolute;
-      inset:0 auto 0 0;
-      width:7px;
-      background:linear-gradient(180deg,var(--aiib-red),#c89b3c);
-    }
-    .final-card::after{
-      content:"";
-      position:absolute;
-      width:260px;
-      height:260px;
-      border-radius:50%;
-      right:-92px;
-      top:-98px;
-      background:rgba(138,17,23,.065);
-      pointer-events:none;
-    }
-    .final-card h2{
-      color:var(--ink);
-      position:relative;
-      z-index:1;
-    }
-    .final-card h2 .icon{
-      background:rgba(138,17,23,.10);
-      color:var(--aiib-red);
-    }
-    .final-card p{
-      max-width:1120px;
-      color:var(--muted);
-      position:relative;
-      z-index:1;
-      font-size:17px;
-      line-height:1.72;
-    }
-    .final-card p strong{
-      color:var(--ink);
-    }
-    .final-card p + p{margin-top:10px}
-
-    .commitment-lead{
-      font-size:20px;
-      margin-top:4px;
-      margin-bottom:10px;
-    }
-    .commitment-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:14px;
-      margin:24px 0 20px;
-      position:relative;
-      z-index:1;
-    }
-    .commitment-mini{
-      background:#fff;
-      border:1px solid rgba(138,17,23,.14);
-      border-radius:20px;
-      padding:18px;
-      box-shadow:0 16px 34px rgba(17,24,39,.075);
-    }
-    .commitment-mini .mini-kicker{
-      width:34px;
-      height:34px;
-      border-radius:999px;
-      display:grid;
-      place-items:center;
-      background:rgba(138,17,23,.08);
-      border:1px solid rgba(138,17,23,.20);
-      color:var(--aiib-red);
-      font-weight:950;
-      font-size:12px;
-      margin-bottom:12px;
-    }
-    .commitment-mini h3{
-      margin:0 0 8px;
-      color:var(--ink);
-      font-size:16px;
-      letter-spacing:-.01em;
-    }
-    .commitment-mini p{
-      margin:0;
-      color:var(--muted);
-      font-size:13.5px;
-      line-height:1.55;
-    }
-    .commitment-close{
-      margin-top:8px;
-      padding-top:16px;
-      border-top:1px solid rgba(138,17,23,.14);
-      color:var(--ink);
-    }
-
-
-
-    .final-card
-
-
-
-    .footer{margin-top:26px;text-align:center;color:var(--muted);font-size:13px}
-    .reveal{opacity:1;transform:none;transition:opacity .62s ease,transform .62s ease}
-    .reveal.in{opacity:1;transform:none}
-
-
-    /* Icon and animation enhancements */
-
-    .eyebrow .mini-icon{
-      width:24px;
-      height:24px;
-      border-radius:9px;
-      background:var(--soft-red);
-      color:var(--aiib-red);
-      display:inline-grid;
-      place-items:center;
-      box-shadow:0 8px 18px rgba(138,17,23,.08);
-    }
-    .eyebrow .mini-icon svg{
-      width:15px !important;
-      height:15px !important;
-      fill:currentColor;
-    }
-
-    @keyframes pulseDot{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.15);opacity:1}}
-
-    .stat{position:relative;padding-left:16px}
-    .stat::before{display:none}
-
-    .problem h3,.evidence-card h3,.map-card h3,.letter-content h3,.final-card h2{display:flex;align-items:center;gap:10px}
-    .icon{
-      display:inline-grid;
-      place-items:center;
-      width:30px;
-      height:30px;
-      min-width:30px;
-      border-radius:12px;
-      background:var(--soft-red);
-      color:var(--aiib-red);
-      font-size:16px;
-      line-height:1;
-      box-shadow:0 8px 18px rgba(138,17,23,.08);
-    }
-    .final-card .icon{background:rgba(255,255,255,.13);color:#fff;box-shadow:none}
-
-    .letter-content .icon{
-      font-size:12px;
-      font-weight:900;
-    }
-
-
-    .badge{position:relative;overflow:hidden}
-    .badge::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      transform:translateX(-120%);
-      background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
-      animation:badgeSweep 5.5s ease-in-out infinite;
-    }
-    @keyframes badgeSweep{0%,72%{transform:translateX(-120%)}86%,100%{transform:translateX(120%)}}
-
-    .problem,.evidence-card,.map-card,.letter-content,.final-card{transition:transform .22s ease, box-shadow .22s ease}
-    .evidence-card:hover,.map-card:hover,.letter-content:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(17,24,39,.075)}
-    .final-card:hover{transform:translateY(-2px)}
-
-
-
-    .stat > .icon{
-      float:left;
-      margin:2px 12px 8px 0;
-    }
-
-    .icon svg,.stat::before svg{
-      width:17px;
-      height:17px;
-      fill:currentColor;
-      display:block;
-    }
-    .stat::before{content:""}
-
-
-    /* SVG icon rendering fix */
-    .icon{
-      flex:0 0 30px;
-      overflow:hidden;
-    }
-    .icon svg,
-    .mini-icon svg{
-      width:17px !important;
-      height:17px !important;
-      max-width:17px !important;
-      max-height:17px !important;
-      display:block !important;
-      fill:currentColor !important;
-    }
-    .mini-icon{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:15px;
-      height:15px;
-      overflow:hidden;
-    }
-    .stat::before{
-      display:none !important;
-      content:"" !important;
-    }
-    .stat > .icon{
-      float:left;
-      margin:2px 12px 8px 0;
-    }
-
-
-
-    .letter-content h3[id]{
-      scroll-margin-top:112px;
-    }
-    @media (max-width:900px){
-      .letter-content h3[id]{scroll-margin-top:132px}
-    }
-
-    @media (max-width:640px){
-      .brand > span:last-child{font-size:15px}
-
-      .brand-doc-icon{width:30px;height:30px;border-radius:10px}
-      .brand-doc-icon svg{width:16px;height:16px}
-
-      .mark{width:28px;height:28px}
-      .mark::after{inset:7px}
-    }
-
-    @media (max-width:640px){
-      .letter-content h3[id]{scroll-margin-top:142px}
-    }
-
-    /* Anchor positioning and scroll-spy behavior */
-    section[id]{
-      scroll-margin-top:96px;
-    }
-    @media (max-width:900px){
-      section[id]{scroll-margin-top:142px}
-    }
-    @media (max-width:640px){
-      section[id]{scroll-margin-top:156px}
-    }
-
-    @media (max-width:900px){
-      .hero,.problem-grid,.evidence-layout,.value-map,.letter{grid-template-columns:1fr}
-      .letter-nav{position:relative;top:auto}
-      .nav{align-items:flex-start;flex-direction:column}.navlinks{justify-content:flex-start}
-      .hero-main{padding:28px}.section-head{align-items:flex-start;flex-direction:column}.fit-item{grid-template-columns:1fr}
-    }
-
-    @media (max-width:640px){
-      .cta-row{gap:10px}
-      .btn{width:100%;justify-content:center;font-size:14px;padding:11px 15px}
-      h1{font-size:clamp(32px,9vw,42px)}
-      .lead{font-size:18px}
-      .hero-note{font-size:16px}
-      .stat b{font-size:28px}
-      .section h2{font-size:26px}
-
-      .hero-side{
-        padding:16px;
-        gap:10px;
-      }
-      .stat{
-        grid-template-columns:42px minmax(0,1fr);
-        min-height:auto;
-        padding:14px 15px;
-        border-radius:18px;
-      }
-      .stat .icon{
-        width:36px;
-        height:36px;
-      }
-      .stat b{
-        font-size:32px;
-      }
-      .stat span{
-        font-size:14.5px;
-      }
-
-
-      #problem .section-head h2,
-      #evidence .section-head h2,
-      #value .section-head h2{
-        font-size:32px;
-        line-height:1.08;
-        letter-spacing:-.04em;
-      }
-      #problem .section-head p,
-      #evidence .section-head p,
-      #value .section-head p{
-        font-size:18px;
-        line-height:1.5;
-        letter-spacing:-.015em;
-      }
-
-
-      #evidence .section-head p,
-      #value .section-head p{
-        font-size:18px;
-      }
-      .value-map{
-        grid-template-columns:1fr;
-        gap:14px;
-      }
-      .value-card{
-        min-height:auto;
-      }
-      .value-closing-panel{
-        grid-template-columns:auto 1fr;
-        padding:18px;
-      }
-      .value-closing-panel .closing-mark{
-        width:40px;
-        height:40px;
-        border-radius:14px;
-        font-size:18px;
-      }
-
-
-      .value-map{
-        grid-template-columns:1fr;
-      }
-      .value-closing-panel{
-        align-items:flex-start;
-        padding:20px;
-      }
-      .value-closing-panel .closing-mark{
-        width:40px;
-        height:40px;
-        font-size:18px;
-      }
-
-
-      .commitment-grid{
-        grid-template-columns:1fr;
-        gap:12px;
-      }
-      .commitment-mini{
-        padding:16px;
-      }
-      .final-card{
-        padding:28px 24px 26px;
-      }
-
-
-      .section.section-band{
-        margin-left:-24px;
-        margin-right:-24px;
-        padding-left:24px;
-        padding-right:24px;
-      }
-      .section.section-band::before{left:24px;right:24px}
-
-
-      .profile-contact-links{flex-direction:column}
-      .profile-contact-links a{width:100%;justify-content:center}
-
-
-      .contact-links{flex-direction:column}
-      .contact-links a{width:100%;justify-content:center}
-
-    }
-
-    @media (prefers-reduced-motion:reduce){
-      html{scroll-behavior:auto}.reveal,.hero-main::after,.panel,.eyebrow .mini-icon,.badge::after{animation:none;transition:none}.btn:hover,.stat:hover,.evidence-card:hover,.map-card:hover,.letter-content:hover,.final-card:hover{transform:none}
-    }
-    @media print{
-      .topbar,.cta-row,.letter-nav{display:none}
-      body{background:#fff}.card,.problem,.evidence-card,.map-card,.letter-content,.final-card{box-shadow:none;border-color:#ddd}
-      .wrap{padding:0}.hero,.problem-grid,.evidence-layout,.value-map,.letter{display:block}
-      .section{page-break-inside:avoid}.reveal{opacity:1;transform:none}
-    }
-  
-    .profile-contact-links a{font-weight:500}
-
-  </style>
-
-  <!--
-    Final audit notes:
-    - Navigation: Profile | Problem | Evidence | Value
-    - Removed: Pitch Brief and separate Commitment section
-    - Visual system: restrained AIIB red/gold accents, navy/ink text, slate muted text, tiered heading hierarchy, consistent rounded cards and shadows
-    - Scroll behavior: top-nav click highlight and scroll-based highlight retained
-  -->
-
-
-  <noscript>
-    <style>
-      .reveal{opacity:1 !important;transform:none !important}
-      .panel{display:block !important}
-    </style>
-  </noscript>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bernie Calderon Magtalas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Career portfolio of Bernie Calderon Magtalas, infrastructure economist and licensed electrical engineer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an appraisal dossier. Fixed index column on the left, one reading column on the right; registers instead of cards. */
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --ink:#16202b; --muted:#5d6876; --rule:#dde2e8; --accent:#8a1117; --accent-soft:#f6e9ea; --bar2:#b8925a; --bar3:#7d8a99;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --body:"Public Sans","Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#11161c;--surface:#171e26;--ink:#e6eaef;--muted:#9aa5b2;--rule:#2a333e;--accent:#e2868c;--accent-soft:#2b1b1e;--bar2:#c9a56f;--bar3:#8794a3;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#11161c;--surface:#171e26;--ink:#e6eaef;--muted:#9aa5b2;--rule:#2a333e;--accent:#e2868c;--accent-soft:#2b1b1e;--bar2:#c9a56f;--bar3:#8794a3;color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-padding-top:24px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+img{max-width:100%;display:block}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:250px minmax(0,1fr);gap:64px;padding-block:56px 40px}
+
+/* index column */
+.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 40px);align-self:start}
+.side .portrait{width:88px;height:88px;border-radius:50%;object-fit:cover;margin-bottom:18px}
+.side h1{font-family:var(--display);font-weight:600;font-size:28px;line-height:1.1;margin:0 0 6px;text-wrap:balance}
+.side .role{color:var(--muted);font-size:14.5px;line-height:1.45;margin:0 0 18px}
+.contact{font-size:14px;display:grid;gap:4px;margin-bottom:28px}
+.contact .row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.copy{font:inherit;font-size:12px;border:1px solid var(--rule);background:var(--surface);color:var(--muted);border-radius:4px;padding:1px 7px;cursor:pointer}
+.index{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.index a{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--rule);color:var(--muted);text-decoration:none;font-size:14.5px}
+.index a span:last-child{font-family:var(--mono);font-size:12.5px}
+.index a:hover{color:var(--ink)}
+.index a.on{color:var(--accent);font-weight:600}
+
+/* reading column */
+main{min-width:0}
+section{padding-block:0 56px;margin-bottom:56px;border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:0}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+h2{font-family:var(--display);font-weight:500;font-size:clamp(28px,3.4vw,38px);line-height:1.1;margin:0 0 16px;text-wrap:balance}
+h3{font-size:17px;font-weight:700;margin:0 0 6px;line-height:1.35}
+p{margin:0 0 14px;max-width:68ch}
+.lede{font-family:var(--display);font-size:clamp(21px,2.3vw,26px);line-height:1.4;font-weight:500;max-width:34ch;margin-bottom:28px;text-wrap:balance}
+.muted{color:var(--muted)}
+
+/* key figures */
+.figures{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--ink);border-bottom:1px solid var(--rule);margin:0 0 32px}
+.figures div{padding:14px 16px 14px 0}
+.figures div+div{padding-left:16px;border-left:1px solid var(--rule)}
+.figures b{display:block;font-family:var(--mono);font-weight:500;font-size:clamp(20px,2.4vw,26px);line-height:1.2}
+.figures span{display:block;font-size:13px;color:var(--muted);line-height:1.35;margin-top:4px}
+
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:24px}
+.entries{list-style:none;margin:0;padding:0}
+.entries li{padding:10px 0;border-top:1px solid var(--rule)}
+.entries b{display:block;font-weight:600}
+.entries span{font-size:14.5px;color:var(--muted)}
+
+/* simple list of tools */
+.tools{list-style:none;margin:8px 0 0;padding:0}
+.tools li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 24px;padding:18px 0;border-top:1px solid var(--rule)}
+.tools p{margin:0;color:var(--muted);font-size:15px}
+.tools a,.tools .tag{font-size:14px;white-space:nowrap;align-self:start}
+.tools .tag{color:var(--muted);font-family:var(--mono);font-size:12.5px}
+
+/* register tables */
+.controls{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 12px}
+.controls input,.controls select{font:inherit;font-size:14.5px;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:8px 10px}
+.controls input{flex:1 1 220px;min-width:0}
+.tablebox{overflow-x:auto;border-top:2px solid var(--ink)}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:10px 10px 8px;border-bottom:1px solid var(--rule);white-space:nowrap}
+td{padding:11px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th:first-child,td:first-child{padding-left:0}
+th:last-child,td:last-child{padding-right:0}
+td.r,th.r{text-align:right}
+td.n{color:var(--muted);font-family:var(--mono);font-size:12.5px;width:34px}
+tr.p{cursor:pointer}
+tr.p:hover td{background:var(--surface)}
+tr.p td.t{font-weight:500}
+tr.p td.t::after{content:" +";color:var(--accent);font-weight:600}
+tr.p.open td.t::after{content:" −"}
+tr.d td{padding:4px 10px 16px 44px;color:var(--muted);font-size:14.5px;background:var(--surface)}
+tr.d p{margin:0 0 6px}
+tr.d ol,tr.d ul{margin:0 0 6px;padding-left:20px}
+tr.d .show-sm{display:none}
+tfoot td{font-weight:700;border-bottom:2px solid var(--ink)}
+.sumline{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:14px;color:var(--muted);margin-top:10px}
+
+.split{display:flex;height:10px;border-radius:2px;overflow:hidden;margin:18px 0 8px}
+.split i{display:block}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:13.5px;color:var(--muted);margin-bottom:6px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+
+details.plain{border-top:1px solid var(--rule)}
+details.plain:last-child{border-bottom:1px solid var(--rule)}
+details.plain summary{cursor:pointer;padding:12px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px}
+details.plain summary::-webkit-details-marker{display:none}
+details.plain summary::after{content:"+";color:var(--accent)}
+details.plain[open] summary::after{content:"−"}
+details.plain .in{padding:0 0 14px;color:var(--muted);font-size:15px;max-width:72ch}
+details.plain .in p{margin:0 0 8px}
+details.plain .in ul,details.plain .in ol{margin:0 0 8px;padding-left:20px}
+
+.sub{margin-top:36px}
+.sub:first-of-type{margin-top:12px}
+
+/* field missions */
+.mission{margin-top:28px}
+.mission .meta{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-bottom:6px}
+.stacks{display:grid;grid-template-columns:repeat(3,minmax(0,210px));gap:24px;margin:18px 0 20px}
+.stack{padding:0;border:0;background:none;cursor:zoom-in;text-align:left;font:inherit;color:inherit}
+.stack .pile{position:relative;aspect-ratio:4/3;margin:6px 8px 12px 0}
+.stack .pile::before,.stack .pile::after{content:"";position:absolute;inset:0;border-radius:4px;background:var(--surface);border:1px solid var(--rule)}
+.stack .pile::before{transform:translate(8px,8px)}
+.stack .pile::after{transform:translate(4px,4px)}
+.stack img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;border-radius:4px;transition:transform .2s}
+.stack:hover img{transform:translate(-2px,-2px)}
+.stack .count{position:absolute;z-index:2;right:8px;bottom:8px;background:rgba(10,13,18,.75);color:#fff;font-size:12.5px;padding:2px 8px;border-radius:999px}
+.stack b{display:block;font-size:14.5px}
+.stack span.loc{display:block;font-size:13px;color:var(--muted);line-height:1.35}
+.lists{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:8px 0 16px}
+.lists ul,.lists ol{margin:0;padding-left:20px;font-size:14.5px;color:var(--muted)}
+.lists li{margin-bottom:3px}
+.site h4{font-size:15px;margin:14px 0 2px}
+.site dl{margin:0;display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 16px;font-size:14.5px}
+.site dt{font-weight:600;color:var(--ink)}
+.site dd{margin:0}
+.site dd ul{margin:0;padding-left:18px}
+
+/* advocacy */
+.adv{list-style:none;margin:8px 0 0;padding:0}
+.adv>li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:20px 0;border-top:1px solid var(--rule)}
+.adv button{padding:0;border:0;background:var(--rule);cursor:zoom-in;aspect-ratio:4/3;overflow:hidden;border-radius:3px}
+.adv img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.adv .role{font-size:13.5px;color:var(--muted);margin-bottom:4px}
+.adv p{margin:0;font-size:15px}
+
+.adv .pics{display:grid;gap:6px;align-content:start}
+.events{list-style:none;margin:10px 0 0;padding:0;font-size:14.5px}
+.events li{padding:6px 0;border:0}
+.events b{display:block;font-weight:600}
+.events span{color:var(--muted);font-size:13.5px}
+.events details.web{margin-top:6px;border-bottom:0}
+.events details.web summary{padding:6px 0;font-size:14px}
+.events details.web ol{margin:0;padding-left:20px;font-size:14px}
+.events details.web li{padding:3px 0}
+.events .linkbtn{font-size:13.5px;aspect-ratio:auto;background:none;border-radius:0;overflow:visible;cursor:zoom-in}
+/* thesis */
+.hyp td:last-child{white-space:nowrap}
+.paths{display:grid;gap:12px;margin:12px 0 0}
+.paths .row{display:grid;grid-template-columns:190px minmax(0,1fr) 52px;gap:12px;align-items:center;font-size:14.5px}
+.paths .track{height:8px;background:var(--rule);border-radius:2px;overflow:hidden}
+.paths .fill{height:100%;background:var(--accent)}
+.linklist{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 22px;font-size:14.5px}
+
+/* credentials */
+.creds td:last-child{white-space:nowrap}
+.linkbtn{font:inherit;font-size:14px;background:none;border:0;padding:0;color:var(--accent);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+
+footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px solid var(--rule);font-size:13.5px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(10,13,18,.92);display:flex;align-items:center;justify-content:center;
+  padding:calc(env(safe-area-inset-top,0px) + 56px) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 64px) max(16px,env(safe-area-inset-left,0px))}
+.lb img{max-height:100%;max-width:min(1100px,100%);object-fit:contain}
+.lb .cap{position:fixed;left:16px;right:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 18px);text-align:center;color:#e6eaef;font-size:14px}
+.lb button{position:fixed;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;font-size:20px;cursor:pointer}
+.lb .x{top:calc(env(safe-area-inset-top,0px) + 12px);right:max(12px,env(safe-area-inset-right,0px))}
+.lb .pv{left:max(12px,env(safe-area-inset-left,0px));top:50%}
+.lb .nx{right:max(12px,env(safe-area-inset-right,0px));top:50%}
+
+@media (max-width:960px){
+  .wrap{grid-template-columns:1fr;gap:0;padding-block:24px 24px}
+  .side{display:contents}
+  .side .head{margin-bottom:12px}
+  .side .head{display:flex;gap:16px;align-items:center}
+  .side .portrait{width:72px;height:72px;margin:0}
+  .index{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:4px;overflow-x:auto;border-top:0;border-bottom:1px solid var(--rule);margin:0 -16px 32px;padding:0 16px;scrollbar-width:none}
+  .index::-webkit-scrollbar{display:none}
+  .index li{flex:0 0 auto}
+  .index a{border:0;padding:12px 8px;white-space:nowrap}
+  .index a span:last-child{display:none}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+  html{scroll-padding-top:64px}
+}
+@media (max-width:640px){
+  .figures{grid-template-columns:1fr 1fr}
+  .figures div:nth-child(3){padding-left:0;border-left:0}
+  .figures div:nth-child(n+3){border-top:1px solid var(--rule)}
+  .cols,.lists{grid-template-columns:1fr;gap:16px}
+  .stacks{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .stack span.loc{display:none}
+  .stack .count{font-size:11px;padding:1px 6px;right:5px;bottom:5px}
+  .adv>li{grid-template-columns:96px minmax(0,1fr);gap:14px}
+  .tools li{grid-template-columns:1fr}
+  .site dl{grid-template-columns:1fr}
+  .paths .row{grid-template-columns:1fr 48px}
+  .paths .track{grid-column:1 / -1;grid-row:2}
+  .hide-sm{display:none}
+  .show-sm{display:block!important}
+  tr.d td{padding-left:0}
+}
+</style>
 </head>
 <body>
 
-  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" focusable="false">
-    <symbol id="icon-document" viewBox="0 0 24 24"><path d="M6 2h8l4 4v16H6V2zm7 1.8V7h3.2L13 3.8zM8 10v2h8v-2H8zm0 4v2h8v-2H8zm0 4v2h5v-2H8z"/></symbol>
-    <symbol id="icon-star" viewBox="0 0 24 24"><path d="M12 2.7l2.8 6 6.5.8-4.8 4.5 1.3 6.4L12 17.1l-5.8 3.3 1.3-6.4-4.8-4.5 6.5-.8L12 2.7z"/></symbol>
-    <symbol id="icon-clock" viewBox="0 0 24 24"><path d="M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19zm0 2a7.5 7.5 0 1 1 0 15 7.5 7.5 0 0 1 0-15zm1 3.2h-2v5.1l4.3 2.6 1-1.7-3.3-1.9V7.7z"/></symbol>
-    <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M4 19h16v2H2V4h2v15zm3-2h3V9H7v8zm5 0h3V5h-3v12zm5 0h3v-6h-3v6z"/></symbol>
-    <symbol id="icon-compass" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 .1 0H12zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16zm4.8 3.2-3 7.2-7.2 3 3-7.2 7.2-3zm-4 4-1.6-1.6-1.1 2.7 2.7-1.1z"/></symbol>
-    <symbol id="icon-gear" viewBox="0 0 24 24"><path d="M19.4 13.5c.1-.5.1-1 .1-1.5s0-1-.1-1.5l2-1.5-2-3.5-2.4 1a8 8 0 0 0-2.6-1.5L14 2.5h-4l-.4 2.5A8 8 0 0 0 7 6.5l-2.4-1-2 3.5 2 1.5c-.1.5-.1 1-.1 1.5s0 1 .1 1.5l-2 1.5 2 3.5 2.4-1a8 8 0 0 0 2.6 1.5l.4 2.5h4l.4-2.5a8 8 0 0 0 2.6-1.5l2.4 1 2-3.5-2-1.5zM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/></symbol>
-    <symbol id="icon-search" viewBox="0 0 24 24"><path d="M10.5 4a6.5 6.5 0 0 1 5.1 10.5l4 4-1.4 1.4-4-4A6.5 6.5 0 1 1 10.5 4zm0 2a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9z"/></symbol>
-    <symbol id="icon-bulb" viewBox="0 0 24 24"><path d="M9 21h6v-2H9v2zm3-19a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2zm2 11.5-.8.5V15h-2.4v-1l-.8-.5A5 5 0 1 1 14 13.5z"/></symbol>
-    <symbol id="icon-link" viewBox="0 0 24 24"><path d="M3.9 12a5 5 0 0 1 5-5h4v2h-4a3 3 0 0 0 0 6h4v2h-4a5 5 0 0 1-5-5zm5.1 1h6v-2H9v2zm2-4h4a3 3 0 0 1 0 6h-4v2h4a5 5 0 0 0 0-10h-4v2z"/></symbol>
-    <symbol id="icon-check" viewBox="0 0 24 24"><path d="M9.5 16.6 4.9 12l-1.4 1.4 6 6 11-11L19.1 7 9.5 16.6z"/></symbol>
-    <symbol id="icon-bank" viewBox="0 0 24 24"><path d="M12 3 2 8v2h20V8L12 3zM5 11v7H3v2h18v-2h-2v-7h-2v7h-3v-7h-2v7H9v-7H7v7H5v-7z"/></symbol>
-    <symbol id="icon-scale" viewBox="0 0 24 24"><path d="M11 4H5v2h3.5L5 12H3l3 5 3-5H7l3.5-6H11v13H7v2h10v-2h-4V6h2.5L19 12h-2l3 5 3-5h-2l-3.5-6H21V4h-8V2h-2v2z"/></symbol>
-    <symbol id="icon-target" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16zm0 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></symbol>
-    <symbol id="icon-handshake" viewBox="0 0 24 24"><path d="M8.6 11.2 11 8.8a3 3 0 0 1 4.2 0l.8.8 3-3L21 8.5l-4.7 4.7a2.9 2.9 0 0 1-4.1 0l-.7-.7-2.2 2.2a2 2 0 0 1-2.8 0l-3-3L5 10l2.2 2.2 1.4-1zM2.9 8.2 7 4.1 8.4 5.5 4.3 9.6 2.9 8.2zM15.6 18.5l4.1-4.1 1.4 1.4-4.1 4.1-1.4-1.4z"/></symbol>
-    <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 2a5 5 0 0 1 5 5c0 2.7-2.7 6.8-5 9.6C9.7 15.8 7 11.7 7 9a5 5 0 0 1 5-5zm0 2.8A2.2 2.2 0 1 0 12 11.2 2.2 2.2 0 0 0 12 6.8z"/></symbol>
-    <symbol id="icon-puzzle" viewBox="0 0 24 24"><path d="M10 3h4v3a2 2 0 1 0 2 2h3v5h-3a2 2 0 1 0-2 2v4H9v-3a2 2 0 1 0-2-2H4V9h3a2 2 0 1 0 2-2V3h1z"/></symbol>
 
-    <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M3 5h18v14H3V5zm2 2v.4l7 4.4 7-4.4V7H5zm14 2.7-7 4.4-7-4.4V17h14V9.7z"/></symbol>
-    <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M5.4 8.8H2.8V21h2.6V8.8zM4.1 3A1.5 1.5 0 1 0 4 6a1.5 1.5 0 0 0 .1-3zm6.2 5.8H7.8V21h2.6v-6.4c0-1.7.8-2.7 2.2-2.7 1.3 0 1.9.9 1.9 2.7V21h2.6v-7.2c0-3.1-1.7-5.2-4.3-5.2-1.2 0-2 .4-2.5 1.2v-1z"/></symbol>
-  </svg>
-
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="topbar">
-    <nav class="nav" aria-label="Main navigation">
-      <div class="brand"><span class="brand-doc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-document"></use></svg></span><span>Evaluation Specialist Pitch Book<small>Bernie Calderon Magtalas</small></span></div>
-      <div class="navlinks" id="navlinks">
-        <a href="#fit">Profile</a><a href="#problem">Problem</a><a href="#evidence">Evidence</a><a href="#value">Value</a>
+<div class="wrap">
+  <aside class="side">
+    <div class="head">
+      <img class="portrait" src="assets/img/portrait.jpg" alt="Portrait of Bernie Calderon Magtalas">
+      <div>
+        <h1>Bernie Calderon Magtalas</h1>
+        <p class="role">Infrastructure economist and licensed electrical engineer</p>
       </div>
-    </nav>
-  </header>
+    </div>
+    <div class="contact">
+      <div class="row"><span>magtalasbernie@suou.waseda.jp</span><button class="copy" id="copyMail" type="button">Copy</button></div>
+      <div class="row"><a href="https://www.linkedin.com/in/magtalas-bernie/" target="_blank" rel="noopener noreferrer">LinkedIn profile</a></div>
+    </div>
+    <ul class="index" id="index">
+      <li><a href="#about"><span>About</span><span></span></a></li>
+      <li><a href="#analytics"><span>Analytics</span><span>3</span></a></li>
+      <li><a href="#projects"><span>Projects evaluated</span><span>34</span></a></li>
+      <li><a href="#ta"><span>Technical assistance</span><span id="nTA">1</span></a></li>
+      <li><a href="#policy"><span>Policy and boards</span><span>42</span></a></li>
+      <li><a href="#consulting"><span>Consulting</span><span>12</span></a></li>
+      <li><a href="#field"><span>Field missions</span><span>2</span></a></li>
+      <li><a href="#advocacy"><span>Advocacy</span><span>6</span></a></li>
+      <li><a href="#thesis"><span>Thesis</span><span></span></a></li>
+      <li><a href="#credentials"><span>Credentials</span><span>6</span></a></li>
+    </ul>
+  </aside>
 
-  <main class="wrap" id="main">
-    <section class="hero reveal" id="fit">
-      <div class="card hero-main">
-        
-        <h1>Translating independent evaluations into stronger operations</h1>
-        <p class="lead">I am <strong>Bernie Calderon Magtalas</strong>, an infrastructure evaluation and public investment professional applying for the Evaluation Specialist role under the Complaints-resolution, Evaluation and Integrity Unit (CEIU) of the Asian Infrastructure Investment Bank (AIIB).</p>
-        <p class="hero-note">I bring firsthand experience evaluating infrastructure investments before approval, when project design, financing assumptions, risk allocation, and results frameworks can still be challenged and strengthened.</p>
-        <div class="profile-contact-links" aria-label="Profile contact links">
-          <a href="mailto:magtalasbernie@suou.waseda.jp"><span class="contact-icon" aria-hidden="true"><svg><use href="#icon-mail"></use></svg></span>magtalasbernie@suou.waseda.jp</a>
-          <a href="https://www.linkedin.com/in/magtalas-bernie/" target="_blank" rel="noopener noreferrer"><span class="contact-icon" aria-hidden="true"><svg><use href="#icon-linkedin"></use></svg></span>LinkedIn profile</a>
-        </div>
+  <main>
+    <section id="about">
+      <p class="kicker">About</p>
+      <p class="lede">Appraising, structuring, and programming public infrastructure investment in the Philippines since 2015.</p>
+      <div class="figures">
+        <div><b>35</b><span>projects and programs appraised</span></div>
+        <div><b>USD 14.70B</b><span>investment appraised, incl. USD 10.44B PPP</span></div>
+        <div><b>27</b><span>legislative measures reviewed</span></div>
+        <div><b>8</b><span>national boards and committees advised</span></div>
       </div>
-      <aside class="card hero-side" aria-label="Candidate highlights">
-        <div class="stat"><span class="icon" aria-hidden="true"><svg><use href="#icon-clock"></use></svg></span><b>~10 years</b><span>Infrastructure policy, appraisal, investment programming, and evaluation experience</span></div>
-        <div class="stat"><span class="icon" aria-hidden="true"><svg><use href="#icon-chart"></use></svg></span><b>USD13 billion</b><span>Renewable energy and transport portfolio evaluated</span></div>
-        <div class="stat"><span class="icon" aria-hidden="true"><svg><use href="#icon-compass"></use></svg></span><b>USD176 billion</b><span>National infrastructure pipeline supported through prioritization analytics</span></div>
-        <div class="stat"><span class="icon" aria-hidden="true"><svg><use href="#icon-gear"></use></svg></span><b>R + modeling</b><span>Composite indices, dashboards, and Structural Equation Modeling (SEM)</span></div>
-      </aside>
-    </section>
-
-    <section class="section section-band band-warm reveal" id="problem">
-      <div class="section-head">
+      <p>Bernie Calderon Magtalas is an infrastructure economist and licensed electrical engineer. He is a Supervising Economic Development Specialist in the Infrastructure Staff of the Department of Economy, Planning, and Development (DEPDev) Investment Programming Group, where he leads project appraisal, planning, and policy formulation across the energy, transportation, and wider public infrastructure sectors.</p>
+<p>He began his career at the Department of Energy in 2015, administering renewable energy and rural electrification programs in remote, off-grid, and conflict-affected areas, and joined DEPDev in 2016.</p>
+      <div class="cols">
         <div>
-          <h2>The evaluation challenge</h2>
-          <p class="sub">As AIIB expands across sovereign-backed and nonsovereign-backed operations, CEIU needs independent evaluations that explain what shaped results, translate findings into lessons, and inform improvements in future operations.</p>
+          <h3>Experience</h3>
+          <ul class="entries">
+            <li><b>Supervising Economic Development Specialist</b><span>Infrastructure Staff, Investment Programming Group, DEPDev</span></li>
+            <li><b>Senior Economic Development Specialist</b><span>DEPDev, 2020–2024; Team Leader for Civil Aviation, Transportation Division</span></li>
+            <li><b>Science Research Specialist</b><span>Department of Energy, from 2015; renewable energy and rural electrification</span></li>
+          </ul>
         </div>
-      </div>
-      <div class="problem-grid">
-        <div class="problem"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-search"></use></svg></span>Explain what shaped results</h3><p>Examine how project design, appraisal quality, implementation readiness, institutional context, and risk allocation influenced infrastructure outcomes.</p></div>
-        <div class="problem"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-bulb"></use></svg></span>Translate findings into lessons</h3><p>Turn evaluation findings into lessons for Early Learning Assessments (ELAs), Project Learning Reviews (PLRs), thematic evaluations, and knowledge products.</p></div>
-        <div class="problem"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-link"></use></svg></span>Inform future operations</h3><p>Apply evaluation lessons to strengthen project design, delivery, risk allocation, and performance.</p></div>
-      </div>
-    </section>
-
-    <section class="section reveal" id="evidence">
-      <div class="section-head">
         <div>
-          <h2>Evidence of fit</h2>
-          <p class="sub">My experience supports CEIU’s mandate for independent evaluation, learning, and accountability.</p>
-        </div>
-      </div>
-      <div class="tabs" role="tablist" aria-label="Evidence categories">
-        <button class="tab active" id="tab-upstream" data-tab="panel-upstream" role="tab" aria-selected="true" aria-controls="panel-upstream" tabindex="0">Upstream evaluation</button>
-        <button class="tab" id="tab-mdb" data-tab="panel-mdb" role="tab" aria-selected="false" aria-controls="panel-mdb" tabindex="-1">Development bank evaluation</button>
-        <button class="tab" id="tab-analytics" data-tab="panel-analytics" role="tab" aria-selected="false" aria-controls="panel-analytics" tabindex="-1">Technology-enabled analysis</button>
-        <button class="tab" id="tab-nsbf" data-tab="panel-nsbf" role="tab" aria-selected="false" aria-controls="panel-nsbf" tabindex="-1">Nonsovereign bridge</button>
-      </div>
-      <div class="panel active" id="panel-upstream" role="tabpanel" aria-labelledby="tab-upstream" tabindex="0">
-        <div class="evidence-layout">
-          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-check"></use></svg></span>Decision-point experience</h3><ul><li><strong>Assessed</strong> infrastructure policies, projects, and programs before approval, escalation, or major public commitment</li><li><strong>Synthesized</strong> inter-agency energy-sector evaluations for the Philippine Development Plan (PDP) Midterm Update to recalibrate targets and strategies</li><li><strong>Prepared</strong> evaluation and comparative policy inputs on coal moratorium exemptions, Electric Power Industry Reform Act (EPIRA) amendments, and nuclear liability options for senior policy deliberation</li></ul><span class="badge">Project design</span><span class="badge">PDP Midterm Update</span><span class="badge">Policy evaluation</span></div>
-          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-chart"></use></svg></span>Portfolio evidence</h3><ul><li><strong>Evaluated</strong> a USD13 billion portfolio of 12 renewable energy and 19 transportation projects</li><li><strong>Validated</strong> economic and financial models across renewable energy and transport projects</li><li><strong>Identified</strong> due diligence gaps to strengthen quality at entry and mitigate project failure risks</li></ul><span class="badge">USD13 billion portfolio</span><span class="badge">Energy</span><span class="badge">Transport</span></div>
-        </div>
-      </div>
-      <div class="panel" id="panel-mdb" role="tabpanel" aria-labelledby="tab-mdb" tabindex="0">
-        <div class="evidence-layout">
-          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-bank"></use></svg></span>Development bank work</h3><ul><li><strong>Assessed</strong> an Asian Development Bank (ADB) Results-Based Loan (RBL) energy efficiency project and recommended improvements to cost-benefit analysis and technical design</li><li><strong>Evaluated</strong> a USD4 million regional power grid technical assistance proposal, including indigenous resource utilization and energy equity issues</li><li><strong>Collaborated</strong> with ADB in drafting Terms of Reference (TOR) for regional infrastructure benchmarking and disparity analysis</li></ul><span class="badge">ADB RBL</span><span class="badge">USD4 million TA</span><span class="badge">Quality at entry</span></div>
-          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-scale"></use></svg></span>Evaluation criteria</h3><ul><li><strong>Applied</strong> ADB evaluation criteria in a case study covering relevance, effectiveness, efficiency, sustainability, and non-core dimensions</li><li><strong>Strengthened</strong> evidence-based evaluation judgment through an ADB-led evaluation workshop</li><li><strong>Synthesized</strong> Southeast Asia policy practices to mainstream climate resilience into project design and evaluation</li></ul><span class="badge">ADB criteria</span><span class="badge">Non-core criteria</span><span class="badge">Climate resilience</span></div>
-        </div>
-      </div>
-      <div class="panel" id="panel-analytics" role="tabpanel" aria-labelledby="tab-analytics" tabindex="0">
-        <div class="evidence-layout">
-          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-gear"></use></svg></span>Reproducible analytics</h3><ul><li><strong>Developed</strong> an R-based energy sub-index and composite infrastructure indices across energy, water, transport, social, and digital infrastructure</li><li><strong>Automated</strong> multi-criteria prioritization for 207 projects in a USD176 billion national investment pipeline</li><li><strong>Piloted</strong> OSeMOSYS and IRENA FlexTool for power system expansion, flexibility modeling, and energy transition scenario analysis</li></ul><span class="badge">R</span><span class="badge">USD176 billion pipeline</span><span class="badge">OSeMOSYS</span><span class="badge">IRENA FlexTool</span></div>
-          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-target"></use></svg></span>Evaluation use</h3><ul><li><strong>Built</strong> dashboards and analytical prototypes to support infrastructure benchmarking, comparability, and learning</li><li><strong>Applied</strong> Structural Equation Modeling (SEM) to analyze global energy transition dynamics across 27 variables and 120 countries</li><li><strong>Estimated</strong> regional economic costs of alternative energy sources as a benchmark for energy project evaluation</li></ul><span class="badge">Traceability</span><span class="badge">SEM</span><span class="badge">Energy cost benchmarking</span></div>
-        </div>
-      </div>
-      <div class="panel" id="panel-nsbf" role="tabpanel" aria-labelledby="tab-nsbf" tabindex="0">
-        <div class="evidence-layout">
-          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-handshake"></use></svg></span>Private-sector interface</h3><ul><li><strong>Led</strong> risk assessment for 8 Public-Private Partnership (PPP) transport projects</li><li><strong>Integrated</strong> mitigation strategies and costs into USD10 billion in PPP contracts</li><li><strong>Reviewed</strong> private-sector participation, financial models, and green finance considerations</li></ul><span class="badge">PPP risk</span><span class="badge">USD10 billion contracts</span><span class="badge">Green finance</span></div>
-          <div class="evidence-card"><h3><span class="icon" aria-hidden="true"><svg><use href="#icon-bank"></use></svg></span>Field and delivery foundation</h3><ul><li><strong>Conducted</strong> solar field evaluations in 7 remote areas with 4 World Bank consultants</li><li><strong>Identified</strong> rural electrification bottlenecks and strategies integrated into the Access to Sustainable Energy Program</li><li><strong>Directed</strong> USD2 million in consulting contracts for 14 master plans and feasibility studies on renewable energy and sustainable infrastructure</li></ul><span class="badge">Field evaluation</span><span class="badge">Rural electrification</span><span class="badge">Feasibility studies</span></div>
+          <h3>Education</h3>
+          <ul class="entries">
+            <li><b>MA in International Relations</b><span>Economic Development and Policy in Asia, Graduate School of Asia-Pacific Studies, Waseda University, Tokyo, completed 15 September 2024 · <button class="linkbtn" data-lb="waseda_tor" style="font-size:14px">View transcript</button></span></li>
+            <li><b>BS in Electrical Engineering</b><span>University of the Philippines Los Baños, conferred 1 August 2014 · <button class="linkbtn" data-lb="diploma" style="font-size:14px">View diploma</button></span></li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="section section-band band-cool reveal" id="value">
-      <div class="section-head">
-        <h2>Value proposition</h2>
-        <p>Translate independent evaluation into operational learning that strengthens AIIB operations.</p>
-      </div>
-      <div class="value-map">
-          <article class="value-card">
-            <span class="num">01</span>
-            <div>
-              <h3>Evaluation judgment</h3>
-              <p>Assess project logic, implementation context, institutional arrangements, and development results with infrastructure-sector discipline.</p>
-            </div>
-          </article>
-          <article class="value-card">
-            <span class="num">02</span>
-            <div>
-              <h3>Operational learning</h3>
-              <p>Translate findings into lessons that are usable for project teams, management, and future operations.</p>
-            </div>
-          </article>
-          <article class="value-card">
-            <span class="num">03</span>
-            <div>
-              <h3>Government-side perspective</h3>
-              <p>Bring client-government experience in appraisal, investment programming, policy review, and infrastructure delivery constraints.</p>
-            </div>
-          </article>
-          <article class="value-card">
-            <span class="num">04</span>
-            <div>
-              <h3>Analytical rigor</h3>
-              <p>Use structured evidence, reproducible tools, geospatial analysis, and artificial intelligence (AI)-enabled methods to make insights traceable and actionable.</p>
-            </div>
-          </article>
-          <article class="value-closing-panel">
-            <div class="closing-mark" aria-hidden="true">→</div>
-            <div>
-              <h3>Goal</h3>
-              <p>Make evaluation evidence more usable, timely, and consequential for AIIB operations.</p>
-            </div>
-          </article>
-</div>
+    <section id="analytics">
+      <p class="kicker">Data analytics</p>
+      <h2>Analytical tools</h2>
+      <p class="muted">Built in R, Python, and Excel to support infrastructure appraisal, investment programming, and energy policy research.</p>
+      <ul class="tools">
+        <li><div><h3>Regional Infrastructure Development Index (RIDI)</h3><p>The Philippines' first composite measure of infrastructure development. Bernie directed five ADB consultants and five DEPDev specialists across the energy, water, digital, transport, and social sectors to compute the index in R.</p></div><a href="https://ridi.bolt.host/" target="_blank" rel="noopener noreferrer">Open RIDI ↗</a></li>
+        <li><div><h3>Infrastructure Indicator Screening Dashboard</h3><p>Interactive dashboard of the indices and indicators computed in R and Python. DEPDev adopted it as a prototype for regional and sectoral assessments of infrastructure investment gaps.</p></div><a href="https://bcmagtalas.github.io/ridi-dashboard/" target="_blank" rel="noopener noreferrer">Open dashboard ↗</a></li>
+                <li><div><h3>Multi-Criteria Socioeconomic Evaluation Model</h3><p>Automated Excel model that prioritized 207 infrastructure projects for a USD 176 billion national investment pipeline.</p></div><span class="tag">207 projects</span></li>
+      </ul>
     </section>
 
-    <p class="footer">Prepared by Bernie Calderon Magtalas | Evaluation Specialist Application | AIIB CEIU</p>
+    <section id="projects">
+      <p class="kicker">Appraisal and evaluation</p>
+      <h2>Projects evaluated</h2>
+      <p class="muted">Appraisal covered financial and economic models; market, technical, social, environmental, and institutional analyses; gender responsiveness; and, for public-private partnerships (PPP), review of concession agreements, risk allocation, and prequalification. Select a row to read the project's objectives.</p>
+      <div class="split" id="split"></div>
+      <div class="legend" id="legend"></div>
+      <div class="controls">
+        <input id="q" type="search" placeholder="Search projects" aria-label="Search projects">
+        <select id="fSec" aria-label="Sub-sector"></select>
+        <select id="fFin" aria-label="Financing"></select>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>No.</th><th>Project</th><th class="hide-sm">Sub-sector</th><th class="hide-sm">Financing</th><th class="r">USD M</th></tr></thead>
+          <tbody id="pbody"></tbody>
+        </table>
+      </div>
+      <div class="sumline"><span id="pcount"></span><span id="psum" class="num"></span></div>
+    </section>
+
+    <section id="ta">
+      <p class="kicker">Appraisal and evaluation</p>
+      <h2>Technical assistance programs</h2>
+      <p class="muted">Programs and policy-based support evaluated with development partners. Select a row to read the program's scope.</p>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>No.</th><th>Program</th><th class="hide-sm">Sector</th><th class="hide-sm">Financing</th><th class="r">USD M</th></tr></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="policy">
+      <p class="kicker">Policy and governance</p>
+      <h2>Legislation, boards, and working groups</h2>
+      <div class="sub">
+        <h3>Legislative measures reviewed <span class="muted num" style="font-weight:400">27</span></h3>
+        <div class="controls"><select id="fLeg" aria-label="Filter legislation by sector"></select></div>
+        <div class="tablebox"><table><thead><tr><th>Measure</th><th>Title</th><th class="hide-sm">Sector</th></tr></thead><tbody id="lbody"></tbody></table></div>
+      </div>
+      <div class="sub">
+        <h3>Boards and committees advised <span class="muted num" style="font-weight:400">8</span></h3>
+        <div id="boards"></div>
+      </div>
+      <div class="sub">
+        <h3>Working groups <span class="muted num" style="font-weight:400">7</span></h3>
+        <div id="wgs"></div>
+      </div>
+    </section>
+
+    <section id="consulting">
+      <p class="kicker">Consulting services</p>
+      <h2>Studies facilitated or evaluated</h2>
+      <p class="muted">Feasibility studies, master plans, and investment plans for sustainable infrastructure and renewable energy. Select a row for the study's scope.</p>
+      <div class="tablebox"><table>
+        <thead><tr><th>No.</th><th>Study</th><th class="hide-sm">Location</th><th class="r">USD M</th></tr></thead>
+        <tbody id="cbody"></tbody>
+        <tfoot><tr><td></td><td>Total, as reported</td><td class="hide-sm"></td><td class="r num">12.67</td></tr></tfoot>
+      </table></div>
+    </section>
+
+    <section id="field">
+      <p class="kicker">Support missions</p>
+      <h2>Field missions</h2>
+      <p class="muted">Sustainability assessments of solar home system (SHS) programs in off-grid villages, with the Department of Energy (DOE), the National Electrification Administration (NEA), and the World Bank, ahead of the scaled-up Photovoltaic Mainstreaming (PVM) component of the Access to Sustainable Energy Programme (ASEP).</p>
+      <div class="mission" id="negros"></div>
+      <div class="mission" id="infanta"></div>
+    </section>
+
+    <section id="advocacy">
+      <p class="kicker">Advocacy</p>
+      <h2>Forums and leadership</h2>
+      <ul class="adv">
+        <li><button data-lb="sipa_ait" aria-label="Enlarge photo"><img src="assets/img/sipa_ait.jpg" alt="Participants and resource persons of the first SIPA Southeast Asia training seminar at the Asian Institute of Technology" loading="lazy"></button><div><div class="role">Resource person and participant · Asian Institute of Technology, Thailand · 2025–2026</div><h3>SIPA Regional Knowledge Network: Southeast Asia Training Seminars on Sustainable Infrastructure Development</h3><p>A regional network of knowledge institutions on sustainable infrastructure connecting policymakers, practitioners, and experts in Indonesia, the Philippines, and Thailand. It is run by the Asian Institute of Technology, the United Nations Development Programme, and the OECD under the <a href="https://ait.ac.th/project/sustainable-infrastructure-programme-in-asia/" target="_blank" rel="noopener noreferrer">Sustainable Infrastructure Programme in Asia (SIPA)</a>.</p><ul class="events"><li><b>First SIPA Southeast Asia Training Seminar on Sustainable Infrastructure Development</b><span>In person, AIT · 28 April–2 May 2025 · <button class="linkbtn" data-lb="sipa_cert1">Certificate</button></span></li><li><b>Second SIPA Southeast Asia Training Seminar on Sustainable Infrastructure Development</b><span>In person, AIT · 28 July–1 August 2025 · <button class="linkbtn" data-lb="sipa_cert2">Certificate</button></span></li><li><b>Third SIPA Southeast Asia Training Seminar on Sustainable Infrastructure Development</b><span>In person, AIT · 22–26 February 2026 · <button class="linkbtn" data-lb="sipa_cert3">Certificate</button></span></li><li><b>SIPA webinar series (9 sessions, online)</b><span>June 2025–March 2026 · financial and economic evaluation, risk and uncertainty, ecosystem services, pricing, economy-wide impacts, governance, and integrated frameworks</span><details class="plain web"><summary>See all webinars</summary><div class="in"><ol><li>Financial Evaluation of Infrastructure Projects <span class="muted" style="white-space:nowrap">· 24 June 2025</span></li><li>Economic Evaluation of Infrastructure Projects: Foundations for Integrating Social and Environmental Considerations <span class="muted" style="white-space:nowrap">· 8 July 2025</span></li><li>Economic Evaluation of Infrastructure Projects: Approaches, Tools and Methods <span class="muted" style="white-space:nowrap">· 22 July 2025</span></li><li>Planning Under Risk and Uncertainty: Scenario-Based Simulation for Infrastructure Viability <span class="muted" style="white-space:nowrap">· 29 October 2025</span></li><li>Capturing the Full Value in Infrastructure Evaluation: Integrating Ecosystem Services, Social Well-Being, and Equity <span class="muted" style="white-space:nowrap">· 19 November 2025</span></li><li>Pricing Infrastructure for Efficiency, Equity, and Sustainability <span class="muted" style="white-space:nowrap">· 10 December 2025</span></li><li>Measuring the Ripple Effects of Infrastructure Development <span class="muted" style="white-space:nowrap">· 16 January 2026</span></li><li>Institutions Matter: Strengthening Energy Governance and Policy to Close Infrastructure Finance Gap <span class="muted" style="white-space:nowrap">· 18 February 2026</span></li><li>Integrated Framework for Sustainable Infrastructure Development <span class="muted" style="white-space:nowrap">· 31 March 2026</span></li></ol></div></details></li></ul></div></li>
+        <li><button data-lb="sipa_apfsd" aria-label="Enlarge photo"><img src="assets/img/sipa_apfsd.jpg" alt="SIPA session at the 13th Asia-Pacific Forum on Sustainable Development, Bangkok" loading="lazy"></button><div><div class="role">Panelist · 26 February 2026, Bangkok</div><h3>SIPA Regional Knowledge Network: session at the 13th Asia-Pacific Forum on Sustainable Development</h3><p><em>Sustainable Infrastructure, Resilient Links: Energy, Transport and Industry in Asia's Low-Carbon Future.</em> Part of a series of knowledge-sharing activities on sustainable infrastructure run by the Asian Institute of Technology, the United Nations Development Programme, and the OECD under the <a href="https://www.international-climate-initiative.com/en/project/orientation-of-infrastructure-investments-on-the-goals-of-the-paris-agreement-and-the-2030-agenda-in-central-and-southeast-asia-sipa-21-i-405-asia-m-infra-asia/" target="_blank" rel="noopener noreferrer">Sustainable Infrastructure Programme in Asia (SIPA)</a>, funded by Germany's International Climate Initiative. The session stressed embedding sustainability in infrastructure planning and early-stage appraisal. <a href="https://www.linkedin.com/feed/update/urn:li:activity:7447184777952219137/" target="_blank" rel="noopener noreferrer">OECD Environment post on the event ↗</a></p></div></li>
+        <li><button data-lb="img01" aria-label="Enlarge photo"><img src="assets/img/img01.jpg" alt="Ease of Doing Business Forum 2024" loading="lazy"></button><div><div class="role">Panel discussant</div><h3>Ease of Doing Business Forum 2024</h3><p>Executive Order No. 59: Streamlining the Permitting Process for Infrastructure Flagship Projects.</p></div></li>
+        <li><button data-lb="img02" aria-label="Enlarge photo"><img src="assets/img/img02.jpg" alt="Briefing with the Asian Development Bank and the University of Tokyo" loading="lazy"></button><div><div class="role">Panel discussant</div><h3>Socioeconomic Development Planning Advocacy</h3><p>Briefing on infrastructure development principles, policies, and processes with the Asian Development Bank and the University of Tokyo.</p></div></li>
+        <li><button data-lb="img05" aria-label="Enlarge letter"><img src="assets/img/img05.jpg" alt="Appointment letter, 2030 Youth Force in the Philippines" loading="lazy"></button><div><div class="role">Co-Deputy Head for Education and Research</div><h3>2030 Youth Force in the Philippines Inc.</h3><p>Youth organization working toward the Sustainable Development Goals at the grassroots.</p></div></li>
+        <li><button data-lb="img09" aria-label="Enlarge report cover"><img src="assets/img/img09.jpg" alt="World Energy Trilemma 2024 report cover" loading="lazy"></button><div><div class="role">Future Energy Leader (FEL-100)</div><h3>World Energy Council</h3><p>Nominated with the support of the Japan Energy Association and selected as a Future Energy Leader at the 26th World Energy Congress, Rotterdam, 22–25 April 2024. Regional commentary contributor to the <a href="https://trilemma.worldenergy.org/reports/main/2023/World%20Energy%20Trilemma%20Index%202024.pdf" target="_blank" rel="noopener noreferrer">World Energy Trilemma 2024</a> report.</p></div></li>
+      </ul>
+    </section>
+
+    <section id="thesis">
+      <p class="kicker">Master's thesis, Waseda University</p>
+      <h2>Charting the Path to Net Zero</h2>
+      <p>Investigating the underlying constructs shaping the energy transition landscape, using confirmatory factor analysis and structural equation modeling on 27 variables for 120 countries. The full summary, models, and results are on the thesis website.</p>
+      <p><a href="https://bcmagtalas.github.io/energy-transition-thesis/" target="_blank" rel="noopener noreferrer">Visit the thesis website ↗</a></p>
+    </section>
+
+    <section id="credentials">
+      <p class="kicker">License and certifications</p>
+      <h2>Credentials</h2>
+      <div class="tablebox"><table class="creds"><tbody>
+        <tr><td><b>Licensed Electrical Engineer</b><br><span class="muted">Professional Regulation Commission, Philippines; passed the Registered Electrical Engineers Licensure Examination, April 2015</span></td><td class="r"><button class="linkbtn" data-lb="prc">View</button></td></tr>
+        <tr><td><b>Certified Public-Private Partnership Professional (CP3P)</b><br><span class="muted">APMG International</span></td><td class="r"><button class="linkbtn" data-lb="img26">View</button></td></tr>
+        <tr><td><b>Certified Flexible Power System Specialist</b><br><span class="muted">Renewables Academy (RENAC)</span></td><td class="r"><button class="linkbtn" data-lb="img28">View</button></td></tr>
+        <tr><td><b>Certified Green Finance Specialist</b><br><span class="muted">Renewables Academy (RENAC)</span></td><td class="r"><button class="linkbtn" data-lb="img29">View</button></td></tr>
+        <tr><td><b>Energy and Flexibility Modelling: OSeMOSYS and FlexTool</b><br><span class="muted">Climate Compatible Growth, online course, 9 June 2025</span></td><td class="r"><button class="linkbtn" data-lb="ccg_flex">View</button></td></tr>
+        <tr><td><b>Modelling, Policy and Political Economy</b><br><span class="muted">Climate Compatible Growth, online course, 26 May 2025</span></td><td class="r"><button class="linkbtn" data-lb="ccg_mppe">View</button></td></tr>
+      </tbody></table></div>
+    </section>
   </main>
+</div>
+<footer><span>Bernie Calderon Magtalas</span><span>Figures in USD million unless stated</span></footer>
 
-  <script>
-    // Evidence tabs with keyboard support
-    const tabs = Array.from(document.querySelectorAll('.tab'));
-    const panels = Array.from(document.querySelectorAll('.panel'));
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+  <button class="x" type="button" aria-label="Close">×</button><button class="pv" type="button" aria-label="Previous">‹</button><button class="nx" type="button" aria-label="Next">›</button>
+  <img alt=""><div class="cap"></div>
+</div>
 
-    function activateTab(tab, moveFocus = true){
-      tabs.forEach(t=>{
-        t.classList.remove('active');
-        t.setAttribute('aria-selected','false');
-        t.setAttribute('tabindex','-1');
-      });
-      panels.forEach(p=>p.classList.remove('active'));
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected','true');
-      tab.setAttribute('tabindex','0');
-      const panel = document.getElementById(tab.dataset.tab);
-      if(panel) panel.classList.add('active');
-      if(moveFocus) tab.focus();
-    }
+<script>
+const D = {"projects": [{"no": 1, "title": "“Access for Sustainable Energy Programme (ASEP)” (EU-PHIL ASEP) - Investment Support Component", "desc": "<p>The overall objective of the ASEP is to assist the Government of the Philippines (GOP) in (a) expanding its sustainable energy generation to meet its economy's growing needs and (b) providing energy access to the poor and marginalized sectors. It specifically aims to assist the GOP in achieving the following:<\/p> <ol type=\"a\"> <li><p>Meet rural electrification targets through renewable energy;<\/p><\/li> <li><p>Promote energy efficiency;<\/p><\/li> <li><p>Expand sustainable energy generation to meet the growing needs of the economy; and<\/p><\/li> <li><p>Provide energy access for the poor through affordable, disaster-resilient energy systems.<\/p><\/li> <\/ol> <p>The investment support component of the ASEP involves the supply, design, and installation of 7 x 1.0 MWp solar photovoltaic (PV) plants or Rural Network Solar (RNS) to various electric cooperatives in the Philippines.<\/p>", "cost": 7.7, "sector": "Energy", "fin": "Official Development Assistance (ODA) from the European Union (EU)"}, {"no": 2, "title": "Agus-Pulangi Hydropower Plant Complex (APHC) Rehabilitation under Series of Project (SOP) 1", "desc": "<p>The project aims to increase the service life and improve the operational efficiency and reliability of hydropower plants (HPPs) under SOP 1 (i.e., Agus IV, V, VI, and VII). The project has the following specific objectives:<\/p> <ol type=\"a\"> <li><p>Restore rated capacities of HPPs;<\/p><\/li> <li><p>Upgrade HPPs to improve their operational performance and conditions by using state-of-the-art monitoring, control, protection, and dispatch systems;<\/p><\/li> <li><p>Improve the safety of the HPPs;<\/p><\/li> <li><p>Improve power generation output to meet the anticipated power demand resulting from the Mindanao-Visayas Interconnection Project (MVIP); and,<\/p><\/li> <li><p>Increase the country's overall output of clean energy<\/p><\/li> <\/ol>", "cost": 195.56, "sector": "Energy", "fin": "ODA from the World Bank"}, {"no": 3, "title": "Hybridization of Existing Diesel Power Plant in Zumarraga Island Mini-Grid with Solar PV, Wind Turbines, and Batteries", "desc": "<p>The project aims to hybridize the existing diesel power plant operating in the Zumarraga Island mini-grid with solar PV, wind turbines, and batteries to improve the level of service and reduce the electricity cost in the area.<\/p>", "cost": 7.74, "sector": "Energy", "fin": "Local Funds"}, {"no": 4, "title": "Hybridization of Existing Diesel Power Plant in Tagapul-an Island Mini-Grid with Biomass and Batteries", "desc": "<p>The project aims to hybridize the existing diesel power plant operating in the Tagapul-an Island mini-grid with biomass and batteries to improve the level of service and reduce the electricity cost in the area.<\/p>", "cost": 1.12, "sector": "Energy", "fin": "Local Funds"}, {"no": 5, "title": "Hybridization of Existing Diesel Power Plant in Santo Niño Island Mini-Grid with Biomass, Solar PV, and Batteries", "desc": "<p>The project aims to hybridize the existing diesel power plant operating in the Santo Niño Island mini-grid with biomass, solar PV, and batteries to improve the level of service and reduce the electricity cost in the area.<\/p>", "cost": 0.9, "sector": "Energy", "fin": "Local Funds"}, {"no": 6, "title": "Hybridization of Existing Diesel Power Plant in San Vicente Island Mini-Grid with Biomass, Solar PV, and Batteries", "desc": "<p>The project aims to hybridize the existing diesel power plant operating in the San Vicente Island mini-grid with biomass, solar PV, and batteries to improve the level of service and reduce the electricity cost in the area.<\/p>", "cost": 0.81, "sector": "Energy", "fin": "Local Funds"}, {"no": 7, "title": "Hybridization of Existing Diesel Power Plant in San Antonio Island Mini-Grid with Biomass, Solar PV, and Batteries", "desc": "<p>The project aims to hybridize the existing diesel power plant operating in the San Antonio Island mini-grid with biomass, solar PV, and batteries to improve the level of service and reduce the electricity cost in the area.<\/p>", "cost": 1.79, "sector": "Energy", "fin": "Local Funds"}, {"no": 8, "title": "Hybridization of Existing Diesel Power Plant in Capul Island Mini-Grid with Biomass and Batteries", "desc": "<p>The project aims to hybridize the existing diesel power plant operating in the Capul Island mini-grid with biomass and batteries to improve the level of service and reduce the electricity cost in the area.<\/p>", "cost": 1.34, "sector": "Energy", "fin": "Local Funds"}, {"no": 9, "title": "Hybridization of Existing Diesel Power Plant in Camandag Island Mini-Grid with Biomass and Batteries", "desc": "<p>The project aims to hybridize the existing diesel power plant operating in the Camandag Island mini-grid with biomass and batteries to improve the level of service and reduce the electricity cost in the area.<\/p>", "cost": 0.87, "sector": "Energy", "fin": "Local Funds"}, {"no": 10, "title": "Hybridization of Existing Diesel Power Plant in Biri Island Mini-Grid with Solar PV, Biomass, Wind Turbines, and Batteries", "desc": "<p>The project aims to hybridize the existing diesel power plant operating in the Biri Island mini-grid with solar PV, biomass, wind turbines, and batteries to improve the level of service and reduce the electricity cost in the area.<\/p>", "cost": 4.51, "sector": "Energy", "fin": "Local Funds"}, {"no": 11, "title": "Hybridization of Existing Diesel Power Plant in Batag Island Mini-Grid with Biomass and Batteries", "desc": "<p>The project aims to hybridize the existing diesel power plant operating in the Batag Island mini-grid with biomass and batteries to improve the level of service and reduce the electricity cost in the area.<\/p>", "cost": 0.73, "sector": "Energy", "fin": "Local Funds"}, {"no": 12, "title": "Hybridization of Existing Diesel Power Plant in Almagro Island Mini-Grid with Biomass and Batteries", "desc": "<p>The project aims to hybridize the existing diesel power plant operating in the Almagro Island mini-grid with biomass and batteries to improve the level of service and reduce the electricity cost in the area.<\/p>", "cost": 0.67, "sector": "Energy", "fin": "Local Funds"}, {"no": 13, "title": "Unsolicited Operate-Add-Transfer (OAT) Proposal for the Laguindingan Airport", "desc": "<p>The unsolicited project involves the following components:<\/p> <ol type=\"a\"> <li><p>Take-over of the operation and maintenance (O&amp;M) of the existing facilities of Laguindingan Airport, i.e., from the Civil Aviation Authority of the Philippines (CAAP);<\/p><\/li> <li><p>Execution of the upgrade works, which include initial terminal expansion and refurbishment of the existing terminal;<\/p><\/li> <li><p>Future capacity augmentations through expansion or construction of a new passenger terminal and other buildings, along with all associated infrastructure and facilities per applicable standards;<\/p><\/li> <li><p>Installation of all required equipment and associated facilities per applicable standards;<\/p><\/li> <li><p>Enhancement or development of airside facilities to meet the enhanced scale of operations at the airport; and,<\/p><\/li> <li><p>O&amp;M of all enhanced airside facilities, including the apron, runway, and taxiway.<\/p><\/li> <\/ol>", "cost": 982.92, "sector": "Airport", "fin": "Public-Private Partnership (PPP) (Unsolicited)"}, {"no": 14, "title": "Unsolicited Operate-Add-Transfer (OAT) Proposal: New Bohol International Airport", "desc": "<p>The proposed project involves the following components:<\/p> <ol type=\"a\"> <li><p>Take-over of the O&amp;M of the existing facilities of New Bohol International Airport from the Department of Transportation (DOTr);<\/p><\/li> <li><p>Capacity augmentation through expansion or construction of new passenger terminals, along with all associated infrastructure and facilities as per applicable standards once the existing terminal reaches its capacity (i.e., individual peak hour flows for particular facilities and processes are at least 70 percent of the design capacity);<\/p><\/li> <li><p>Installation of all the required equipment and associated facilities as per applicable standards;<\/p><\/li> <li><p>Enhancement or development of airside facilities to meet the enhanced scale of operations at the airport; and,<\/p><\/li> <li><p>O&amp;M of all enhanced airside, including the apron, runway, and taxiway.<\/p><\/li> <\/ol>", "cost": 361.05, "sector": "Airport", "fin": "PPP (Unsolicited)"}, {"no": 15, "title": "Unsolicited Proposal for the Puerto Princesa International Airport", "desc": "<p>The project includes the following:<\/p> <ol type=\"a\"> <li><p>Renovation, development, and expansion of the existing passenger terminal building (PTB) of the Puerto Princesa<br/> International Airport (PPIA) and its associated facilities per international civil aviation standards to accommodate the demand;<\/p><\/li> <li><p>Construction of an apron adjacent to the new PTB extension;<\/p><\/li> <li><p>Renovation, development, or expansion of commercial assets, cargo handling facilities, and discretionary facilities;<\/p><\/li> <li><p>Planning, design, and expansion of all utility systems necessary for undertaking the works and construction of the commercial assets;<\/p><\/li> <li><p>Operation and maintenance of the concessionaire O&amp;M facilities and the commercial assets; and<\/p><\/li> <li><p>Procurement, maintenance, and installation of all information technology and other equipment required for the proper O&amp;M of the airport, excluding air navigation systems, air traffic control systems, and security systems and equipment.<\/p><\/li> <\/ol>", "cost": 107.61, "sector": "Airport", "fin": "PPP (Unsolicited)"}, {"no": 16, "title": "Unsolicited Operate-Add-Transfer (OAT) Proposal for the Iloilo International Airport", "desc": "<p>The project includes the following:<\/p> <ol type=\"a\"> <li><p>Expansion of capacity of the PTB of the Iloilo International Airport (IIA);<\/p><\/li> <li><p>Construction of an apron adjacent to the new PTB extension;<\/p><\/li> <li><p>Renovation/maintenance of the existing terminal building;<\/p><\/li> <li><p>Installation of the required equipment for the passenger services in the new PTB; and,<\/p><\/li> <li><p>O&amp;M of the passenger terminal buildings and equipment/facilities in the PTBs.<\/p><\/li> <\/ol>", "cost": 126.14, "sector": "Airport", "fin": "PPP (Unsolicited)"}, {"no": 17, "title": "Unsolicited Proposal for the Development, Operation and Management of the Bacolod-Silay International Airport", "desc": "<p>The proposed project involves the development, operation, and management of the Bacolod-Silay International Airport and all necessary development works, such as construction, rehabilitation, improvement, expansion, modernization, and decommissioning needed to meet the projected demand requirement for the airport services within the 35-year concession period.<\/p>", "cost": 213.21, "sector": "Airport", "fin": "PPP (Unsolicited)"}, {"no": 18, "title": "Unsolicited Operate-Add-Transfer (OAT) Proposal for the Davao International Airport", "desc": "<p>The project involves developing, operating, and managing the Davao (F. Bangoy) International Airport. The scope includes undertaking the operation, management, and maintenance of all existing and project assets within the airport's boundary, except those remaining within CAAP's control. It also includes all necessary development works, such as construction, rehabilitation, improvement, expansion, and modernization, needed to meet the projected demand for airport services within the concession period.<\/p>", "cost": 825.81, "sector": "Airport", "fin": "PPP (Unsolicited)"}, {"no": 19, "title": "Unsolicited Operate-Maintain-Upgrade-and-Transfer (OMUT) Proposal for the Kalibo International Airport", "desc": "<p>The proposed project involves the upgrade, O&amp;M, and future expansions of the Kalibo International Airport. It specifically includes the following components:<\/p> <ol type=\"a\"> <li><p>Take-over of the O&amp;M of the current airport facility; and,<\/p><\/li> <li><p>Implementing a facility upgrade of the airport, including systems and construction of the PTB.<\/p><\/li> <\/ol>", "cost": 63.84, "sector": "Airport", "fin": "PPP (Unsolicited)"}, {"no": 20, "title": "Unsolicited Proposal for the Cavite-Tagaytay-Batangas Expressway (CTBEx) Project", "desc": "<p>The project is a 50.42-kilometer (km), four-lane toll road linking the Cavite-Laguna Expressway (CALAx) at Silang East Interchange to Tagaytay City and Nasugbu, Batangas. It aims to provide the following:<\/p> <ol type=\"a\"> <li><p>An alternative route to the traffic plying Aguinaldo Highway and Sta. Rosa – Tagaytay road;<\/p><\/li> <li><p>Linkage between Metro Manila, Cavite, and Batangas; and,<\/p><\/li> <li><p>High-standard highway with increased accessibility to nearby areas such as Amadeo and Indang.<\/p><\/li> <\/ol>", "cost": 546.96, "sector": "Expressways", "fin": "PPP (Unsolicited)"}, {"no": 21, "title": "Unsolicited Proposal for the Port of General Santos", "desc": "<p>The project involves the redevelopment and O&amp;M of the Port of General Santos. It includes port development and modernization, delivery of reefer container services, and use of modern information technology systems.<\/p>", "cost": 101.54, "sector": "Ports", "fin": "PPP (Unsolicited)"}, {"no": 22, "title": "Unsolicited Proposal for the Iloilo Commercial Port Complex (ICPC) and Port of Dumangas (POD)", "desc": "<p>The project involves the operation and management of the container terminal of ICPC and PTB and the roll-on-roll-off (RORO) operations of POD. It also involves the provision of the following:<\/p> <ol type=\"a\"> <li><p>Wharf extension of 250 meters to support international ship operations;<\/p><\/li> <li><p>Modern fleet of equipment;<\/p><\/li> <li><p>Power and reefer facilities;<\/p><\/li> <li><p>Storage management; and,<\/p><\/li> <li><p>Information technology network and infrastructure, terminal operating system, and ancillary systems.<\/p><\/li> <\/ol>", "cost": 225.62, "sector": "Ports", "fin": "PPP (Unsolicited)"}, {"no": 23, "title": "Unsolicited Proposal for the Port of Davao (Sasa)", "desc": "<p>The project involves the following:<\/p> <ol type=\"a\"> <li><p>Rehabilitation and reconfiguration of the port’s infrastructure facilities to accommodate modern equipment and systems and increase the overall capacity of the port to serve Panamax vessels and over 1,300,000 twenty-foot equivalent units (TEUs) of container traffic and general cargoes;<\/p><\/li> <li><p>Installation of modern port equipment that will significantly enhance the level of service of the port, thereby reducing dwell time and contributing to lower transportation costs;<\/p><\/li> <li><p>Introduction of port systems to ensure sustainability while enhancing efficiency;<\/p><\/li> <li><p>Use of innovative technologies, including smart gate system and radio-frequency identification (RFID) truck driver tags, and terminal appointment and booking system; and,<\/p><\/li> <li><p>Professionalized O&amp;M of the port for a period of 25 years.<\/p><\/li> <\/ol>", "cost": 382.23, "sector": "Ports", "fin": "PPP (Unsolicited)"}, {"no": 24, "title": "Unsolicited Build-Transfer-Operate and Maintain (BTOM) Proposal: Cebu Monorail Transit System Project", "desc": "<p>The proposal involves the implementation of a 27- km straddle-type monorail system for the Metro Cebu area comprised of segments as follows:<\/p> <ol type=\"a\"> <li><p>A 17.7 km monorail transit system (i.e., Cebu Central Line) consisting of an elevated structure and a section with 14 stations, including a short tunnel.;<\/p><\/li> <li><p>A 9.3-km monorail transit system (i.e., Cebu Airport Line) consisting of an elevated structure and an improved bridge crossing between Mactan Island and the mainland consisting of 6 stations; and,<\/p><\/li> <li><p>A 5-hectare (ha) depot facility located close to the Mactan-Cebu International Airport Station.<\/p><\/li> <\/ol>", "cost": 1455.33, "sector": "Rail", "fin": "PPP (Unsolicited)"}, {"no": 25, "title": "Quezon-Bicol Expressway Project", "desc": "<p>The project will start at Pagbilao, Quezon, and will end at the existing Maharlika Highway in San Fernando, Camarines Sur. The project will have an indicative length of approximately 180 km and will be an alternative option for travel from Quezon and Bicol Provinces.<\/p>", "cost": 1595.9, "sector": "Roads & Bridges", "fin": "Local Funds"}, {"no": 26, "title": "New Dumaguete (Bacong) Airport", "desc": "<p>The proposed New Dumaguete Airport will cover 197.55 ha of land development to be located in the Municipality of Bacong, Negros Oriental in the Negros Island Region (NIR). The scope of works will cover detailed engineering design (DED), civil works, construction supervision services, project management, land acquisition and compensation, and maintenance supervision.<\/p>", "cost": 274.84, "sector": "Airport", "fin": "ODA from the Export-Import Bank of Korea (KEXIM)"}, {"no": 27, "title": "Unsolicited Build-Operate-Transfer (BOT) Proposal for the 50-Year Integrated Development Plan for the Mactan-Cebu International Airport", "desc": "<p>The proposed project involves the phased implementation of the following activities:<\/p> <ol type=\"a\"> <li><p>Airfield upgrade works;<\/p><\/li> <li><p>Airfield capacity augmentation;<\/p><\/li> <li><p>New PTB and related capacity augmentation; and,<\/p><\/li> <li><p>Other capital expenditure/ medium to long-term enhancement of the airfield.<\/p><\/li> <\/ol>", "cost": 4382.42, "sector": "Airport", "fin": "PPP (Unsolicited)"}, {"no": 28, "title": "Unsolicited Proposal for the Busuanga Airport", "desc": "<p>The project involves the O&amp;M of the landside facilities of the existing Busuanga Airport. The scope also includes undertaking necessary improvements of the airport facilities and services to ensure compliance with minimum performance standards and specifications.<\/p>", "cost": 24.75, "sector": "Airport", "fin": "PPP (Unsolicited)"}, {"no": 29, "title": "Acquisition of Forty (40) Units of Fast Patrol Craft (FPC)", "desc": "<p>The proposed project involves the acquisition of the following:<\/p> <ol type=\"a\"> <li><p>Forty units of 30-35 meter (m), weapon-ready, Multi-Purpose Fast Response Boats (MPFRBs) or Fast Patrol Crafts (FPCs) with ballistic protection, i.e., 20 units to be built in the Philippines and 20 units to be built abroad;<\/p><\/li> <li><p>Nine years of Integrated Logistics Support (ILS), i.e., spare parts and maintenance services; and,<\/p><\/li> <li><p>Support equipment for six Philippine Coast Guard (PCG) bases.<\/p><\/li> <\/ol>", "cost": 471.69, "sector": "Safety", "fin": "Local Funds"}, {"no": 30, "title": "Metro Manila Intelligent Transport System (MMITS)", "desc": "<p>The project involves establishing the Metro Manila ITS as a unified management system to ease congestion in Metro Manila by utilizing different strategies through ITS subsystems.<\/p>", "cost": 610.07, "sector": "Urban", "fin": "Local Funds"}, {"no": 31, "title": "Unsolicited Build-Own-Operate (BOO) Proposal for the North Luzon Express Terminal (NLET) Project", "desc": "<p>The proposed project is an integrated transport terminal facility for northbound provincial bus routes designed to be a multi-level, mixed-use terminal facility, hosting mainly provincial buses of northern destinations. Aside from terminal operations, the site would also host office spaces, rental/ commercial areas serving integrated transport terminal users, transfer facilities for feeder modes, and parking facilities.<\/p>", "cost": 124.66, "sector": "Urban", "fin": "PPP (Unsolicited)"}, {"no": 32, "title": "Philippine Geothermal Resource Derisking Facility (PGRDF)", "desc": "<p>The facility aims to reduce the financial risks of early-stage geothermal exploration and attract private investment in greenfield geothermal development. The Department of Energy (DOE) will implement the facility through the Land Bank of the Philippines (LANDBANK), covering up to 50 percent of eligible exploration drilling costs through sub-loans that developers repay only if exploration confirms a commercially viable resource. The appraisal covered economic, financial, social, and risk analyses, project alternatives, demand assumptions, greenhouse gas abatement costs, and nature-related impacts, and secured Investment Coordination Committee (ICC) approval.<\/p>", "cost": 175.0, "sector": "Energy", "fin": "ODA from the Asian Development Bank (ADB)"}, {"no": 33, "title": "Agus-Pulangi Hydroelectric Power Plants Rehabilitation and Asset Management Project", "desc": "<p>The project aims to rehabilitate the hydroelectric power plants of the Agus-Pulangi Hydropower Complex in Mindanao and establish an asset management framework that restores their rated capacities, extends their service life, and improves the reliability of clean power supply in the Mindanao grid. The appraisal covered economic, financial, social, and risk analyses, project alternatives, demand assumptions, greenhouse gas abatement costs, and nature-related impacts, and secured ICC approval.<\/p>", "cost": 512.0, "sector": "Energy", "fin": "PPP"}, {"no": 34, "title": "National Energy Efficiency and Conservation Program (NEECP)", "desc": "<p>The program aims to accelerate the adoption of energy efficiency and conservation measures in government buildings and facilities, reducing public-sector energy consumption and costs. The appraisal covered economic, financial, social, and risk analyses, project alternatives, and greenhouse gas abatement costs; the program awaits ICC approval.<\/p>", "cost": 260.0, "sector": "Energy", "fin": "ODA from the ADB"}], "legis": [{"no": 1, "code": "Senate Bill No. 363", "title": "An Act Establishing a National Energy Policy and Regulatory Framework for Facilities Utilizing Waste-to-Energy Technologies", "sector": "Energy", "link": "https://ldr.senate.gov.ph/bills/senate-bill-no-363-18th-congress-republic", "short": "Waste-to-Energy Act"}, {"no": 2, "code": "Senate Bill No. 401", "title": "An Act Allowing the Use of Waste to Energy Technology in Electricity, Fuel and Heat Generation, and for other Purposes", "sector": "Energy", "link": "https://ldr.senate.gov.ph/bills/senate-bill-no-401-18th-congress-republic", "short": "Waste-to-Energy Act of 2019"}, {"no": 3, "code": "House Bill No. 5075", "title": "An Act Granting the Right to Franchisees to Develop the Rural Airport Infrastructure Network in the Philippines for Commercial and for Other Purposes", "sector": "Transportation", "link": "https://docs.congress.hrep.online/legisdocs/basic_18/HB05075.pdf", "short": "Rural Airport Development Act"}, {"no": 4, "code": "Republic Act No. 11054", "title": "An Act Providing for the Organic Law for the Bangsamoro Autonomous Region in Muslim Mindanao, Repealing for the Purpose Republic Act No. 6734, Entitled “An Act Providing for an Organic Act for the Autonomous Region in Muslim Mindanao,” as Amended by Republic Act No. 9054, Entitled “An Act to Strengthen and Expand the Organic Act for the Autonomous Region in Muslim Mindanao”", "sector": "Governance", "link": "https://www.officialgazette.gov.ph/downloads/2018/07jul/20180727-RA-11054-RRD.pdf", "short": "Organic Law for the Bangsamoro Autonomous Region in Muslim Mindanao"}, {"no": 5, "code": "House Bill No. 6565", "title": "An Act Providing for Incentives and Credit Facilities for Consumers of Small Solar Power Systems in the Philippines", "sector": "Energy", "link": "https://docs.congress.hrep.online/legisdocs/basic_17/HB06565.pdf", "short": "One Million Solar Roofs Act of 2017"}, {"no": 6, "code": "Senate Bill No. 1007", "title": "An Act to Reconstruct and Rehabilitate the Existing 479-kilometer PNR lines from San Fernando, La Union to Legazpi City, Albay, Providing Funds from the Annual Value-Added Tax Collections, Amending for the Purpose the National Internal Revenue Code of 1997, As Amended", "sector": "Transportation", "link": "https://ldr.senate.gov.ph/bills/senate-bill-no-1007-18th-congress-republic", "short": "N/A"}, {"no": 7, "code": "House Bill No. 10649", "title": "An Act Promoting the Development of the Philippine Downstream Natural Gas Industry, Consolidating for the Purpose All Laws Relating to the Transmission, Distribution and Supply of Natural Gas, and Appropriating Funds Therefor", "sector": "Energy", "link": "https://docs.congress.hrep.online/legisdocs/first_18/CR01401.pdf", "short": "Philippine Downstream Natural Gas Industry Development Act (enacted as RA No. 12120, the Philippine Natural Gas Industry Development Act, 8 January 2025)"}, {"no": 8, "code": "Senate Resolution No. 359", "title": "Resolution Directing the Senate Committee on Energy to Conduct an Inquiry in Aid of Legislation on the Sufficiency of the Department of Energy’s Existing Policy on the Minimum Inventory Requirement for Oil and Petroleum Products and the Necessity of Establishing a Strategic Petroleum Reserve to Ensure the Security of the Country’s Oil Supply", "sector": "Energy", "link": "https://ldr.senate.gov.ph/legislative-issuance/proposed-senate-resolution-no-359-18th-congress", "short": "N/A"}, {"no": 9, "code": "Senate Resolution No. 360", "title": "A Resolution Directing the Senate Committee on Energy to Conduct an Inquiry on the Implementation of Republic Act No. 8479 Otherwise Known as the Downstream Oil Industry Deregulation Act of 1998 With the End in View of Introducing Remedial Legislation as May Be Necessary", "sector": "Energy", "link": "https://ldr.senate.gov.ph/legislative-issuance/proposed-senate-resolution-no-360-18th-congress", "short": "N/A"}, {"no": 10, "code": "House Bill No. 9324", "title": "An Act Providing for Relief Package to the Air Transport Sector of the Philippines", "sector": "Transportation", "link": "https://docs.congress.hrep.online/legisdocs/basic_18/HB09324.pdf", "short": "Air Carriers Relief Act"}, {"no": 11, "code": "Senate Bill No. 1382", "title": "An Act Providing the National Energy Policy and Regulatory Framework for the Use of Electric Vehicles and the Establishment of Electric Charging Stations", "sector": "Energy", "link": "https://ldr.senate.gov.ph/bills/senate-bill-no-1382-18th-congress-republic", "short": "Electric Vehicles and Charging Stations Act"}, {"no": 12, "code": "House Bill No. 10213", "title": "An Act Providing for the Development of the Electric Vehicle Industry and Establishing a Regulatory Framework for the Manufacture and Use of Electric Vehicles", "sector": "Energy", "link": "https://docs.congress.hrep.online/legisdocs/first_18/CR01221.pdf", "short": "Electric Vehicle Industry Development Act"}, {"no": 13, "code": "Republic Act No. 11285", "title": "An Act Institutionalizing Energy Efficiency and Conservation, Enhancing the Efficient Use of Energy, and Granting Incentives to Energy Efficiency and Conservation Projects", "sector": "Energy", "link": "https://www.officialgazette.gov.ph/downloads/2019/04apr/20190412-RA-11285-RRD.pdf", "short": "Energy Efficiency and Conservation Act"}, {"no": 14, "code": "Senate Bill No. 1290", "title": "An Act Establishing the Philippine Energy Research and Policy Development Institute, Defining Its Objectives, Powers and Functions, Providing Funds Therefor, and for Other Purposes", "sector": "Energy", "link": "https://ldr.senate.gov.ph/bills/senate-bill-no-1290-17th-congress-republic", "short": "Philippine Energy Research and Policy Development Institute Act of 2016"}, {"no": 15, "code": "Senate Bill No. 1592", "title": "An Act Amending Sections 5, 6, 24, 25, 31, 34, 35, 51, 79, 84, 86, 89, 90, 97, 99, 100, 101, 106, 107, 108, 109, 112, 114, 116, 148, 149, 150, 151, 155, 171, 196, 232, 237, 249, 264, and 288; Creating New Sections 148-A, 150-A, 237-A, 264-A, 264-B, and 265-A; All Under Republic Act No. 8424, Otherwise Known as the National Internal Revenue Code of 1997, as Amended, and for Other Purposes", "sector": "Trade and Industry", "link": "https://ldr.senate.gov.ph/bills/senate-bill-no-1592-17th-congress-republic", "short": "Tax Reform for Acceleration and Inclusion (TRAIN)"}, {"no": 16, "code": "House Bill No. 2172", "title": "An Act Reducing the Cost of Electricity for National Government Offices by Promoting the Development and Utilization of Solar Energy in All Government Building and Offices, Providing Funds Therefor, and for Other Purposes", "sector": "Energy", "link": "https://docs.congress.hrep.online/legisdocs/basic_17/HB02172.pdf", "short": "The Solar Energy in National Government Offices Act of 2016"}, {"no": 17, "code": "House Bill No. 5402", "title": "An Act Mandating Government Offices and/or Establishments to Allot at Least Thirty Percent (30%) of their Energy Requirements to Solar Energy, and Corollarily, Mandating the Same to Install Solar Panels unto Their Buildings", "sector": "Energy", "link": "https://docs.congress.hrep.online/legisdocs/basic_17/HB05402.pdf", "short": "Solar Energy Act of 2016"}, {"no": 18, "code": "House Bill No. 6960", "title": "An Act Promoting the Use of Renewable Energy in Homes by Providing Incentives and Credit Facilities for Consumers Utilizing Small Solar Power Systems", "sector": "Energy", "link": "https://docs.congress.hrep.online/legisdocs/basic_17/HB06960.pdf", "short": "Small Solar Power System Incentives Act"}, {"no": 19, "code": "House Bill No. 8723", "title": "An Act Strengthening the Protection and Management of Waterways and Water Systems by Host Communities, and for Other Purposes", "sector": "Water", "link": "https://docs.congress.hrep.online/legisdocs/basic_17/HB08723.pdf", "short": "N/A"}, {"no": 20, "code": "House Bill No. 1484", "title": "An Act Requiring All Independent Power Producers, Generation Companies or Energy Resource Developers to Remit the Amount They Are Required to Set Aside as Financial Benefit Directly to the Host Community", "sector": "Energy", "link": "https://docs.congress.hrep.online/legisdocs/basic_17/HB01484.pdf", "short": "N/A"}, {"no": 21, "code": "House Bill No. 1388", "title": "An Act Providing for the Development, Rehabilitation and Modernization of Naval Airport in the Province of Biliran and to Allocate Funds Thereof", "sector": "Transportation", "link": "https://docs.congress.hrep.online/legisdocs/basic_18/HB01388.pdf", "short": "N/A"}, {"no": 22, "code": "House Bill No. 2112", "title": "An Act Providing for the Ubay Airport Development to Accommodate Commercial Domestic and Aviation Training Flights, Appropriating Funds Therefor, and for Other Purposes", "sector": "Transportation", "link": "https://docs.congress.hrep.online/legisdocs/basic_18/HB02112.pdf", "short": "Ubay Airport Development Act"}, {"no": 23, "code": "House Bill No. 2769", "title": "An Act Providing for the Establishment and Construction of an International Airport in the Center of Mindanao, Particularly in the Are Between Damulog, Bukidnon in the North; Antipas, North Cotabato in the East; Carmen, North Cotabato in the South; And Alamada, North Cotabato in the West, and Appropriating Funds Therefor", "sector": "Transportation", "link": "https://docs.congress.hrep.online/legisdocs/basic_18/HB02769.pdf", "short": "N/A"}, {"no": 24, "code": "House Bill No. 4238", "title": "An Act Providing for the Establishment and Construction of an Airport in the Municipality of Luuk, Province of Sulu, for the Benefit of the Entire Province of Sulu, to Be Known as Luuk Airport, and Appropriating Funds Therefor", "sector": "Transportation", "link": "https://docs.congress.hrep.online/legisdocs/basic_18/HB04238.pdf", "short": "N/A"}, {"no": 25, "code": "House Bill No. 4393", "title": "An Act Designating Mati Airport in Davao Oriental as the Official Alternate Airport to the Davao International Airport and Appropriating Funds Therefor", "sector": "Transportation", "link": "https://docs.congress.hrep.online/legisdocs/basic_18/HB04393.pdf", "short": "N/A"}, {"no": 26, "code": "House Bill No. 7847", "title": "An Act Establishing a Domestic, Commercial Airport in the Municipality of San Francisco, Province of Cebu, and Appropriating Funds Therefor", "sector": "Transportation", "link": "https://docs.congress.hrep.online/legisdocs/basic_18/HB07847.pdf", "short": "N/A"}, {"no": 27, "code": "House Bill No. 2317", "title": "An Act Guaranteeing the Right to the Natural Wealth and Granting a Twenty Percent Discount (20%) in the Electricity Rates to All Electric Consumers in Iligan City, Lanao Del Norte, And Lanao Del Sur being the Host City and Provinces of Maria Cristina Falls, Agus River, and Lake Lanao", "sector": "Energy", "link": "https://docs.congress.hrep.online/legisdocs/basic_19/HB02317.pdf", "short": "The Maria Cristina Falls Act of the Philippines"}], "consult": [{"no": 1, "title": "Feasibility Study (F/S) for the Pasig River Ferry System Project", "desc": "The study aims to determine the viability of the Pasig River Ferry System Project to improve intra-city connectivity within Metro Manila and regional connectivity among Rizal, Cavite, and Bulacan. It also aims to mitigate traffic congestion and air pollution in regions covering the said provinces.", "loc": "National Capital Region (NCR)", "cost": 0.58}, {"no": 2, "title": "F/S on Hybridization of Existing Diesel Power Plants (DPPs) with Renewable Energy (RE) and Battery", "desc": "The study aims to evaluate the potential for hybridization of existing DPPs with RE (e.g., solar, wind, hydro) and battery in the island grids and missionary areas in Region VIII or Eastern Visayas. The study also aims to lay the groundwork for implementing the identified viable hybrid power plant projects, especially by Electric Cooperatives (ECs) willing to take over the off-grid generation function in missionary areas covered by their respective franchise.", "loc": "Region VIII", "cost": 0.75}, {"no": 3, "title": "Master Plan for the Sustainable Urban Infrastructure Development in Metropolitan Cagayan de Oro", "desc": "The studies aim to formulate master plans to guide decision-makers in preparing and approving plans, policies, and programs/activities /projects (PAPs). Business Cases or Pre-F/S will be formulated for the top 5 infrastructure PAPs that will be identified, and a GIS-based map will be generated to overlay these projects with existing facilities/developments in the study areas.", "loc": "Region X", "cost": 1.06}, {"no": 4, "title": "Master Plan for Sustainable Urban Infrastructure Development in General Santos City", "desc": "The studies aim to formulate master plans to guide decision-makers in preparing and approving plans, policies, and programs/activities /projects (PAPs). Business Cases or Pre-F/S will be formulated for the top 5 infrastructure PAPs that will be identified, and a GIS-based map will be generated to overlay these projects with existing facilities/developments in the study areas.", "loc": "General Santos City", "cost": 1.12, "shared": true}, {"no": 5, "title": "Master Plan for the Sustainable Urban Infrastructure Development in Vigan City", "desc": "The studies aim to formulate master plans to guide decision-makers in preparing and approving plans, policies, and programs/activities /projects (PAPs). Business Cases or Pre-F/S will be formulated for the top 5 infrastructure PAPs that will be identified, and a GIS-based map will be generated to overlay these projects with existing facilities/developments in the study areas.", "loc": "Vigan City", "cost": 0.81, "shared": true}, {"no": 6, "title": "Master Plan for the Sustainable Urban Infrastructure Development in Butuan City", "desc": "The studies aim to formulate master plans to guide decision-makers in preparing and approving plans, policies, and programs/activities /projects (PAPs). Business Cases or Pre-F/S will be formulated for the top 5 infrastructure PAPs that will be identified, and a GIS-based map will be generated to overlay these projects with existing facilities/developments in the study areas.", "loc": "Butuan City", "cost": 1.06, "shared": true}, {"no": 7, "title": "Master Plan for the Sustainable Urban Infrastructure Development in Metropolitan Tuguegarao", "desc": "The studies aim to formulate master plans to guide decision-makers in preparing and approving plans, policies, and programs/activities /projects (PAPs). Business Cases or Pre-F/S will be formulated for the top 5 infrastructure PAPs that will be identified, and a GIS-based map will be generated to overlay these projects with existing facilities/developments in the study areas.", "loc": "Metropolitan Tuguegarao", "cost": 1.08, "shared": true}, {"no": 8, "title": "National Broadband Plan (NBP) - Accelerated Fiber Build (Access) Project", "desc": "The project will provide a comprehensive and detailed F/S for establishing and constructing fiber optic cables or a hybrid of other technologies deemed appropriate and associated facilities (e.g., conduits). The F/S will cover the appraisal of the project's technical, economic, and financial viability, identification of actual needs of the government that lean towards important socio-economic services than commercial services (i.e., GDP growth, education, e-health, surveillance and security, registration, and tax), identification of implementation variants/models and risks, and preparation of preliminary engineering design, among others.", "loc": "Nationwide", "cost": 1.09}, {"no": 9, "title": "Tourism Infrastructure Development Plans in Top Tourist Destinations in the Philippines Based on the Carrying Capacities", "desc": "The objective of the study is to determine the carrying capacities of the top tourist destinations in the Philippines and formulate Business Cases or Pre-F/S for the top 3 tourism-supporting infrastructures (e.g., water supply, sanitation, and sewerage/WSS, solid waste management, traffic management, and connectivity) for each tourist destination. The study will also generate GIS-based maps to overlay these projects with existing facilities/developments.", "loc": "Nationwide", "cost": 1.56}, {"no": 10, "title": "Tourism Infrastructure Development Plans for Transforming Communities Towards Resilient, Inclusive and Sustainable Tourism (TouRIST) Program", "desc": "The project aims to identify and prioritize the essential infrastructure for resilient, inclusive, and sustainable tourism within the framework of updated or duly formulated Local Tourism Infrastructure Development Plans for Siargao Island, Siquijor, Coron and El Nido, Palawan, Davao City and Samal Island, and Bohol. It will have a companion Pre-F/S of top-priority PAPs on the identified sites.", "loc": "Siargao Island, Siquijor, Coron and El Nido, Palawan, Davao City and Samal Island, and Bohol", "cost": 1.48}, {"no": 11, "title": "Integrated Infrastructure and Investment Corridors in Central Luzon", "desc": "The study aims to formulate an integrated infrastructure and investment development plan (3IDP) that would promote the growth of investments in Central Luzon and identify and develop the needed infrastructures to support said investment growth.", "loc": "Region III", "cost": 1.06}, {"no": 12, "title": "Master Plan for Sustainable Infrastructure Development in Olongapo and its Immediate Environs", "desc": "The study aims to formulate a master plan in Olongapo and its neighboring areas to guide decision-makers in preparing and approving PAPs. Business Cases or Pre-F/S will be formulated for the top 3 infrastructure PAPs that will be identified, and GIS-based maps will be generated to overlay these projects with existing facilities/developments.", "loc": "Olongapo and its immediate environs", "cost": 1.03}], "boards": [{"no": 1, "name": "Energy Investment Coordinating Council (EICC)", "desc": "The EICC was created through Executive Order (EO) No. 30, s. 2017, entitled “Creating the Energy Investment Coordinating Council in Order to Streamline the Regulatory Procedures Affecting Energy Projects.” It is mandated to spearhead and coordinate national government efforts to harmonize, integrate, and streamline regulatory processes, requirements, and forms relevant to the development of energy investments in the country, primarily with regard to Energy Projects of National Significance (EPNS), to facilitate transparency and accountability among concerned agencies. EPNS are major energy projects for power generation, transmission, and/or ancillary services, including those required to maintain grid stability and security."}, {"no": 2, "name": "Nuclear Energy Program Inter-Agency Committee (NEP-IAC)", "desc": "The NEP-IAC was constituted through Executive Order (EO) No. 116, entitled “Directing a Study for the Adoption of a National Position on a Nuclear Energy Program, Constituting a Nuclear Energy Program Inter-Agency Committee, and for Other Purposes.” It is mandated to spearhead the study for the adoption of a national position for an NEP. Under EO No. 164, s. 2022, which adopted the national position on the nuclear energy program, the NEP-IAC was further directed to perform the functions of a Nuclear Energy Program Implementing Organization (NEPIO) as recommended by the International Atomic Energy Agency (IAEA)."}, {"no": 3, "name": "Inter-Agency Energy Efficiency and Conservation Committee (IAEECC)", "desc": "Republic Act (RA) No. 11285, or the Energy Efficiency and Conservation (EEC) Act, created the IAEECC. It aims to assess and approve the government’s energy efficiency projects and deliver strategic direction in executing the Government Energy Management Program (GEMP). GEMP is a government-wide program that aims to reduce the government’s monthly electricity and petroleum product consumption through electricity and fuel efficiency/conservation."}, {"no": 4, "name": "Inter-Agency Energy Contingency Committee (IECC)", "desc": "The IECC was organized through Administrative Order (AO) No. 6, series of 2011, entitled “Organizing the Inter-Agency Energy Contingency Committee (IECC).” This is to evaluate and examine the government’s energy strategies addressing contingencies arising from the energy supply disruptions."}, {"no": 5, "name": "Inter-Agency Energy Contingency Committee-Oil Contingency Task Force (IECC-OCTF)", "desc": "The IECC-OCTF was created through IECC Resolution No. 1, entitled “Creation of the Oil Contingency Task Force,” to ensure an adequate and continuous supply of high-quality petroleum products amidst the threat of oil disruption in the country."}, {"no": 6, "name": "National Power Corporation (NPC) Board of Directors", "desc": "The NPC Board of Directors was reconstituted through RA No. 9136, otherwise known as the Electric Power Industry Reform Act (EPIRA) in 2001, to govern the following functions of the National Power Corporation (NPC): (i) missionary electrification function through the Small Power Utilities Group (SPUG); (ii) management of the watersheds; and, (iii) the efficient and effective management of the government’s remaining power assets."}, {"no": 7, "name": "Power Sector Assets and Liabilities Management Corporation (PSALM) Board", "desc": "The PSALM Board was established through RA 9136 to govern the orderly sale and privatization of all existing generation assets of the NPC, independent power producer (IPP) contracts, real estate, and all other disposable assets, including the transmission business of the National Transmission Corporation (TransCo). It also governs the liquidation of all NPC’s financial obligations."}, {"no": 8, "name": "Infrastructure Development Committee (InfraCom)", "desc": "The Infrastructure Development Committee (InfraCom) is a committee of the Economy and Development (ED) Council. It was originally established as the NEDA Committee on Infrastructure under Executive Order (EO) No. 230, s. 1987, and was reconstituted under Section 29 of Republic Act (RA) No. 12145, the Economy, Planning, and Development Act (2025), which repealed EO 230 and reorganized the National Economic and Development Authority into DEPDev. It is co-chaired by the Secretaries of Public Works and Highways and of Economy, Planning, and Development, with the Executive Secretary and the Secretaries of Agriculture, Budget and Management, Environment and Natural Resources, Human Settlements and Urban Development, Information and Communications Technology, Interior and Local Government, Energy, Finance, Tourism, Transportation, and Trade and Industry as members, as further reorganized by Administrative Order No. 37, s. 2025. It advises the President and the ED Council on matters concerning infrastructure development; coordinates the activities of agencies, including government-owned or controlled corporations concerned with infrastructure development; and recommends to the President government policies, programs, and projects concerning infrastructure development consistent with national development objectives and priorities."}], "wgs": [{"no": 1, "name": "Electric Vehicle Industry Development Act (EVIDA)-TWG", "desc": "The EVIDA-TWG was created through Republic Act (RA) No. 11697 or the Electric Vehicle Industry Development Act (EVIDA) to ensure harmonized policies and consistent and streamlined standards and regulations in the EV industry."}, {"no": 2, "name": "Climate Change Community of Practice (COP)", "desc": "The COP was established through National Economic and Development Authority Special Order 160-2022 — the Authority having since been reorganized into the Department of Economy, Planning, and Development (DEPDev) — to serve as a platform for DEPDev staff and offices to exchange, develop, and communicate knowledge and best practices on climate change. The COP is also responsible for mainstreaming climate change into DEPDev’s internal processes."}, {"no": 3, "name": "Technical Panel for Evaluation of Innovative Energy Projects", "desc": "The technical panel evaluates energy projects that exhibit novelty in implementation/service delivery or solutions that improve or replace existing products, services, or processes. These include, among others, wave energy facilities, solar-powered bulk water systems, integrated solar-powered water/irrigation pumps, solar-powered weather stations, and advanced device and materials testing laboratories for battery technologies."}, {"no": 4, "name": "Gender and Development (GAD) Focal Point System", "desc": "The GAD focal point system prepares DEPDev’s GAD plan and budget and ensures GAD mainstreaming in the government’s plans, projects, programs, and activities."}, {"no": 5, "name": "DEPDev Bids and Awards Committee for Goods and Infrastructure Projects (BAC-GIP) TWG", "desc": "The BAC-GIP evaluates the technical, financial, and legal bid proposals for the goods and infrastructure projects that DEPDev procures."}, {"no": 6, "name": "Sub-Committee on Sustainable Development Goals (SC-SDGs) TWG on Environment", "desc": "The TWG refines and monitors the SDG indicators on the environment and reviews SDG-related budgets and programs."}, {"no": 7, "name": "Philippines’ COVID-19 Recovery Cluster", "desc": "The Philippines’ COVID-19 Recovery Cluster plays a significant role in setting the direction of the country’s economic recovery from COVID-19. It formulates and implements action plans and economic policies to restart the country’s social and economic activities."}], "ta": [{"no": 1, "title": "Climate Change Action Program (CCAP), Subprogram 3", "desc": "<p>The policy-based loan supports national reforms to mainstream climate change adaptation and mitigation in public planning, budgeting, and investment. The assessment of the program informed the Government of the Philippines in its loan negotiations with the cofinancing institutions.<\/p>", "cost": 650.0, "sector": "Climate Change", "fin": "Policy-based loan from the ADB, cofinanced by the Asian Infrastructure Investment Bank (AIIB), Agence Française de Développement (AFD), and the Japan International Cooperation Agency (JICA)"}], "missions": {"negros": {"title": "Sustainability Assessment of Photovoltaic Mainstreaming (PVM) Projects in Negros Island Region", "sites": [{"ec": "Northern Negros Electric Cooperative (NONECO)", "site": "Aluyan, Caduhaan, Cadiz City", "note": "", "cats": {"Technical": ["The supplier delivered and installed substandard wires.", "Batteries and CFLs are the most common components that fail.", "There are private suppliers of cheaper, substandard SHS.", "The beneficiaries are touching and tweaking the system."], "Bill Collection": ["The collected payments are being forwarded to NONECO through the barangay captain.", "The households are paying inconsistently. They are paying different amounts at random months of the year.", "The households only pay to a collector with a valid NONECO ID."], "Maintenance": ["SHS beneficiaries are too far from the Electric Cooperative. Thus, they could not report their concerns regarding the failing SHS equipment to the EC.", "Only one technician was trained within the Sitio.", "NONECO is not visiting the consumers.", "The supplier did not provide after-sales services to the beneficiaries."], "Ownership": ["Some beneficiaries thought that the barangay captain owned the systems", "Rumors are circulating that the government owns the SHSs. Thus, the systems should be free."], "Feedback on the new SHS package": ["The visited households are receptive to the new package to be offered.", "Some are requesting SHS with a larger capacity to accommodate other appliances like refrigerators, TVs, and DVD players."]}}, {"ec": "Negros Occidental Electric Cooperative (NOCECO)", "site": "Nailab, Ara-al, La Carlota City", "note": "", "cats": {"Technical": ["The wires are oversized.", "Del Genta Inc., the supplier of SHS, delivered CFL instead of LED.", "The SHSs have poor connections.", "The Solar Panels are facing in different directions.", "Some beneficiaries are knowledgeable about the technology."], "Bill Collection": ["The beneficiaries pay 275 monthly.", "The beneficiaries stop paying when the bulbs fail. They want the EC to fix the busted SHS component before continuing the monthly payment.", "The payment of each beneficiary is not being monitored. The collector does not issue individual receipts.", "The collector forwards the total collected payments to the EC. The EC then issues a receipt.", "The collector has a ledger with a list of SHS users."], "Maintenance": ["The trained local technician has no tools for SHS maintenance.", "Lack of access roads affects the maintenance of SHS."], "Ownership": ["The beneficiaries know that NOCECO owns the systems."], "Feedback on the new SHS package": ["The beneficiaries are receptive to the new package."]}}, {"ec": "Negros Occidental Electric Cooperative (NOCECO)", "site": "Sibucao, Mambucsay, Cauayan", "note": "", "cats": {"Technical": ["Most of SHS are not functional.", "Some of the controllers delivered by Propmech Inc. in 2010 were defective.", "One of the households has two SHSs."], "Bill Collection": ["The collector does not have a salary.", "There were two collectors of monthly bills. The barangay captain collected the payments in 2010, while the treasurer of the SOPA collected in 2013.", "The collector issues individual receipts."], "Maintenance": ["The beneficiaries replace the batteries/bulbs on their own.", "There are trained technicians. However, the equipment supplier is far from the site."], "Ownership": ["The recipients of SHS thought that systems belonged to the government.", "Some thought the barangay captain owned the system because he was collecting the monthly bill."], "Feedback on the new SHS package": ["One of the respondents does not want to avail of the new SHS package because of the poor performance of the SHS currently installed."]}}, {"ec": "Negros Oriental I Electric Cooperative (NORECO I)", "site": "Sitios Ilaya, Libtacon and Mantaliok", "note": "The results of the ocular inspection and interviews in Sitios Ilaya, Libtacon and Mantaliok are the same. NORECO 1 institutionalized the SHS's operation, payment, and ownership structure.", "cats": {"Technical": ["The condition of SHS is rather good.", "The beneficiaries are not tampering with the systems", "There are private suppliers of cheaper, substandard SHS."], "Bill Collection": ["NORECO I assigned a personnel member to collect the monthly bill.", "There is a logbook to record the monthly payments."], "Maintenance": ["NORECO 1 pulled out the SHSs of those who can no longer pay and installed them sporadically for those who want to use the system.", "The beneficiaries are willing to retain the system even when connected to the grid.", "The local technician was able to fix minor damage to SHSs."], "Ownership": ["The beneficiaries know that the systems belong to NORECO I."], "Feedback on the new SHS package": ["The beneficiaries are willing to accept the new package."]}}], "concl_intro": "The following are the factors that affect the implementation of PVM:", "concl": ["Interventions of political entities", "Unsystematic billing and collection system", "Distances between the households", "Noncompliance with after-sales agreement, quality assurance, specifications, and standards of SHS", "Distance of the supplier from the sitios", "Confusion regarding the ownership of SHS", "Lack of personnel who will monitor the project implementation", "Access road", "Information dissemination", "Affordability of the system"], "recs": ["DOE should establish sound selection criteria for SHS beneficiaries.", "Consider the technology proposed by the consultants, which will map the households in remote and unviable areas", "Arrange a sitio-level organization that will monitor the implementation of the program", "The recipients of SHSs should be in clusters. This will solve the difficulty of collecting monthly bills.", "Suppliers who delivered substandard SHS equipment and those who did not provide after-sales services should not be allowed to participate in the bidding process of the scaled-up implementation of PVM.", "The Electric Cooperative may store spare SHSs within the EC office to provide an accessible supply of components.", "The ECs must institutionalize the recipients regarding PVM. Seminars must be conducted before the installation of the units. Regular meetings within the sitios should be organized to monitor and assess program implementation.", "The ECs should establish a dedicated unit or office for PVM.", "The sitio-level organization should be capacitated to implement the program.", "Coordinate with other sectors to develop a program with a holistic approach", "If possible, integrate electrification programs with livelihood and infrastructure projects"], "photos": [{"ec": "NONECO", "site": "Aluyan, Caduhaan, Cadiz City", "groups": [{"imgs": [11], "cap": "The access roads to the sitio proper are under construction. Owner-type jeepneys and motorcycles are the common modes of transportation."}, {"imgs": [12, 13], "cap": "The solar panels installed in each household are in good condition. However, most of the batteries already failed. Some households have additional batteries connected to the system."}, {"imgs": [14, 15, 16], "cap": "The connections of the system are very poor. One inspected household has a battery directly connected to the solar panel. The battery is prone to overcharging and exploding in this type of connection. Meanwhile, most households replaced the busted CFLs with any bulbs available. Some households bought substandard solar panels with smaller capacity."}]}, {"ec": "NOCECO", "site": "Nailab, Ara-al, La Carlota City", "groups": [{"imgs": [17, 18], "cap": "Sitio Nailab is about a 42-minute walk from the last area with an access road. The team had to cross a river via an improvised bridge to reach the sitio."}, {"imgs": [19], "cap": "The wires of the inspected SHSs are oversized. Upon checking the connections, the team's technical consultants observed that the wires were not properly secured. Some strands of wire cannot fit through the intended holes for connection."}]}, {"ec": "NOCECO", "site": "Sibucao, Mambucsay, Cauayan, Negros Occidental", "groups": [{"imgs": [20, 21, 22], "cap": "The household on the left has two SHSs. The respondent stated that the additional SHS belongs to her relative. Meanwhile, although the household owners in the center have a decent income, they do not want to use the new SHS package because of the poor performance of the SHS currently installed. There are clustered households within the sitio. Generally, the residents have fairly good incomes."}]}, {"ec": "NORECO I", "site": "Sitios Ilaya, Libtacon and Mantaliok", "groups": [{"imgs": [23, 24, 25], "cap": "The household owner on the left bought additional solar panels with a smaller capacity to accommodate additional loads. Meanwhile, the SHS in the center is in very good condition, and the local technician replaced only the bulbs. Households already connected to the grid, like the household on the right, still have their SHS installed."}]}]}, "infanta": {"title": "Sustainability Assessment of the Household Electrification Assistance through Renewable Technology and Social Preparation for the Upliftment of Lives (HEART and SOUL) Project in Preparation for the Scaled-Up Implementation of the ASEP-PVM", "sections": [{"h": "Introduction", "subs": [{"h": "", "items": ["Household Electrification Assistance through Renewable Technology and Social Preparation for the Upliftment of Lives (HEART and SOUL) Project is an initiative of Team Energy Foundation, Inc. (TEFI) in response to the government's call to achieve 90 percent household electrification by 2017.", "In August 2015, TEFI installed 267 30-Wattpeak Photovoltaic Solar Home Systems (SHS) in two barangays in Infanta, Pangasinan: 164 in Pita and 103 in Babuyan. The SHS package includes four five-watt light bulbs, a provision for cellphone charging, and a digital AM-FM radio. The foundation also installed two solar-powered streetlights in each barangay and SHSs in their barangay halls and health centers.", "On 19-21 July 2016, representatives from the Department of Energy (DOE), National Electrification Administration (NEA), World Bank, and Innovation Energie Développement (IED) assessed the HEART and SOUL Project in Barangay Pita in preparation for the scaled-up implementation of the ASEP-PVM."]}]}, {"h": "Objectives", "subs": [{"h": "", "items": ["To determine the factors affecting the sustainability of the HEART and SOUL Project", "To learn good practices in project implementation, which can be integrated with the scaled-up implementation of the ASEP-PVM"]}]}, {"h": "Methodology", "subs": [{"h": "", "items": ["Representatives from TEFI briefed the barangay captain and some residents of Pita, Infanta, Pangasinan, regarding the HEART and SOUL Project assessment.", "The team conducted technical inspections and interviews on random households. The samples chosen were based on the physical structure of the house.", "The technical and logistic issues affecting the project's sustainability were determined based on the information given by the respondents and technical inspection of the SHS packages."]}]}, {"h": "Results And Discussion", "subs": [{"h": "Technical", "items": ["The majority of the surveyed households have worn-out batteries because of improper connection. According to the local technician, most beneficiaries opened the system's protective box. They then connected their loads directly to the battery terminals to bypass the controller and use the battery repeatedly beyond its threshold level, reducing its lifespan. Meanwhile, those who can afford to replace the battery connected it directly to the solar panel terminals. In this type of connection, the batteries may explode when overcharged.", "It was also observed that the solar panels are facing in different directions. According to the respondents, they oriented their unit to the direction of the sun to increase its output."]}, {"h": "Bill Collection", "items": ["Approximately ten percent of the SHS customers are currently paying. Some can no longer afford the PhP200 monthly maintenance and replacement fee, while the majority refuse to pay because of worn-out batteries. Due to the decreasing number of paying customers, the collector stopped the house-to-house collection. Consequently, those who want to pay must go to the collector's house. In any case, the collector constantly issues receipts to the paying customers for monitoring."]}, {"h": "Maintenance", "items": ["There are three SHS technicians in the area. They repair minor damages of SHS and report to the supplier the components that need replacement. However, a considerable quantity of SHS components must fail before the supplier delivers the replacements. It usually takes two to three months to completely restore the system, and only paying customers can avail of this service."]}, {"h": "Management", "items": ["There was good information dissemination regarding the HEART and SOUL Project. TEFI conducted a seminar before the SHSs were installed to explain the billing method, regulations, and technical know-how about the system. The foundation also organized a barangay association to administer the maintenance and replacement of SHS components and collect the monthly fee. Customers can access the maintenance and replacement fund at one percent monthly interest."]}]}, {"h": "Conclusion", "subs": [{"h": "", "items": ["The beneficiaries have basic knowledge about the technology. However, they are unaware of the risks of altering the SHS. Our observation shows that improper connections are the most common cause of damage in the system components. Meanwhile, tilting the solar panels towards the sun, though it can increase the energy produced by SHS, exposes the solar cells to mechanical damage. Both practices significantly affect the SHS's efficiency and, consequently, its sustainability.", "The availability of SHS components also affects the sustainable implementation of the project, especially the collection of fees. The result of our assessment shows that aside from affordability, the majority of customers refuse to pay because of damaged equipment. The collected fees from the remaining paying customers will not be sufficient to sustain the SHSs.", "The HEART and SOUL Project demonstrates good practices that can be integrated with scaled-up implementation of the PVM: TEFI institutionalized its beneficiaries, organized an association, conducted social preparation, and provided a small-scale lending system to its beneficiaries. These factors could be substantial in constructing the framework of the ASEP-PVM. However, the gaps that the team determined should also be addressed to guarantee its efficient implementation."]}]}, {"h": "Recommendation", "subs": [{"h": "", "items": ["The association should submit a monthly report indicating SHS customers' financial, technical, and social concerns.", "Regular assembly should be conducted as part of the program's institutionalization.", "The government should implement a strict policy regarding altering SHS connections and educate the beneficiaries regarding its risks. On the first offense, the customers who modify the connections should be given a warning; on the second offense, their unit should be pulled out.", "Spare SHS components should be provided/stored within the EC office to restore the damaged systems immediately.", "Livelihood and other infrastructure projects may be integrated into the program."]}]}]}}};
+const $=(s,e=document)=>e.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt=n=>n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const pad=n=>'img'+String(n).padStart(2,'0');
 
-    tabs.forEach((tab, index)=>{
-      tab.addEventListener('click',()=>activateTab(tab, false));
-      tab.addEventListener('keydown',(event)=>{
-        let targetIndex = null;
-        if(event.key === 'ArrowRight') targetIndex = (index + 1) % tabs.length;
-        if(event.key === 'ArrowLeft') targetIndex = (index - 1 + tabs.length) % tabs.length;
-        if(event.key === 'Home') targetIndex = 0;
-        if(event.key === 'End') targetIndex = tabs.length - 1;
-        if(targetIndex !== null){
-          event.preventDefault();
-          activateTab(tabs[targetIndex], true);
-        }
-      });
-    });
+$('#copyMail').addEventListener('click',e=>{const b=e.currentTarget;const t='magtalasbernie@suou.waseda.jp';
+  const done=()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1500)};
+  try{navigator.clipboard.writeText(t).then(done,()=>{const r=document.createRange();r.selectNodeContents(b.previousElementSibling);getSelection().removeAllRanges();getSelection().addRange(r)})}catch(_){} });
 
-    // Internal pitch brief navigation
-    function getStickyOffset(){
-      const topbar = document.querySelector('.topbar');
-      return (topbar ? topbar.offsetHeight : 0) + 36;
-    }
+/* projects */
+const cat=f=>/PPP/.test(f)?'PPP':/ODA|loan/i.test(f)?'ODA and loans':'Local funds';
+D.projects.forEach(p=>p.cat=cat(p.fin));
+const tot=D.projects.reduce((a,p)=>a+p.cost,0);
+const cols={'PPP':'var(--accent)','Local funds':'var(--bar2)','ODA and loans':'var(--bar3)'};
+const byCat=Object.keys(cols).map(k=>[k,D.projects.filter(p=>p.cat===k).reduce((a,p)=>a+p.cost,0)]);
+$('#split').innerHTML=byCat.map(([k,v])=>`<i style="width:${v/tot*100}%;background:${cols[k]}" title="${k}"></i>`).join('');
+$('#legend').innerHTML=byCat.map(([k,v])=>`<span style="--c:${cols[k]}">${k} <span class="num">${fmt(v)}</span></span>`).join('');
+const secs=[...new Set(D.projects.map(p=>p.sector))].sort();
+$('#fSec').innerHTML='<option value="">All sub-sectors</option>'+secs.map(s=>`<option>${esc(s)}</option>`).join('');
+$('#fFin').innerHTML='<option value="">All financing</option>'+Object.keys(cols).map(s=>`<option>${s}</option>`).join('');
+function renderP(){
+  const q=$('#q').value.trim().toLowerCase(),s=$('#fSec').value,f=$('#fFin').value;
+  const L=D.projects.filter(p=>(!s||p.sector===s)&&(!f||p.cat===f)&&(!q||(p.title+' '+p.desc+' '+p.fin+' '+p.sector).toLowerCase().includes(q)));
+  $('#pbody').innerHTML=L.map(p=>`<tr class="p" tabindex="0" aria-expanded="false"><td class="n">${p.no}</td><td class="t">${esc(p.title)}</td><td class="hide-sm">${esc(p.sector)}</td><td class="hide-sm">${esc(p.cat)}</td><td class="r num">${fmt(p.cost)}</td></tr><tr class="d" hidden><td colspan="5">${p.desc}<p><b>Financing:</b> ${esc(p.fin)}</p></td></tr>`).join('')||'<tr><td colspan="5" class="muted">No projects match.</td></tr>';
+  $('#pcount').textContent=`${L.length} of ${D.projects.length} projects`;
+  $('#psum').textContent='USD '+fmt(L.reduce((a,p)=>a+p.cost,0))+' million';
+}
+$('#pbody').addEventListener('click',e=>{const r=e.target.closest('tr.p');if(!r)return;const d=r.nextElementSibling;d.hidden=!d.hidden;r.classList.toggle('open',!d.hidden);r.setAttribute('aria-expanded',!d.hidden)});
+$('#pbody').addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('tr.p')){e.preventDefault();e.target.click()}});
+['#q','#fSec','#fFin'].forEach(s=>$(s).addEventListener('input',renderP));renderP();
 
-    function scrollToElementWithOffset(element){
-      const stickyOffset = getStickyOffset();
-      const viewportSpace = window.innerHeight - stickyOffset - 24;
-      const targetHeight = element.offsetHeight;
-      const targetTop = element.getBoundingClientRect().top + window.pageYOffset;
 
-      let y;
+/* technical assistance */
+$('#tbody').innerHTML=D.ta.map(p=>`<tr class="p" tabindex="0" aria-expanded="false"><td class="n">${p.no}</td><td class="t">${esc(p.title)}</td><td class="hide-sm">${esc(p.sector)}</td><td class="hide-sm">${esc(cat(p.fin))}</td><td class="r num">${fmt(p.cost)}</td></tr><tr class="d" hidden><td colspan="5">${p.desc}<p><b>Financing:</b> ${esc(p.fin)}</p></td></tr>`).join('');
+$('#tbody').addEventListener('click',e=>{const r=e.target.closest('tr.p');if(!r)return;const d=r.nextElementSibling;d.hidden=!d.hidden;r.classList.toggle('open',!d.hidden);r.setAttribute('aria-expanded',!d.hidden)});
+$('#tbody').addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('tr.p')){e.preventDefault();e.target.click()}});
+$('#nTA').textContent=D.ta.length;
 
-      if(targetHeight <= viewportSpace){
-        const centeredGap = Math.max(12, (viewportSpace - targetHeight) / 2);
-        y = targetTop - stickyOffset - centeredGap;
-      }else{
-        y = targetTop - stickyOffset + 6;
-      }
+/* legislation */
+const lsecs=[...new Set(D.legis.map(l=>l.sector))];
+$('#fLeg').innerHTML='<option value="">All sectors</option>'+lsecs.map(s=>`<option>${esc(s)}</option>`).join('');
+function renderL(){const s=$('#fLeg').value;$('#lbody').innerHTML=D.legis.filter(l=>!s||l.sector===s).map(l=>`<tr><td style="white-space:nowrap">${l.link?`<a href="${esc(l.link)}" target="_blank" rel="noopener noreferrer">${esc(l.code)}</a>`:esc(l.code)}</td><td>${esc(l.title)}${l.short&&l.short!=='N/A'?`<div class="muted" style="font-size:13.5px">${esc(l.short)}</div>`:''}</td><td class="hide-sm">${esc(l.sector)}</td></tr>`).join('')}
+$('#fLeg').addEventListener('input',renderL);renderL();
+const acc=L=>L.map(b=>`<details class="plain"><summary>${esc(b.name)}</summary><div class="in">${b.desc.startsWith('<')?b.desc:'<p>'+b.desc+'</p>'}</div></details>`).join('');
+$('#boards').innerHTML=acc(D.boards);$('#wgs').innerHTML=acc(D.wgs);
 
-      window.scrollTo({top:Math.max(0, y), behavior:'smooth'});
-    }
+/* consulting */
+$('#cbody').innerHTML=D.consult.map(c=>`<tr class="p" tabindex="0" aria-expanded="false"><td class="n">${c.no}</td><td class="t">${esc(c.title)}</td><td class="hide-sm">${esc(c.loc)}</td><td class="r num">${fmt(c.cost)}</td></tr><tr class="d" hidden><td colspan="4">${c.shared?'<p>One of the sustainable urban infrastructure master plans (see No. 3).</p>':'<p>'+c.desc+'</p>'}<p class="show-sm"><b>Location:</b> ${esc(c.loc)}</p></td></tr>`).join('');
+$('#cbody').addEventListener('click',e=>{const r=e.target.closest('tr.p');if(!r)return;const d=r.nextElementSibling;d.hidden=!d.hidden;r.classList.toggle('open',!d.hidden);r.setAttribute('aria-expanded',!d.hidden)});
+$('#cbody').addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('tr.p')){e.preventDefault();e.target.click()}});
 
-    document.querySelectorAll('.letter-nav button').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const target = document.getElementById(btn.dataset.scroll);
-        if(target) scrollToElementWithOffset(target);
-      });
-    });
+/* missions */
+const N=D.missions.negros,I=D.missions.infanta,caps={};
+const li=a=>a.map(x=>`<li>${esc(x)}</li>`).join('');
+N.photos.forEach(g=>g.groups.forEach(gr=>gr.imgs.forEach(n=>caps[pad(n)]=`${g.ec}, ${g.site}. ${gr.cap}`)));
+const SG=[{k:'noneco',ec:'NONECO',loc:'Aluyan, Caduhaan, Cadiz City',imgs:[12,11,13,14,15,16]},{k:'noceco',ec:'NOCECO',loc:'Nailab, La Carlota City; Sibucao, Cauayan',imgs:[18,17,19,20,21,22]},{k:'noreco',ec:'NORECO I',loc:'Sitios Ilaya, Libtacon and Mantaliok',imgs:[23,24,25]}];
+const stacksHTML='<div class="stacks">'+SG.map(g=>`<div><button class="stack" data-lb="${pad(g.imgs[0])}" data-group="${g.k}" aria-label="Open ${g.imgs.length} field photos, ${g.ec}"><div class="pile"><img src="assets/img/${pad(g.imgs[0])}.jpg" alt="Field photo, ${g.ec}" loading="lazy"><span class="count">${g.imgs.length} photos</span></div><b>${g.ec}</b><span class="loc">${g.loc}</span></button>${g.imgs.slice(1).map(n=>`<span data-lb="${pad(n)}" data-group="${g.k}" hidden></span>`).join('')}</div>`).join('')+'</div>';
+$('#negros').innerHTML=`<div class="meta">8–12 July 2016 · Negros Island Region</div><h3>${esc(N.title)}</h3>
+ <p class="muted" style="font-size:15px">Inspections and household interviews at four sites served by three electric cooperatives (ECs): NONECO, NOCECO, and NORECO I.</p>
+ ${stacksHTML}
+ <details class="plain"><summary>Factors affecting implementation (${N.concl.length})</summary><div class="in"><ul>${li(N.concl)}</ul></div></details><details class="plain"><summary>Recommendations (${N.recs.length})</summary><div class="in"><ol>${li(N.recs)}</ol></div></details>
+ <details class="plain"><summary>Findings by site</summary><div class="in">${N.sites.map(s=>`<div class="site"><h4>${esc(s.ec)}, ${esc(s.site)}</h4>${s.note?`<p>${esc(s.note)}</p>`:''}<dl>${Object.entries(s.cats).map(([k,v])=>`<dt>${esc(k)}</dt><dd><ul>${li(v)}</ul></dd>`).join('')}</dl></div>`).join('')}</div></details>`;
+$('#infanta').innerHTML=`<div class="meta">19–21 July 2016 · Infanta, Pangasinan</div><h3>Sustainability assessment of the HEART and SOUL Project</h3>
+ <p class="muted" style="font-size:15px">Team Energy Foundation installed 267 solar home systems in two barangays in 2015. The team assessed the project in Barangay Pita with DOE, NEA, the World Bank, and Innovation Energie Développement (IED).</p>
+ <details class="plain"><summary>Field report</summary><div class="in">${I.sections.map(s=>`<h4 style="margin:12px 0 4px;color:var(--ink)">${esc(s.h.replace('And','and'))}</h4>${s.subs.map(x=>`${x.h?`<p style="margin:6px 0 2px;color:var(--ink);font-weight:600">${esc(x.h)}</p>`:''}${['Objectives','Methodology','Recommendation'].includes(s.h)?`<ul>${li(x.items)}</ul>`:x.items.map(t=>`<p>${esc(t)}</p>`).join('')}`).join('')}`).join('')}</div></details>`;
 
-    // Top navigation: stable click highlight + position-based scroll highlight
-    const navLinks = Array.from(document.querySelectorAll('.navlinks a'));
-    const navTargets = navLinks
-      .map(link => document.querySelector(link.getAttribute('href')))
-      .filter(Boolean);
+/* lightbox */
+const lb=$('#lb'),lbi=$('img',lb),lbc=$('.cap',lb);let list=[],k=0;
+const alts={waseda_tor:'Transcript of Academic Record and Certificate of Completion, Waseda University, MA in International Relations, 15 September 2024 (A+ subjects highlighted)',diploma:'Diploma, Bachelor of Science in Electrical Engineering, University of the Philippines Los Baños, 1 August 2014',sipa_cert1:'Certificate, First SIPA Southeast Asia Training Seminar, 28 April–2 May 2025',sipa_cert2:'Certificate, Second SIPA Southeast Asia Training Seminar, 28 July–1 August 2025',sipa_cert3:'Certificate, Third SIPA Southeast Asia Training Seminar, 22–26 February 2026',prc:'Registered Electrical Engineers Licensure Examination rating, April 2015',ccg_flex:'Energy and Flexibility Modelling certificate',ccg_mppe:'Modelling, Policy and Political Economy certificate',img26:'CP3P certificate',img28:'Certified Flexible Power System Specialist certificate',img29:'Certified Green Finance Specialist certificate'};
+function show(){const b=list[k],id=b.dataset.lb,im=$('img',b);lbi.src='assets/img/'+id+'.jpg';lbi.alt=im?im.alt:(alts[id]||'');lbc.textContent=caps[id]||lbi.alt}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-lb]');if(!b)return;list=b.dataset.group?[...document.querySelectorAll(`[data-group="${b.dataset.group}"]`)]:[...b.closest('section').querySelectorAll('[data-lb]')];k=list.indexOf(b);show();lb.hidden=false;$('.x',lb).focus()});
+function close(){lb.hidden=true;list[k]&&list[k].focus()}
+$('.x',lb).onclick=close;$('.pv',lb).onclick=()=>{k=(k-1+list.length)%list.length;show()};$('.nx',lb).onclick=()=>{k=(k+1)%list.length;show()};
+lb.addEventListener('click',e=>{if(e.target===lb)close()});
+document.addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')$('.pv',lb).click();if(e.key==='ArrowRight')$('.nx',lb).click()});
 
-    let autoScrolling = false;
-    let autoScrollTimer = null;
-
-    function setActiveNav(id){
-      navLinks.forEach(link=>{
-        const isActive = link.getAttribute('href') === `#${id}`;
-        link.classList.toggle('active', isActive);
-        if(isActive){
-          link.setAttribute('aria-current','page');
-        }else{
-          link.removeAttribute('aria-current');
-        }
-      });
-    }
-
-    function getActiveSectionByPosition(){
-      const scrollBottom = window.innerHeight + window.scrollY;
-      const nearBottom = scrollBottom >= document.documentElement.scrollHeight - 8;
-
-      if(nearBottom && navTargets.length){
-        return navTargets[navTargets.length - 1].id;
-      }
-
-      const marker = window.scrollY + getStickyOffset();
-      let activeId = navTargets[0] ? navTargets[0].id : null;
-
-      navTargets.forEach(section=>{
-        if(section.offsetTop <= marker){
-          activeId = section.id;
-        }
-      });
-
-      return activeId;
-    }
-
-    function updateActiveNavByPosition(){
-      if(autoScrolling) return;
-      const activeId = getActiveSectionByPosition();
-      if(activeId) setActiveNav(activeId);
-    }
-
-    navLinks.forEach(link=>{
-      link.addEventListener('click',(event)=>{
-        const targetId = link.getAttribute('href').slice(1);
-        const target = document.getElementById(targetId);
-        if(!target) return;
-
-        event.preventDefault();
-        setActiveNav(targetId);
-
-        autoScrolling = true;
-        if(autoScrollTimer) window.clearTimeout(autoScrollTimer);
-
-        scrollToElementWithOffset(target);
-
-        autoScrollTimer = window.setTimeout(()=>{
-          autoScrolling = false;
-          setActiveNav(targetId);
-        }, 1100);
-      });
-    });
-
-    function cancelAutoScrollOnUserInput(){
-      if(autoScrolling){
-        autoScrolling = false;
-        if(autoScrollTimer) window.clearTimeout(autoScrollTimer);
-      }
-    }
-
-    ['wheel','touchstart','mousedown','keydown'].forEach(eventName=>{
-      window.addEventListener(eventName, cancelAutoScrollOnUserInput, {passive:true});
-    });
-
-    let navTicking = false;
-    function requestNavUpdate(){
-      if(!navTicking){
-        window.requestAnimationFrame(()=>{
-          updateActiveNavByPosition();
-          navTicking = false;
-        });
-        navTicking = true;
-      }
-    }
-
-    window.addEventListener('scroll', requestNavUpdate, {passive:true});
-    window.addEventListener('resize', requestNavUpdate);
-    updateActiveNavByPosition();
-  </script>
-
+/* index highlight */
+const links=[...document.querySelectorAll('#index a')],secsEl=links.map(a=>document.querySelector(a.getAttribute('href')));
+let tk=false;
+function spy(){let id=secsEl[0].id;const y=innerHeight*0.3;secsEl.forEach(s=>{if(s.getBoundingClientRect().top<=y)id=s.id});
+  if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)id=secsEl[secsEl.length-1].id;
+  links.forEach(a=>{const on=a.getAttribute('href')==='#'+id;if(on&&!a.classList.contains('on')){const box=$('#index');if(box.scrollWidth>box.clientWidth){box.scrollLeft=a.parentElement.offsetLeft-16}}a.classList.toggle('on',on)})}
+addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(()=>{spy();tk=false})}},{passive:true});spy();
+</script>
 
 </body>
 </html>
