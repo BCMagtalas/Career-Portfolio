@@ -191,6 +191,14 @@ details.plain .in ul,details.plain .in ol{margin:0 0 8px;padding-left:20px}
 .pane{padding-top:18px}
 .cvbtn{display:inline-block;margin-top:6px;font-weight:600;text-decoration:none;border:1px solid var(--accent);border-radius:4px;padding:5px 10px;font-size:14px}
 .cvbtn:hover{background:var(--accent-soft)}
+.vbtn{cursor:pointer;background:none;font:inherit}
+.vid{width:min(960px,calc(100vw - 32px));padding:0;border:1px solid var(--rule);border-radius:12px;background:var(--bg);color:var(--ink);overflow:hidden}
+.vid::backdrop{background:rgba(20,16,14,.6)}
+.vhead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--rule)}
+.vhead h3{margin:0;font-size:17px}
+.vid video{display:block;width:100%;aspect-ratio:16/9;background:#f4f1ec}
+.vnote{margin:0;padding:8px 16px 12px;font-size:13px;color:var(--muted)}
+@media print{.vbtn,.vid{display:none!important}}
 .skip{position:absolute;left:-9999px;top:8px}
 .skip:focus{left:16px;z-index:60;background:var(--surface);color:var(--accent);padding:8px 12px;border:1px solid var(--accent);border-radius:4px}
 .rowbtn{all:unset;cursor:pointer;font-weight:inherit}
@@ -723,7 +731,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
     <div class="contact">
       <div class="row"><a href="mailto:magtalasbernie@suou.waseda.jp" class="mail">magtalasbernie@suou.waseda.jp</a></div>
       <div class="row"><a href="https://www.linkedin.com/in/magtalas-bernie/" target="_blank" rel="noopener noreferrer">LinkedIn profile<span class="pheadx">: linkedin.com/in/magtalas-bernie · Website: bcmagtalas.github.io/Career-Portfolio</span></a></div>
-      <div class="row dl"><a class="cvbtn" href="assets/cv/MAGTALAS_Bernie_Calderon_CV.pdf" target="_blank" rel="noopener" aria-label="Download CV (PDF)">CV (PDF)</a><a class="cvbtn alt" aria-label="Download portfolio: Accomplishment Report 2015–2026 (PDF)" title="Accomplishment Report 2015–2026 with annexes (PDF, 6 MB)" href="assets/cv/MAGTALAS_Bernie_Calderon_Accomplishment_Report_2015-2026.pdf" target="_blank" rel="noopener">Portfolio (PDF)</a></div>
+      <div class="row dl"><a class="cvbtn" href="assets/cv/MAGTALAS_Bernie_Calderon_CV.pdf" target="_blank" rel="noopener" aria-label="Download CV (PDF)">CV (PDF)</a><a class="cvbtn alt" aria-label="Download portfolio: Accomplishment Report 2015–2026 (PDF)" title="Accomplishment Report 2015–2026 with annexes (PDF, 6 MB)" href="assets/cv/MAGTALAS_Bernie_Calderon_Accomplishment_Report_2015-2026.pdf" target="_blank" rel="noopener">Portfolio (PDF)</a><button class="cvbtn alt vbtn" type="button" id="vopen" aria-haspopup="dialog" title="90-second video overview">▶ Video</button></div>
     </div>
     <nav aria-label="Sections"><ul class="index" id="index">
       <li><a href="#about"><span>About</span><span></span></a></li>
@@ -994,6 +1002,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
 </div>
 <footer><span>Bernie Calderon Magtalas · Last updated October 2026</span><span>Figures in USD unless stated · <button class="linkbtn" type="button" data-rep="gloss">Acronyms</button></span></footer>
 
+<dialog class="vid" id="vdlg" aria-labelledby="vT"><div class="vhead"><h3 id="vT">Portfolio in 90 seconds</h3><button class="rx" type="button" id="vclose" aria-label="Close video">×</button></div><video id="vplayer" controls playsinline preload="none" poster="assets/video/explainer_poster.jpg"><source src="assets/video/MAGTALAS_Bernie_Calderon_Portfolio_Explainer.mp4" type="video/mp4"><track kind="captions" src="assets/video/explainer_en.vtt" srclang="en" label="English"></video><p class="vnote">Narrated overview with captions · 1 min 29 s</p></dialog>
 <dialog class="rep" id="rep" aria-labelledby="repT"><div class="rhead"><div><div class="meta"></div><h3 id="repT"></h3></div><button class="rx" type="button" aria-label="Close report">×</button></div><div class="rbody"><div class="rtabs" role="tablist" aria-orientation="vertical" aria-label="Report sections"></div><div class="rp" id="rp" role="tabpanel" tabindex="0"></div></div></dialog>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
   <button class="x" type="button" aria-label="Close">×</button><button class="pv" type="button" aria-label="Previous">‹</button><button class="nx" type="button" aria-label="Next">›</button>
@@ -1278,6 +1287,10 @@ if(location.hash&&document.getElementById(location.hash.slice(1)))addEventListen
 if('scrollRestoration' in history)history.scrollRestoration='manual';
 if(!location.hash){scrollTo(0,0);addEventListener('load',()=>{if(!location.hash&&scrollY<innerHeight)scrollTo(0,0)})}
 </script>
+<script>(()=>{const d=document.getElementById('vdlg'),v=document.getElementById('vplayer'),o=document.getElementById('vopen');if(!d||!o)return;
+o.addEventListener('click',()=>{d.showModal();v.play().catch(()=>{})});
+const close=()=>{v.pause();d.close()};document.getElementById('vclose').addEventListener('click',close);
+d.addEventListener('click',e=>{if(e.target===d)close()});d.addEventListener('close',()=>{v.pause();o.focus()});})();</script>
 
 </body>
 </html>
