@@ -192,6 +192,23 @@ details.plain .in ul,details.plain .in ol{margin:0 0 8px;padding-left:20px}
 .cvbtn{display:inline-block;margin-top:6px;font-weight:600;text-decoration:none;border:1px solid var(--accent);border-radius:4px;padding:5px 10px;font-size:14px}
 .cvbtn:hover{background:var(--accent-soft)}
 .vbtn{cursor:pointer;background:none;font:inherit}
+.biow{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:32px;align-items:stretch}
+.biot>p:last-child{margin-bottom:0}
+@media (max-height:740px){.biow{grid-template-columns:minmax(0,1fr) 280px}}
+.biot{min-width:0}
+.vinl{margin:0;display:flex;flex-direction:column;min-height:0}
+.vthumb{all:unset;box-sizing:border-box;display:block;position:relative;width:100%;flex:1;min-height:180px;border:1px solid #cfc7bc;border-radius:10px;overflow:hidden;cursor:pointer;background:#fff;box-shadow:0 1px 2px rgba(29,27,25,.06),0 8px 24px -6px rgba(29,27,25,.18);transition:transform .2s ease,box-shadow .2s ease}
+.vthumb img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%;transition:transform .3s}
+.vthumb:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(29,27,25,.08),0 14px 32px -8px rgba(29,27,25,.26)}
+.vprev{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%;opacity:0;transition:opacity .2s}
+.vprev.on{opacity:1}
+@media (prefers-reduced-motion:reduce){.vthumb,.vthumb:hover{transition:none;transform:none}}
+.vthumb:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.vplay{position:absolute;left:12px;bottom:12px;display:inline-flex;align-items:center;gap:6px;padding:6px 13px 6px 10px;border-radius:999px;background:var(--accent);color:#fff;font-size:14px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.vthumb:hover .vplay{filter:brightness(1.15)}
+.vdur{position:absolute;right:10px;bottom:10px;padding:2px 7px;border-radius:4px;background:rgba(29,27,25,.78);color:#fff;font-size:12px;font-variant-numeric:tabular-nums}
+@media (max-width:1100px){.biow{display:block}.vinl{display:none}}
+@media print{.vinl{display:none!important}.biow{display:block!important}}
 .vid{width:min(960px,calc(100vw - 32px));padding:0;border:1px solid var(--rule);border-radius:12px;background:var(--bg);color:var(--ink);overflow:hidden}
 .vid::backdrop{background:rgba(20,16,14,.6)}
 .vhead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--rule)}
@@ -656,7 +673,7 @@ main>section{min-height:calc(100vh - 24px);min-height:calc(100svh - 24px)}
 .figures a b{grid-row:1;grid-column:2}
 .figures a span{grid-column:1/-1}
 .xtags{margin-top:14px;gap:6px;max-width:none}
-@media (min-width:961px){.xtags{display:grid;grid-template-columns:repeat(4,max-content);justify-items:start}}
+@media (min-width:1180px){.xtags{display:grid;grid-template-columns:repeat(4,max-content);justify-items:start}}
 .xtags li{font-size:12.5px;padding:4px 10px;white-space:nowrap}
 }
 /* thesis */
@@ -758,9 +775,11 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
         <a href="#policy"><svg class="fico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg><b>48</b><span>bills, laws, and policies reviewed</span><i class="fgo" aria-hidden="true">→</i></a>
         <a href="#boards"><svg class="fico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 .2 6 1.8 6 5.5"/></svg><b>8</b><span>national boards and committees advised</span><i class="fgo" aria-hidden="true">→</i></a>
       </div>
+      <div class="biow"><div class="biot">
       <p>Bernie Calderon Magtalas is an infrastructure economist and licensed electrical engineer. He is a Supervising Economic Development Specialist in the Infrastructure Staff of the Department of Economy, Planning, and Development (DEPDev) Investment Programming Group, where he leads project appraisal, planning, and policy formulation across the energy, transportation, and wider public infrastructure sectors.</p>
 <p>He began his career at the Department of Energy (DOE) in December 2015, supporting renewable energy and rural electrification programs in remote, off-grid, and conflict-affected areas, and joined the National Economic and Development Authority (NEDA, now DEPDev) in September 2016.</p>
-      <ul class="xtags" aria-label="Core expertise"><li>Project economic analysis</li><li>Cost-benefit analysis</li><li>Infrastructure appraisal</li><li>Investment programming</li><li>Socioeconomic development planning</li><li>PPP risk assessment</li><li>Energy and transport policy</li><li>R · Python · Excel</li></ul>
+      </div><figure class="vinl"><button type="button" class="vthumb" id="vinline" aria-label="Play the 90-second portfolio video"><img src="assets/video/explainer_card.jpg" alt="" loading="lazy"><video class="vprev" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video><span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>Play</span><span class="vdur" aria-hidden="true">1:29 · CC</span></button></figure></div>
+            <ul class="xtags" aria-label="Core expertise"><li>Project economic analysis</li><li>Cost-benefit analysis</li><li>Infrastructure appraisal</li><li>Investment programming</li><li>Socioeconomic development planning</li><li>PPP risk assessment</li><li>Energy and transport policy</li><li>R · Python · Excel</li></ul>
     </section>
 
     <section id="selected">
@@ -1288,9 +1307,22 @@ if('scrollRestoration' in history)history.scrollRestoration='manual';
 if(!location.hash){scrollTo(0,0);addEventListener('load',()=>{if(!location.hash&&scrollY<innerHeight)scrollTo(0,0)})}
 </script>
 <script>(()=>{const d=document.getElementById('vdlg'),v=document.getElementById('vplayer'),o=document.getElementById('vopen');if(!d||!o)return;
-o.addEventListener('click',()=>{d.showModal();v.play().catch(()=>{})});
+const op=()=>{d.showModal();v.play().catch(()=>{})};o.addEventListener('click',op);const vi=document.getElementById('vinline');if(vi)vi.addEventListener('click',op);
 const close=()=>{v.pause();d.close()};document.getElementById('vclose').addEventListener('click',close);
 d.addEventListener('click',e=>{if(e.target===d)close()});d.addEventListener('close',()=>{v.pause();o.focus()});})();</script>
+<script>(()=>{const b=document.getElementById('vinline');if(!b)return;const v=b.querySelector('.vprev');if(!v)return;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let loaded=false,busy=false;
+function load(){if(loaded)return;loaded=true;
+ const w=document.createElement('source');w.src='assets/video/explainer_preview.webm';w.type='video/webm';
+ const m=document.createElement('source');m.src='assets/video/explainer_preview.mp4';m.type='video/mp4';
+ v.appendChild(w);v.appendChild(m);v.load();}
+function run(){if(busy||reduce||!b.offsetParent)return;load();busy=true;v.currentTime=0;
+ const p=v.play();if(p&&p.then)p.then(()=>v.classList.add('on')).catch(()=>{busy=false;v.classList.remove('on')});}
+v.addEventListener('ended',()=>{busy=false;});
+v.addEventListener('error',()=>{busy=false;v.classList.remove('on')},true);
+b.addEventListener('mouseenter',run);b.addEventListener('focus',run);
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){io.disconnect();setTimeout(run,700);}})},{threshold:.5});io.observe(b);}
+})();</script>
 
 </body>
 </html>
