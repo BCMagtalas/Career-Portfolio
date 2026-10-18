@@ -308,7 +308,7 @@ h2.kicker{font-family:var(--body);font-size:12px;font-weight:700;letter-spacing:
 .ctrack{position:relative;height:10px;background:var(--rule);border-radius:5px;margin:14px 6px 0 0}
 .ctrack i{position:absolute;top:0;bottom:0;border-right:2px solid var(--bg)}
 .ctrack i:first-child{border-radius:5px 0 0 5px}
-.c1{--c:color-mix(in srgb,var(--accent) 28%,var(--bg))}.c2{--c:color-mix(in srgb,var(--accent) 50%,var(--bg))}.c3{--c:color-mix(in srgb,var(--accent) 75%,var(--bg))}.c4{--c:var(--accent)}
+.c1{--c:color-mix(in srgb,var(--accent) 34%,var(--rule))}.c2{--c:color-mix(in srgb,var(--accent) 50%,var(--bg))}.c3{--c:color-mix(in srgb,var(--accent) 75%,var(--bg))}.c4{--c:var(--accent)}
 .ctrack i{background:var(--c)}
 .ctrack .now{position:absolute;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--accent)}
 .ctrack .now::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--accent);animation:ping 2.2s cubic-bezier(0,0,.2,1) infinite}
@@ -590,8 +590,8 @@ dl.gl dd{padding:6px 0;border-top:1px solid var(--rule);margin:0}
 .mrow{display:flex;align-items:center;gap:10px;margin:3px 0 2px}
 .mrow .rtag{margin:0}
 .reft{font:inherit;font-size:12px;font-weight:600;color:var(--muted);background:none;border:0;padding:2px 0;cursor:pointer}
-.reft::after{content:" ▾";font-size:10px}
-.reft[aria-expanded="true"]::after{content:" ▴"}
+.reft::after{content:"\00a0▾";font-size:10px}
+.reft[aria-expanded="true"]::after{content:"\00a0▴"}
 .reft:hover{color:var(--accent)}
 .refd{display:block;font-size:12.5px;line-height:1.45;color:var(--muted);margin:2px 0 4px}
 @media print{.reft{display:none!important}.refd[hidden]{display:block!important}}
@@ -656,7 +656,7 @@ main>section{min-height:calc(100vh - 24px);min-height:calc(100svh - 24px)}
 .rnote2{margin:6px 0 8px!important}
 @media (max-width:640px){.bars .bar{grid-template-columns:minmax(0,1fr) auto}}
 .tnote.nw{white-space:nowrap;display:inline-block}#talegend{margin-top:12px}#cbody .atag{display:table;margin:6px 0 0}.sbars .bar{cursor:default}.sbars .bv{white-space:nowrap}.sbars .bar:hover{background:none}
-@media print{#tafig{display:none!important}}
+@media print{#tafig,#cfig,#tasplit{display:none!important}.ponly{display:block!important}}
 .dh{display:flex;justify-content:space-between;align-items:baseline;gap:4px 16px;flex-wrap:wrap}
 .dh .doc{margin:0!important;white-space:nowrap}
 @media (min-width:641px){
@@ -749,13 +749,33 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
 }
 @media screen{
 /* clickable affordances */
-.ptabs{gap:8px;border-bottom:0;padding:4px 2px 6px;margin-top:18px}
-.ptabs button{border:1px solid var(--rule);border-radius:999px;background:var(--surface);color:var(--ink);padding:8px 16px;margin:0;font-size:15px;font-weight:500;box-shadow:0 1px 0 rgba(0,0,0,.04);transition:border-color .15s,color .15s,background .15s}
-.ptabs button:hover{border-color:var(--accent);color:var(--accent)}
-.ptabs button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.ptabs button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg);font-weight:600}
-@media (max-width:640px){.ptabs{flex-wrap:wrap;overflow:visible;-webkit-mask-image:none;mask-image:none}.ptabs button{font-size:14px;padding:7px 13px}}
-.ptabs button[aria-selected="true"] .num{color:inherit;opacity:.85}
+.ptabs button{color:color-mix(in srgb,var(--ink) 70%,var(--muted));font-weight:500;padding:10px 16px;border-bottom-width:3px;border-radius:6px 6px 0 0;background:color-mix(in srgb,var(--ink) 1.8%,transparent);transition:color .15s,border-color .15s,background .15s}
+.ptabs button:hover{color:var(--accent);border-bottom-color:color-mix(in srgb,var(--accent) 35%,transparent);background:color-mix(in srgb,var(--accent) 7%,transparent)}
+.ptabs button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.ptabs button .num{display:inline-block;font-size:11.5px;line-height:1;padding:3px 6px;border-radius:999px;background:color-mix(in srgb,var(--ink) 5%,transparent);color:var(--muted);margin-left:6px;vertical-align:1px}
+.ptabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent);font-weight:600;background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.ptabs button[aria-selected="true"] .num{background:var(--accent-soft);color:var(--accent)}
+/* second-level filters: quiet chips, distinct from section tabs */
+.chips,.gpills{display:flex;flex-wrap:wrap;align-items:center;gap:6px;border-bottom:0;padding:0;overflow:visible}
+.chips::before,.gpills::before{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+#fLeg::before{content:"Filter"}
+.gpills::before{content:"Theme"}
+.chip,.gpills button{flex:none;font:inherit;font-size:13.5px;font-weight:500;min-height:0;padding:5px 12px;margin:0;border:1px solid var(--rule);border-radius:999px;background:var(--surface);color:color-mix(in srgb,var(--ink) 75%,var(--muted));white-space:nowrap;cursor:pointer;transition:color .15s,border-color .15s,background .15s}
+.chip:hover,.gpills button:hover{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+.chip:focus-visible,.gpills button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chip .num,.gpills button b{display:inline;font-weight:400;font-size:12px;padding:0;background:none;color:var(--muted);margin-left:3px;opacity:1}
+.chip[aria-pressed="true"],.gpills button[aria-selected="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:600}
+.chip[aria-pressed="true"] .num,.gpills button[aria-selected="true"] b{background:none;color:var(--accent);opacity:.8}
+.gpills button svg,.gpills button[aria-selected="true"] svg{width:14px;height:14px;color:var(--accent);opacity:1}
+.gpills button{gap:6px;padding-left:10px}
+.gsnav{align-items:center}
+.l25 th:last-child,.l25 td:last-child{min-width:104px;padding-left:16px}
+.totop{border-color:color-mix(in srgb,var(--ink) 22%,transparent)}
+@media (max-width:640px){.totop{display:none!important}}
+.ponly{display:none}
+#policy>.ptabs{margin-top:16px}
+#policy>.pane.sub{margin-top:0}
+@media (max-width:640px){#fLeg,.gpills{flex-wrap:nowrap;overflow-x:auto;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}}
 .bars:not(.sbars) .bar .bl{text-decoration:underline dotted color-mix(in srgb,var(--accent) 55%,transparent);text-underline-offset:3px}
 .bars:not(.sbars) .bar:hover .bl{color:var(--accent);text-decoration-style:solid}
 .rowbtn:hover{color:var(--accent)}
@@ -793,7 +813,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
       <li><a href="#portfolio"><span>Appraisal portfolio</span><span>61</span></a></li>
       <li><a href="#policy"><span>Policy and governance</span><span>63</span></a></li>
       <li><a href="#analytics"><span>Analytics</span><span>3</span></a></li>
-      <li><a href="#engagements"><span>Engagements</span><span>8</span></a></li>
+      <li><a href="#engagements"><span>Engagements</span><span>6</span></a></li>
       <li><a href="#field"><span>Field missions</span><span>2</span></a></li>
       <li><a href="#methods"><span>Methods and tools</span><span></span></a></li>
       <li><a href="#education"><span>Education</span><span>2</span></a></li>
@@ -890,9 +910,15 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
       </div>
       <div class="pane" id="pane-ta" role="tabpanel" aria-labelledby="tab-ta" hidden>
       <p class="muted">Reviews technical assistance (TA), grants, and policy-based loans for NEDA (now the Department of Economy, Planning, and Development, DEPDev) in response to development partners' requests for no-objection, comments, and endorsement. <span class="tnote nw">Select a row for details.</span></p>
-      <p class="ptot" id="tatot"></p><div class="legend" id="talegend"></div>
-      <figure class="bars sbars" id="tafig"><figcaption>The chart shows the number of programs by sector, with their combined value in USD million. Amounts are each program’s total approved amount, including other participating countries for regional programs.</figcaption><div id="tabars"></div></figure>
-      <div class="sub">
+      <p class="ptot" id="tatot"></p><div class="split" id="tasplit"></div><div class="legend" id="talegend"></div>
+      <figure class="bars" id="tafig"><figcaption>The chart shows the number of programs by sector, with their combined value in USD million. Select a bar to filter the tables, and a row for details.</figcaption><div id="tabars"></div></figure>
+      <div class="controls">
+        <input id="tq" type="search" placeholder="Search programs" aria-label="Search programs">
+        <select id="tSec" aria-label="Sector"></select>
+        <select id="tType" aria-label="Type"><option value="">All types</option><option value="ta">Technical assistance and grants</option><option value="loans">Programs and policy-based loans</option></select>
+        <select id="tSort" aria-label="Sort"><option value="no">Original order</option><option value="cost">Largest first</option></select>
+      </div>
+      <div class="sub" id="tsub">
         <h3>Technical assistance and grants</h3>
         <div class="tablebox">
         <table>
@@ -902,7 +928,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
       </div>
       <div class="sumline"><span id="tbodyc"></span><span id="tbodys" class="num"></span></div>
       </div>
-      <div class="sub">
+      <div class="sub" id="lsub">
         <h3>Programs and policy-based loans</h3>
         <div class="tablebox">
         <table>
@@ -912,15 +938,22 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
       </div>
       <div class="sumline"><span id="lbody2c"></span><span id="lbody2s" class="num"></span></div>
       </div>
+      <p class="muted" id="tnone" hidden>No programs match.</p>
       <p class="muted" style="font-size:14px;margin-top:14px">Costs are each program’s total approved amount. Most technical assistance projects are regional, so the amount covers all participating countries, not only the Philippines.</p>
       </div>
       <div class="pane" id="pane-consulting" role="tabpanel" aria-labelledby="tab-consulting" hidden>
       <p class="muted">Evaluated the technical and financial proposals for all 12 studies, from procurement through contract negotiation. For two studies, also administered the consulting contract and evaluated the consultants’ outputs. <span class="tnote nw">Select a row for details.</span></p>
       <p class="ptot" id="ctot"></p><div class="split" id="csplit"></div><div class="legend" id="clegend"></div>
+      <figure class="bars" id="cfig"><figcaption>The chart shows value by type of study in USD million, with the number of studies. Select a bar to filter the table, and a row for details.</figcaption><div id="cbars"></div></figure>
+      <div class="controls">
+        <input id="cq" type="search" placeholder="Search studies" aria-label="Search studies">
+        <select id="cType" aria-label="Type of study"><option value="">All types</option><option>Master plans</option><option>Development plans</option><option>Feasibility studies</option></select>
+        <select id="cSort" aria-label="Sort"><option value="no">Original order</option><option value="cost">Largest first</option></select>
+      </div>
       <div class="tablebox"><table>
         <thead><tr><th>No.</th><th>Study</th><th class="hide-sm">Location</th><th class="r">USD M</th></tr></thead>
         <tbody id="cbody"></tbody>
-        <tfoot><tr><td></td><td>Total</td><td class="hide-sm"></td><td class="r num">12.68</td></tr></tfoot>
+        <tfoot><tr><td></td><td id="cfootl">Total</td><td class="hide-sm"></td><td class="r num" id="cfoot">12.68</td></tr></tfoot>
       </table></div>
       </div>
     </section>
@@ -928,15 +961,19 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
     <section id="policy">
       <p class="kicker">Policy and governance</p>
       <h2>Legislation, boards, and working groups</h2>
-      <div class="sub">
-        <h3>Bills, laws, and policies reviewed <span class="muted num" style="font-weight:400">48</span></h3>
+      <div class="ptabs" role="tablist" aria-label="Policy and governance">
+        <button role="tab" id="pt-leg" aria-controls="pp-leg" aria-selected="true">Bills, laws, and policies <span class="num">48</span></button>
+        <button role="tab" id="pt-bod" aria-controls="boards" aria-selected="false" tabindex="-1">Boards and working groups <span class="num">15</span></button>
+      </div>
+      <div class="pane sub" id="pp-leg" role="tabpanel" aria-labelledby="pt-leg">
+        <h3 class="ponly">Bills, laws, and policies reviewed <span class="muted num" style="font-weight:400">48</span></h3>
         <p class="muted tnote" style="margin:0 0 10px">Has reviewed these measures for the National Economic and Development Authority (now DEPDev) since 2016, and as a supervisor in the Infrastructure Staff since 2025, through position papers, comments, and inter-agency technical working groups (TWGs).</p>
         <div class="chips" id="fLeg" role="group" aria-label="Filter bills, laws, and policies"></div>
         <div class="tablebox"><table class="legt l25"><thead><tr><th>Measure</th><th class="hide-sm">Description</th><th class="hide-sm">Sector</th></tr></thead><tbody id="lbody"></tbody></table></div>
         <button class="more" type="button" id="lmore" hidden></button>
       </div>
-      <div class="sub bwsub" id="boards">
-        <h3>Boards, committees, and working groups</h3>
+      <div class="pane sub bwsub" id="boards" role="tabpanel" aria-labelledby="pt-bod" hidden>
+        <h3 class="ponly">Boards, committees, and working groups</h3>
         <p class="muted tnote">Advised 8 boards and committees and served in 7 working groups. Select a name to read the body’s mandate and legal basis.</p>
         <div class="gpanels" id="gpanels"></div>
       </div>
@@ -949,7 +986,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
       <ul class="tools">
         <li><div><h3>Regional Infrastructure Development Index (RIDI)</h3><p>Directed five ADB consultants and five DEPDev specialists across the energy, water, digital, transport, and social sectors, and computed and analyzed the Philippines’ first composite measure of infrastructure development in R and Python. Its interactive dashboard was adopted as a prototype for regional and sectoral assessments of infrastructure investment gaps.</p></div><a href="https://ridi.bolt.host/" target="_blank" rel="noopener noreferrer">Open RIDI ↗</a></li>
         <li><div><h3>Infrastructure Indicator Screening Dashboard</h3><p>The dashboard was used to screen and select the indicators included in the Regional Infrastructure Development Index.</p></div><a href="https://bcmagtalas.github.io/ridi-dashboard/" target="_blank" rel="noopener noreferrer">Open dashboard ↗</a></li>
-                <li><div><h3>Multi-Criteria Socioeconomic Evaluation Model</h3><p>This automated Excel model prioritized 207 infrastructure projects for a USD 176 billion national investment pipeline.</p></div><span class="tag">207 projects</span></li>
+                <li><div><h3>Multi-Criteria Socioeconomic Evaluation Model</h3><p>This automated Excel model prioritized 207 infrastructure projects for a USD&nbsp;176&nbsp;billion national investment pipeline.</p></div><span class="tag">207 projects</span></li>
       </ul>
     </section>
 
@@ -1107,15 +1144,24 @@ $('#pbody').addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.
 
 
 /* technical assistance and programs */
-function progTable(id,list){
-  const tb=$('#'+id);
-  tb.innerHTML=list.map(p=>`<tr class="p"><td class="n">${p.no}</td><td class="t"><button class="rowbtn tt" type="button" aria-expanded="false">${esc(p.title)}</button><div class="muted" style="font-size:13px;font-weight:400">${esc(p.ref)}</div></td><td class="hide-sm">${esc(p.sector)}</td><td class="hide-sm">${esc(p.appr||'')}</td><td class="r num">${fmt(p.cost)}</td></tr><tr class="d" hidden><td colspan="5">${p.desc}<p><b>Financing:</b> ${esc(p.fin)}</p></td></tr>`).join('');
+const TL={ta:D.ta,loans:D.loans},TB={ta:'tbody',loans:'lbody2'};
+const tSecs=[...new Set([...D.ta,...D.loans].map(x=>x.sector))].sort();
+$('#tSec').innerHTML='<option value="">All sectors</option>'+tSecs.map(x=>`<option>${esc(x)}</option>`).join('');
+['tbody','lbody2'].forEach(id=>{const tb=$('#'+id);
   tb.addEventListener('click',e=>{const r=e.target.closest('tr.p');if(!r)return;const d=r.nextElementSibling;d.hidden=!d.hidden;r.classList.toggle('open',!d.hidden);(r.querySelector('.rowbtn')||r).setAttribute('aria-expanded',!d.hidden)});
-  tb.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('tr.p')){e.preventDefault();e.target.click()}});
-  $('#'+id+'c').textContent=list.length+(list.length===1?' program':' programs');
-  $('#'+id+'s').textContent='USD '+fmt(list.reduce((a,p)=>a+p.cost,0))+' million';
+  tb.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('tr.p')){e.preventDefault();e.target.click()}});});
+function renderT(){
+  const q=$('#tq').value.trim().toLowerCase(),sc=$('#tSec').value,ty=$('#tType').value,so=$('#tSort').value,filt=q||sc||ty;let shown=0;
+  Object.keys(TL).forEach(k=>{const all=TL[k],id=TB[k];
+    const L=(ty&&ty!==k)?[]:all.filter(p=>(!sc||p.sector===sc)&&(!q||(p.title+' '+p.ref+' '+p.desc+' '+p.fin+' '+p.sector).toLowerCase().includes(q))).slice().sort((a,b)=>so==='cost'?b.cost-a.cost:a.no-b.no);
+    shown+=L.length;$('#'+(k==='ta'?'tsub':'lsub')).hidden=!L.length;
+    $('#'+id).innerHTML=L.map(p=>`<tr class="p"><td class="n">${p.no}</td><td class="t"><button class="rowbtn tt" type="button" aria-expanded="false">${esc(p.title)}</button><div class="muted" style="font-size:13px;font-weight:400">${esc(p.ref)}</div></td><td class="hide-sm">${esc(p.sector)}</td><td class="hide-sm">${esc(p.appr||'')}</td><td class="r num">${fmt(p.cost)}</td></tr><tr class="d" hidden><td colspan="5">${p.desc}<p><b>Financing:</b> ${esc(p.fin)}</p></td></tr>`).join('');
+    $('#'+id+'c').textContent=filt?`${L.length} of ${all.length} programs shown`:all.length+(all.length===1?' program':' programs');
+    $('#'+id+'s').textContent=(filt?'Filtered total ':'')+'USD '+fmt(L.reduce((a,p)=>a+p.cost,0))+' million';});
+  $('#tnone').hidden=shown>0;
+  $$('#tabars .bar').forEach(b=>b.setAttribute('aria-pressed',b.dataset.s===sc));
 }
-progTable('tbody',D.ta);progTable('lbody2',D.loans);
+['#tq','#tSec','#tType','#tSort'].forEach(x=>$(x).addEventListener('input',renderT));renderT();
 
 
 
@@ -1134,6 +1180,7 @@ progTable('tbody',D.ta);progTable('lbody2',D.loans);
  addEventListener('beforeprint',()=>{document.querySelectorAll('details.evx').forEach(d=>d.open=true)});addEventListener('beforeprint',()=>L.forEach(li=>li.querySelector('p.cl')?.classList.remove('cl')));
 })();
 
+const CTY={};let renderC=()=>{};
 /* summaries for TA and consulting tabs */
 (()=>{const C=['var(--accent)','var(--bar2)','var(--bar3)'];
  const sum=(ids,cats,noun)=>{const T=cats.reduce((a,c)=>a+c[1],0),N=cats.reduce((a,c)=>a+c[2],0);
@@ -1144,9 +1191,14 @@ progTable('tbody',D.ta);progTable('lbody2',D.loans);
  const S=a=>a.reduce((x,y)=>x+(+y.cost),0);
  sum(['#tatot','#tasplit','#talegend'],[['Programs and policy-based loans',S(D.loans),D.loans.length],['Technical assistance and grants',S(D.ta),D.ta.length]],['program','programs']);
  const all=[...D.ta,...D.loans],secs=[...new Set(all.map(x=>x.sector))].map(s=>{const a=all.filter(x=>x.sector===s);return [s,S(a),a.length]}).sort((a,b)=>b[2]-a[2]||b[1]-a[1]),mx=Math.max(...secs.map(s=>s[2]));
- $('#tabars').innerHTML=secs.map(([s,v,n])=>`<div class="bar"><span class="bl">${esc(s)}</span><span class="bt"><i style="--w:${(n/mx*100).toFixed(2)}%"></i></span><span class="bv">${n} program${n>1?'s':''}<small> · USD ${fmt(v)}</small></span></div>`).join('');
+ $('#tabars').innerHTML=secs.map(([s,v,n])=>`<button type="button" class="bar" data-s="${esc(s)}" aria-pressed="false" title="${esc(s)}: ${n} program${n>1?'s':''}, USD ${fmt(v)} million"><span class="bl">${esc(s)}</span><span class="bt"><i style="--w:${(n/mx*100).toFixed(2)}%"></i></span><span class="bv">${n} program${n>1?'s':''}<small> · USD ${fmt(v)}</small></span></button>`).join('');
+ $('#tabars').addEventListener('click',e=>{const b=e.target.closest('.bar');if(!b)return;$('#tSec').value=$('#tSec').value===b.dataset.s?'':b.dataset.s;renderT();$('#tsub').scrollIntoView({block:'nearest',behavior:'smooth'})});renderT();
  const g=n=>D.consult.filter(c=>n.includes(String(c.no)));
  const FS=g(['1','2','8']),MP=g(['3','4','5','6','7','12']),DP=g(['9','10','11']);
+ FS.forEach(c=>CTY[c.no]='Feasibility studies');MP.forEach(c=>CTY[c.no]='Master plans');DP.forEach(c=>CTY[c.no]='Development plans');
+ const cb=[['Master plans',S(MP),MP.length],['Development plans',S(DP),DP.length],['Feasibility studies',S(FS),FS.length]].sort((a,b)=>b[1]-a[1]),cm=cb[0][1];
+ $('#cbars').innerHTML=cb.map(([s,v,n])=>`<button type="button" class="bar" data-s="${s}" aria-pressed="false" title="${s}: USD ${fmt(v)} million, ${n} ${n>1?'studies':'study'}"><span class="bl">${s}</span><span class="bt"><i style="--w:${(v/cm*100).toFixed(2)}%"></i></span><span class="bv">${fmt(v)}<small> · ${n} ${n>1?'studies':'study'}</small></span></button>`).join('');
+ $('#cbars').addEventListener('click',e=>{const b=e.target.closest('.bar');if(!b)return;$('#cType').value=$('#cType').value===b.dataset.s?'':b.dataset.s;renderC();$('#cbody').closest('.tablebox').scrollIntoView({block:'nearest',behavior:'smooth'})});
  sum(['#ctot','#csplit','#clegend'],[['Master plans',S(MP),MP.length],['Development plans',S(DP),DP.length],['Feasibility studies',S(FS),FS.length]],['study','studies']);
  $('#ctot').insertAdjacentHTML('beforeend',' · 2 administered through completion');
 })();
@@ -1199,6 +1251,11 @@ addEventListener('beforeprint',()=>window.preparePrint());
 
 
 /* portfolio tabs */
+(()=>{const T=[...document.querySelectorAll('#policy .ptabs [role=tab]')];
+ const sel=(b,f)=>{T.forEach(x=>{const on=x===b;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on});if(f)b.focus();window.dispatchEvent(new Event('resize'))};
+ T.forEach((b,i)=>{b.addEventListener('click',()=>sel(b));b.addEventListener('keydown',e=>{const n={ArrowRight:(i+1)%T.length,ArrowLeft:(i-1+T.length)%T.length,Home:0,End:T.length-1}[e.key];if(n===undefined)return;e.preventDefault();sel(T[n],true)})});
+ document.addEventListener('click',e=>{const a=e.target.closest('a[href="#boards"]');if(!a)return;e.preventDefault();e.stopPropagation();sel(T[1]);history.replaceState(null,'','#policy');goTo(document.getElementById('policy'),true)},true);
+ if(location.hash==='#boards')sel(T[1]);})();
 const ptabs=[...document.querySelectorAll('#portfolio .ptabs [role=tab]')];
 function ptab(id,focus){ptabs.forEach(b=>{const on=b.id==='tab-'+id;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;document.getElementById(b.getAttribute('aria-controls')).hidden=!on;if(on&&focus)b.focus()})}
 ptabs.forEach((b,i)=>{b.addEventListener('click',()=>ptab(b.id.slice(4)));b.addEventListener('keydown',e=>{let j=null;if(e.key==='ArrowRight')j=(i+1)%ptabs.length;if(e.key==='ArrowLeft')j=(i-1+ptabs.length)%ptabs.length;if(e.key==='Home')j=0;if(e.key==='End')j=ptabs.length-1;if(j!==null){e.preventDefault();ptab(ptabs[j].id.slice(4),true)}})});
@@ -1213,7 +1270,9 @@ const MAIN=['Energy','Transportation'],grp=l=>MAIN.includes(l.sector)?l.sector:'
 $('#fLeg').innerHTML=[['','All',LG.length],['recent','2025–2026',D.legis25.length],...['Energy','Transportation','Other'].map(s=>[s,s,LG.filter(l=>grp(l)===s).length])].map(([v,l,n])=>`<button type="button" class="chip" data-v="${esc(v)}" aria-pressed="${v===''}">${esc(l)} <span class="num">${n}</span></button>`).join('');
 function renderL(){const F=LG.filter(l=>!lsec||(lsec==='recent'?l.recent:grp(l)===lsec)),S=lall?F:(!lsec||lsec==='recent')?F.filter(l=>l.pv>=0).sort((a,b)=>a.pv-b.pv):F.slice(0,3);
  $('#lbody').innerHTML=S.map(x=>`<tr><td><b class="lsh">${x.link?`<a href="${esc(x.link)}" target="_blank" rel="noopener noreferrer">${esc(x.title)}<span class="vh"> (opens in a new tab)</span></a>`:esc(x.title)}</b><span class="mrow">${x.recent?'<span class="rtag">2025–2026</span>':''}${x.ref?'<button type="button" class="reft" aria-expanded="false">Details</button>':''}</span>${x.ref?`<span class="refd" hidden>${esc(x.ref)}</span>`:''}<span class="show-sm${x.recent?'':' clamp'}" style="font-size:14px;margin-top:4px">${esc(x.desc)}</span></td><td class="hide-sm" style="font-size:14.5px"><span class="${x.recent?'':'clamp muted'}">${esc(x.desc)}</span></td><td class="hide-sm" style="font-size:14.5px">${esc(x.sector)}</td></tr>`).join('');
- const m=$('#lmore');m.hidden=F.length<=3;m.textContent=lall?'Show fewer':`Show all ${F.length} measures`;m.setAttribute('aria-expanded',lall)}
+ const m=$('#lmore');m.hidden=F.length<=3;m.textContent=lall?'Show fewer':`Show all ${F.length} measures`;m.setAttribute('aria-expanded',lall);fitL()}
+function fitL(){const tb=$('#lbody'),sec=$('#policy'),m=$('#lmore');if(!tb||!sec)return;const R=[...tb.children];R.forEach(r=>r.style.display='');if(lall||!matchMedia('(min-width:961px)').matches||$('#pp-leg').hidden)return;const lim=innerHeight-24-14,bot=()=>(m.hidden?tb.closest('.tablebox'):m).getBoundingClientRect().bottom-sec.getBoundingClientRect().top;for(let i=R.length-1;i>0&&bot()>lim;i--){R[i].style.display='none';m.hidden=false}}
+addEventListener('resize',()=>{clearTimeout(fitL.t);fitL.t=setTimeout(fitL,120)});(document.fonts&&document.fonts.ready||Promise.resolve()).then(fitL);
 $('#fLeg').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;lsec=b.dataset.v;lall=false;$$('#fLeg .chip').forEach(c=>c.setAttribute('aria-pressed',c===b));renderL()});
 $('#lmore').addEventListener('click',()=>{lall=!lall;renderL();if(!lall)goTo($('#policy'))});
 renderL();
@@ -1256,7 +1315,12 @@ $('#gpanels').innerHTML=`<div class="gsnav"><div class="gpills" role="tablist" a
 
 /* consulting */
 const ADM=['2','5'];
-$('#cbody').innerHTML=D.consult.map(c=>`<tr class="p"><td class="n">${c.no}</td><td class="t"><button class="rowbtn" type="button" aria-expanded="false">${esc(c.title)}</button>${ADM.includes(String(c.no))?'<span class="rtag atag">Contract administered</span>':''}</td><td class="hide-sm">${esc(c.loc)}</td><td class="r num">${fmt(c.cost)}</td></tr><tr class="d" hidden><td colspan="4">${c.shared?'<p>One of the sustainable urban infrastructure master plans (see No. 3).</p>':'<p>'+c.desc+'</p>'}<p class="show-sm"><b>Location:</b> ${esc(c.loc)}</p></td></tr>`).join('');
+renderC=function(){const q=$('#cq').value.trim().toLowerCase(),ty=$('#cType').value,filt=q||ty;
+ const L=D.consult.filter(c=>(!ty||CTY[c.no]===ty)&&(!q||(c.title+' '+c.loc+' '+(c.desc||'')).toLowerCase().includes(q))).slice().sort((a,b)=>$('#cSort').value==='cost'?b.cost-a.cost:a.no-b.no);
+$('#cbody').innerHTML=L.map(c=>`<tr class="p"><td class="n">${c.no}</td><td class="t"><button class="rowbtn" type="button" aria-expanded="false">${esc(c.title)}</button>${ADM.includes(String(c.no))?'<span class="rtag atag">Contract administered</span>':''}</td><td class="hide-sm">${esc(c.loc)}</td><td class="r num">${fmt(c.cost)}</td></tr><tr class="d" hidden><td colspan="4">${c.shared?'<p>One of the sustainable urban infrastructure master plans (see No. 3).</p>':'<p>'+c.desc+'</p>'}<p class="show-sm"><b>Location:</b> ${esc(c.loc)}</p></td></tr>`).join('')||'<tr><td colspan="4" class="muted">No studies match.</td></tr>';
+ $('#cfootl').textContent=filt?`Filtered total (${L.length} of ${D.consult.length})`:'Total';$('#cfoot').textContent=fmt(L.reduce((a,c)=>a+(+c.cost),0));
+ $$('#cbars .bar').forEach(b=>b.setAttribute('aria-pressed',b.dataset.s===ty));};
+['#cq','#cType','#cSort'].forEach(x=>$(x).addEventListener('input',renderC));renderC();
 $('#cbody').addEventListener('click',e=>{const r=e.target.closest('tr.p');if(!r)return;const d=r.nextElementSibling;d.hidden=!d.hidden;r.classList.toggle('open',!d.hidden);(r.querySelector('.rowbtn')||r).setAttribute('aria-expanded',!d.hidden)});
 $('#cbody').addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('tr.p')){e.preventDefault();e.target.click()}});
 
