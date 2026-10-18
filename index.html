@@ -215,6 +215,18 @@ details.plain .in ul,details.plain .in ol{margin:0 0 8px;padding-left:20px}
 .vhead h3{margin:0;font-size:17px}
 .vid video{display:block;width:100%;aspect-ratio:16/9;background:#f4f1ec}
 .vnote{margin:0;padding:8px 16px 12px;font-size:13px;color:var(--muted)}
+.vwrap{position:relative}
+.vend{position:absolute;left:50%;bottom:11.5%;transform:translateX(-50%);display:flex;gap:10px;flex-wrap:wrap;justify-content:center;width:max-content;max-width:92%;animation:vfade .35s ease}
+.vend[hidden]{display:none}
+.vcta,.vcta2{font:inherit;font-size:15px;font-weight:600;border-radius:999px;padding:9px 16px;cursor:pointer;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+.vcta{background:var(--accent);color:#fff;border:1px solid var(--accent)}
+.vcta:hover{filter:brightness(1.12)}
+.vcta2{background:#fff;color:var(--accent);border:1px solid var(--accent)}
+.vcta2:hover{background:var(--accent-soft)}
+.vcta:focus-visible,.vcta2:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@keyframes vfade{from{opacity:0;transform:translate(-50%,6px)}to{opacity:1;transform:translate(-50%,0)}}
+@media (prefers-reduced-motion:reduce){.vend{animation:none}}
+@media (max-width:560px){.vend{bottom:auto;top:100%;position:static;transform:none;margin:10px auto 0;justify-content:center}.vcta,.vcta2{font-size:14px;padding:8px 14px}}
 @media print{.vbtn,.vid{display:none!important}}
 .skip{position:absolute;left:-9999px;top:8px}
 .skip:focus{left:16px;z-index:60;background:var(--surface);color:var(--accent);padding:8px 12px;border:1px solid var(--accent);border-radius:4px}
@@ -1021,7 +1033,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:24px 48px;border-top:1px sol
 </div>
 <footer><span>Bernie Calderon Magtalas · Last updated October 2026</span><span>Figures in USD unless stated · <button class="linkbtn" type="button" data-rep="gloss">Acronyms</button></span></footer>
 
-<dialog class="vid" id="vdlg" aria-labelledby="vT"><div class="vhead"><h3 id="vT">Portfolio in 90 seconds</h3><button class="rx" type="button" id="vclose" aria-label="Close video">×</button></div><video id="vplayer" controls playsinline preload="none" poster="assets/video/explainer_poster.jpg"><source src="assets/video/MAGTALAS_Bernie_Calderon_Portfolio_Explainer.mp4" type="video/mp4"><track kind="captions" src="assets/video/explainer_en.vtt" srclang="en" label="English"></video><p class="vnote">Narrated overview with captions · 1 min 29 s</p></dialog>
+<dialog class="vid" id="vdlg" aria-labelledby="vT"><div class="vhead"><h3 id="vT">Portfolio in 90 seconds</h3><button class="rx" type="button" id="vclose" aria-label="Close video">×</button></div><div class="vwrap"><video id="vplayer" controls playsinline preload="none" poster="assets/video/explainer_poster.jpg"><source src="assets/video/MAGTALAS_Bernie_Calderon_Portfolio_Explainer.mp4" type="video/mp4"><track kind="captions" src="assets/video/explainer_en.vtt" srclang="en" label="English"></video><div class="vend" id="vend" hidden><a class="vcta" href="assets/cv/MAGTALAS_Bernie_Calderon_Accomplishment_Report_2015-2026.pdf" target="_blank" rel="noopener">Open the Accomplishment Report (PDF) <span aria-hidden="true">↗</span></a><button type="button" class="vcta2" id="vexplore">Explore the full portfolio</button></div></div><p class="vnote">Narrated overview with captions · 1 min 29 s</p></dialog>
 <dialog class="rep" id="rep" aria-labelledby="repT"><div class="rhead"><div><div class="meta"></div><h3 id="repT"></h3></div><button class="rx" type="button" aria-label="Close report">×</button></div><div class="rbody"><div class="rtabs" role="tablist" aria-orientation="vertical" aria-label="Report sections"></div><div class="rp" id="rp" role="tabpanel" tabindex="0"></div></div></dialog>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
   <button class="x" type="button" aria-label="Close">×</button><button class="pv" type="button" aria-label="Previous">‹</button><button class="nx" type="button" aria-label="Next">›</button>
@@ -1309,7 +1321,12 @@ if(!location.hash){scrollTo(0,0);addEventListener('load',()=>{if(!location.hash&
 <script>(()=>{const d=document.getElementById('vdlg'),v=document.getElementById('vplayer'),o=document.getElementById('vopen');if(!d||!o)return;
 const op=()=>{d.showModal();v.play().catch(()=>{})};o.addEventListener('click',op);const vi=document.getElementById('vinline');if(vi)vi.addEventListener('click',op);
 const close=()=>{v.pause();d.close()};document.getElementById('vclose').addEventListener('click',close);
-d.addEventListener('click',e=>{if(e.target===d)close()});d.addEventListener('close',()=>{v.pause();o.focus()});})();</script>
+d.addEventListener('click',e=>{if(e.target===d)close()});d.addEventListener('close',()=>{v.pause();o.focus()});
+const ve=document.getElementById('vend'),vx=document.getElementById('vexplore');
+const upd=()=>{if(!ve)return;const show=v.ended||(v.duration&&v.currentTime>=v.duration-4.8);if(show!==!ve.hidden)ve.hidden=!show;};
+v.addEventListener('timeupdate',upd);v.addEventListener('ended',upd);v.addEventListener('seeked',upd);v.addEventListener('play',upd);
+if(vx)vx.addEventListener('click',()=>{close();const t=document.getElementById('about');if(t)t.scrollIntoView({behavior:'smooth'});});
+})();</script>
 <script>(()=>{const b=document.getElementById('vinline');if(!b)return;const v=b.querySelector('.vprev');if(!v)return;
 let loaded=false,busy=false;
 function load(){if(loaded)return;loaded=true;
