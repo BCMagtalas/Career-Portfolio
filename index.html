@@ -228,8 +228,7 @@ details.plain .in ul,details.plain .in ol{margin:0 0 8px;padding-left:20px}
 .vl2 a,.vl2 button{font:inherit;font-weight:600;color:var(--accent);background:none;border:0;padding:.25em 0;cursor:pointer;text-decoration:underline;text-underline-offset:.2em}
 .vend a:focus-visible,.vend button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.vend,.vend.hl{transition:none}}
-.vrep{display:none}
-@container (max-width:620px){.vend{left:5%;width:90%;top:44%;height:40%;border:1.5px solid var(--accent);border-radius:8px}.vlinks{font-size:12px;gap:7px}.vl1{padding:.5em 1em}.vrep{display:inline}}
+@container (max-width:620px){.vend{left:5%;width:90%;top:44%;height:40%;border:1.5px solid var(--accent);border-radius:8px}.vlinks{font-size:12px;gap:7px}.vl1{padding:.5em 1em}}
 @media print{.vbtn,.vid{display:none!important}}
 .skip{position:absolute;left:-9999px;top:8px}
 .skip:focus{left:16px;z-index:60;background:var(--surface);color:var(--accent);padding:8px 12px;border:1px solid var(--accent);border-radius:4px}
@@ -1420,7 +1419,7 @@ const op=()=>{d.showModal();v.play().catch(()=>{})};o.addEventListener('click',o
 const close=()=>{v.pause();d.close()};document.getElementById('vclose').addEventListener('click',close);
 d.addEventListener('click',e=>{if(e.target===d)close()});d.addEventListener('close',()=>{v.pause();o.focus()});
 const ve=document.getElementById('vend'),vx=document.getElementById('vexplore');
-const upd=()=>{if(!ve)return;const show=!!(v.ended||(v.duration&&v.currentTime>=v.duration-4.35));if(show===ve.classList.contains('hl'))return;ve.classList.toggle('hl',show);ve.setAttribute('aria-hidden',show?'false':'true');ve.querySelectorAll('a,button').forEach(e=>e.tabIndex=show?0:-1);if(ve.parentElement.clientWidth<=620)v.controls=!show;else v.controls=true;};
+const upd=()=>{if(!ve)return;const show=!!(v.ended||(v.duration&&v.currentTime>=v.duration-4.35));if(show===ve.classList.contains('hl'))return;ve.classList.toggle('hl',show);ve.setAttribute('aria-hidden',show?'false':'true');ve.querySelectorAll('a,button').forEach(e=>e.tabIndex=show?0:-1);v.controls=!show;};
 $('#vreplay')&&$('#vreplay').addEventListener('click',()=>{v.currentTime=0;v.controls=true;v.play();});
 let raf=0;const tick=()=>{upd();raf=(!v.paused&&!v.ended)?requestAnimationFrame(tick):0;};v.addEventListener('timeupdate',()=>{if(!raf&&!v.paused&&v.duration&&v.currentTime>v.duration-6)raf=requestAnimationFrame(tick);});
 v.addEventListener('ended',()=>{try{if(document.fullscreenElement)document.exitFullscreen();else if(v.webkitDisplayingFullscreen)v.webkitExitFullscreen();}catch(e){}});
